@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>340</width>
-    <height>530</height>
+    <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -70,7 +70,7 @@
          <bool>true</bool>
         </property>
         <property name="text">
-         <string>Request Payment</string>
+         <string>Request a Payment Amount</string>
         </property>
        </widget>
       </item>
@@ -156,6 +156,22 @@
       </item>
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout">
+        <property name="topMargin">
+         <number>20</number>
+        </property>
+        <item>
+         <widget class="QPushButton" name="btnCancel">
+          <property name="minimumSize">
+           <size>
+            <width>120</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Cancel</string>
+          </property>
+         </widget>
+        </item>
         <item>
          <spacer name="horizontalSpacer">
           <property name="orientation">
@@ -171,6 +187,12 @@
         </item>
         <item>
          <widget class="QPushButton" name="btnSaveAs">
+          <property name="minimumSize">
+           <size>
+            <width>120</width>
+            <height>25</height>
+           </size>
+          </property>
           <property name="text">
            <string>&amp;Save As...</string>
           </property>
@@ -186,8 +208,9 @@
  <customwidgets>
   <customwidget>
    <class>BitcoinAmountField</class>
-   <extends>QSpinBox</extends>
+   <extends>QLineEdit</extends>
    <header>bitcoinamountfield.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>
