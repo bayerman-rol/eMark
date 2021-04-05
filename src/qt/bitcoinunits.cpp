@@ -11,9 +11,9 @@ BitcoinUnits::BitcoinUnits(QObject *parent):
 QList<BitcoinUnits::Unit> BitcoinUnits::availableUnits()
 {
     QList<BitcoinUnits::Unit> unitlist;
-    unitlist.append(BTC);
-    unitlist.append(mBTC);
-    unitlist.append(uBTC);
+    unitlist.append(DEM);
+    unitlist.append(mDEM);
+    unitlist.append(uDEM);
     return unitlist;
 }
 
@@ -21,9 +21,9 @@ bool BitcoinUnits::valid(int unit)
 {
     switch(unit)
     {
-    case BTC:
-    case mBTC:
-    case uBTC:
+    case DEM:
+    case mDEM:
+    case uDEM:
         return true;
     default:
         return false;
@@ -34,9 +34,9 @@ QString BitcoinUnits::name(int unit)
 {
     switch(unit)
     {
-    case BTC: return QString("DEM");
-    case mBTC: return QString("mDEM");
-    case uBTC: return QString::fromUtf8("μDEM");
+    case DEM: return QString("DEM");
+    case mDEM: return QString("mDEM");
+    case uDEM: return QString::fromUtf8("μDEM");
     default: return QString("???");
     }
 }
@@ -45,9 +45,9 @@ QString BitcoinUnits::description(int unit)
 {
     switch(unit)
     {
-    case BTC: return QString("eMark");
-    case mBTC: return QString("Milli-eMark (1 / 1,000)");
-    case uBTC: return QString("Micro-eMark (1 / 1,000,000)");
+    case DEM: return QString("eMark");
+    case mDEM: return QString("Milli-eMark (1 / 1,000)");
+    case uDEM: return QString("Micro-eMark (1 / 1,000,000)");
     default: return QString("???");
     }
 }
@@ -56,9 +56,9 @@ qint64 BitcoinUnits::factor(int unit)
 {
     switch(unit)
     {
-    case BTC:  return 1000000;
-    case mBTC: return 1000;
-    case uBTC: return 1;
+    case DEM:  return 1000000;
+    case mDEM: return 1000;
+    case uDEM: return 1;
     default:   return 1000000;
     }
 }
@@ -67,9 +67,9 @@ int BitcoinUnits::amountDigits(int unit)
 {
     switch(unit)
     {
-    case BTC: return 8; // 21,000,000 (# digits, without commas)
-    case mBTC: return 11; // 21,000,000,000
-    case uBTC: return 14; // 21,000,000,000,000
+    case DEM: return 8; // 21,000,000 (# digits, without commas)
+    case mDEM: return 11; // 21,000,000,000
+    case uDEM: return 14; // 21,000,000,000,000
     default: return 0;
     }
 }
@@ -78,9 +78,9 @@ int BitcoinUnits::decimals(int unit)
 {
     switch(unit)
     {
-    case BTC: return 6;
-    case mBTC: return 3;
-    case uBTC: return 0;
+    case DEM: return 6;
+    case mDEM: return 3;
+    case uDEM: return 0;
     default: return 0;
     }
 }
