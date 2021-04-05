@@ -1,3 +1,7 @@
+// Copyright (c) 2011-2013 The Bitcoin developers
+// Distributed under the MIT/X11 software license, see the accompanying
+// file COPYING or http://www.opensource.org/licenses/mit-license.php.
+
 #include "qrcodedialog.h"
 #include "ui_qrcodedialog.h"
 
@@ -8,7 +12,6 @@
 
 #include <QPixmap>
 #include <QUrl>
-
 #include <qrencode.h>
 
 QRCodeDialog::QRCodeDialog(const QString &addr, const QString &label, bool enableReq, QWidget *parent) :
@@ -44,7 +47,7 @@ void QRCodeDialog::setModel(OptionsModel *model)
     if (model)
         connect(model, SIGNAL(displayUnitChanged(int)), this, SLOT(updateDisplayUnit()));
 
-    // update the display unit, to not use the default ("BTC")
+    // update the display unit, to not use the default ("DEM")
     updateDisplayUnit();
 }
 
@@ -83,7 +86,7 @@ void QRCodeDialog::genCode()
 
 QString QRCodeDialog::getURI()
 {
-    QString ret = QString("%1").arg(address);
+    QString ret = QString("eMark:%1").arg(address);
     int paramCount = 0;
 
     ui->outUri->clear();
@@ -92,8 +95,8 @@ QString QRCodeDialog::getURI()
     {
         if (ui->lnReqAmount->validate())
         {
-            // even if we allow a non BTC unit input in lnReqAmount, we generate the URI with BTC as unit (as defined in BIP21)
-            ret += QString("?amount=%1").arg(BitcoinUnits::format(BitcoinUnits::BTC, ui->lnReqAmount->value()));
+            // even if we allow a non DEM unit input in lnReqAmount, we generate the URI with DEM as unit (as defined in BIP21)
+            ret += QString("?amount=%1").arg(BitcoinUnits::format(BitcoinUnits::DEM, ui->lnReqAmount->value()));
             paramCount++;
         }
         else
@@ -150,6 +153,11 @@ void QRCodeDialog::on_btnSaveAs_clicked()
     QString fn = GUIUtil::getSaveFileName(this, tr("Save QR Code"), QString(), tr("PNG Images (*.png)"));
     if (!fn.isEmpty())
         myImage.scaled(EXPORT_IMAGE_SIZE, EXPORT_IMAGE_SIZE).save(fn);
+}
+
+void QRCodeDialog::on_btnCancel_clicked()
+{
+    this->close();
 }
 
 void QRCodeDialog::on_chkReqPayment_toggled(bool fChecked)
