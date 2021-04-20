@@ -1,11 +1,14 @@
 # Changelog
 
 ### Version 1.6.1.3 ###
-- Add support for reporting version number from command line: "eMarkd --version
+- Add support for reporting version number from command line: "eMarkd --version"
 - new seeder - emark.ninja
 - remove unused sequence number in TxID
+- Add restoreWindowGeometry / saveWindowGeometry
 - correct coin mature hint 100 -> 80
 - correct TX-Comment length hint 256 -> 140
+- fixed StyleSheet for BlackTheme
+- qrcodedialog: added "Cancel"-Button, changed height size 530 --> 600
 
 ### Version 1.6.1.2 ###
 - Added languages: ar, bg, cs, es, it, nl, pl, ru - not yet fully translated
