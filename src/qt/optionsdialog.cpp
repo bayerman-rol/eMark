@@ -1,6 +1,6 @@
 #include "optionsdialog.h"
 #include "ui_optionsdialog.h"
-
+#include "guiutil.h"
 #include "bitcoinunits.h"
 #include "monitoreddatamapper.h"
 #include "netbase.h"
@@ -10,6 +10,8 @@
 #include <QIntValidator>
 #include <QLocale>
 #include <QMessageBox>
+
+using namespace GUIUtil;
 
 OptionsDialog::OptionsDialog(QWidget *parent) :
     QDialog(parent),
@@ -21,6 +23,7 @@ OptionsDialog::OptionsDialog(QWidget *parent) :
     fProxyIpValid(true)
 {
     ui->setupUi(this);
+    GUIUtil::restoreWindowGeometry("nOptionsDialogWindow", this->size(), this);
 
     /* Network elements init */
 #ifndef USE_UPNP
@@ -89,6 +92,7 @@ OptionsDialog::OptionsDialog(QWidget *parent) :
 
 OptionsDialog::~OptionsDialog()
 {
+    GUIUtil::saveWindowGeometry("nOptionsDialogWindow", this);
     delete ui;
 }
 

@@ -15,6 +15,8 @@
 
 #include <openssl/crypto.h>
 
+using namespace GUIUtil;
+
 // TODO: add a scrollback limit, as there is currently none
 // TODO: make it possible to filter out categories (esp debug messages when implemented)
 // TODO: receive errors and debug messages through ClientModel
@@ -194,6 +196,7 @@ RPCConsole::RPCConsole(QWidget *parent) :
     historyPtr(0)
 {
     ui->setupUi(this);
+    GUIUtil::restoreWindowGeometry("nRPCConsoleWindow", this->size(), this);
 
 #ifndef Q_OS_MAC
     ui->openDebugLogfileButton->setIcon(QIcon(":/icons/export"));
@@ -217,6 +220,7 @@ RPCConsole::RPCConsole(QWidget *parent) :
 
 RPCConsole::~RPCConsole()
 {
+    GUIUtil::saveWindowGeometry("nRPCConsoleWindow", this);
     emit stopExecutor();
     delete ui;
 }
