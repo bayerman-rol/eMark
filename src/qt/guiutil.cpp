@@ -116,7 +116,7 @@ bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
         {
             if(!i->second.isEmpty())
             {
-                if(!BitcoinUnits::parse(BitcoinUnits::DEM, i->second, &rv.amount))
+                if(!BitcoinUnits::parse(BitcoinUnits::BTC, i->second, &rv.amount))
                 {
                     return false;
                 }
@@ -440,14 +440,37 @@ void restoreWindowGeometry(const QString& strSetting, const QSize& defaultSize, 
     QPoint pos = settings.value(strSetting + "Pos").toPoint();
     QSize size = settings.value(strSetting + "Size", defaultSize).toSize();
 
-    if (!pos.x() && !pos.y()) {
-        QRect screen = QApplication::desktop()->screenGeometry();
-        pos.setX((screen.width() - size.width()) / 2);
-        pos.setY((screen.height() - size.height()) / 2);
-    }
-
     parent->resize(size);
     parent->move(pos);
+
+    if ((!pos.x() && !pos.y()) || (QApplication::desktop()->screenNumber(parent) == -1))
+    {
+        QRect screen = QApplication::desktop()->screenGeometry();
+        QPoint defaultPos((screen.width() - defaultSize.width()) / 2, (screen.height() - defaultSize.height()) / 2);
+        parent->resize(defaultSize);
+        parent->move(defaultPos);
+    }
+}
+
+void centerWindowGeometry(const QString& strSetting, QWidget* widgetToCenter)
+{
+    // Try to center on stored position of parent.
+    QSettings settings;
+    QPoint pos = settings.value(strSetting + "Pos").toPoint();
+    QSize defaultSize(1010, 550); // We should never reach this point without a stored size - but we try with a default one anyway just in case.
+    QSize size = settings.value(strSetting + "Size", defaultSize).toSize();
+
+    int nCurrentWidth = widgetToCenter->width();
+    int nCurrentHeight = widgetToCenter->height();
+    widgetToCenter->move(pos.x() + (size.width()/2) - (nCurrentWidth/2), pos.y() + (size.height()/2) - (nCurrentHeight/2));
+
+    // We shouldn't reach this point, but if we do we center on screen instead.
+    if ((!pos.x() && !pos.y()) || (QApplication::desktop()->screenNumber(widgetToCenter) == -1))
+    {
+        QRect screen = QApplication::desktop()->screenGeometry();
+        QPoint defaultPos((screen.width()/2) - (nCurrentWidth/2), (screen.height()/2) - (nCurrentHeight/2));
+        widgetToCenter->move(defaultPos);
+    }
 }
 
 HelpMessageBox::HelpMessageBox(QWidget *parent) :
