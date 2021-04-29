@@ -3,9 +3,9 @@
 
 #include "clientmodel.h"
 #include "guiutil.h"
-
 #include "rpcserver.h"
 #include "rpcclient.h"
+#include <db_cxx.h>
 
 #include <QTime>
 #include <QThread>
@@ -209,8 +209,13 @@ RPCConsole::RPCConsole(QWidget *parent) :
 
     connect(ui->clearButton, SIGNAL(clicked()), this, SLOT(clear()));
 
-    // set OpenSSL version label
-    ui->openSSLVersion->setText(SSLeay_version(SSLEAY_VERSION));
+    // set library version labels
+#if defined(LIBRESSL_VERSION_NUMBER) || (OPENSSL_VERSION_NUMBER < 0x10100000L)
+     ui->openSSLVersion->setText(SSLeay_version(SSLEAY_VERSION));
+#else
+     ui->openSSLVersion->setText(OpenSSL_version(OPENSSL_VERSION));
+#endif
+    ui->berkeleyDBVersion->setText(DbEnv::version(0, 0, 0));
 
     startExecutor();
     setTrafficGraphRange(INITIAL_TRAFFIC_GRAPH_MINS);
@@ -279,6 +284,7 @@ void RPCConsole::setClientModel(ClientModel *model)
         // Provide initial values
         ui->clientVersion->setText(model->formatFullVersion());
         ui->clientName->setText(model->clientName());
+        //ui->dataDir->setText(model->dataDir());
         ui->buildDate->setText(model->formatBuildDate());
         ui->startupTime->setText(model->formatClientStartupTime());
 
@@ -323,12 +329,17 @@ void RPCConsole::clear()
                 "td.message { font-family: Monospace; font-size: 12px; } "
                 "td.cmd-request { color: #00C0C0; } "
                 "td.cmd-error { color: red; } "
+                ".secwarning { color: red; }"
                 "b { color: #00C0C0; } "
                 );
 
-    message(CMD_REPLY, (tr("Welcome to the eMark RPC console.") + "<br>" +
+    message(CMD_REPLY, (tr("Welcome to the eMark Core RPC console.") + "<br>" +
                         tr("Use up and down arrows to navigate history, and <b>Ctrl-L</b> to clear screen.") + "<br>" +
-                        tr("Type <b>help</b> for an overview of available commands.")), true);
+                        tr("Type <b>help</b> for an overview of available commands.") + "<br>" +
+                        "<br><span class=\"secwarning\"><br>" +
+                        tr("WARNING: Scammers have been active, telling users to type commands here, stealing their wallet contents. Do not use this console without fully understanding the ramifications of a command.") +
+                        "</span>"),
+                        true);
 }
 
 void RPCConsole::message(int category, const QString &message, bool html)
