@@ -23,7 +23,7 @@
       <enum>QTabWidget::North</enum>
      </property>
      <property name="currentIndex">
-      <number>3</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tabMain">
       <attribute name="title">
@@ -129,6 +129,16 @@
          </property>
          <property name="text">
           <string>&amp;Start eMark on system login</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="detachDatabases">
+         <property name="toolTip">
+          <string>Detach block and address databases at shutdown. This means they can be moved to another data directory, but it slows down shutdown. The wallet is always detached.</string>
+         </property>
+         <property name="text">
+          <string>&amp;Detach databases at shutdown</string>
          </property>
         </widget>
        </item>
@@ -350,12 +360,22 @@
         </layout>
        </item>
        <item>
+        <widget class="QCheckBox" name="displayAddresses">
+         <property name="toolTip">
+          <string>Whether to show eMark addresses in the transaction list or not.</string>
+         </property>
+         <property name="text">
+          <string>&amp;Display addresses in transaction list</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QCheckBox" name="coinControlFeatures">
          <property name="toolTip">
           <string>Whether to show coin control features or not.</string>
          </property>
          <property name="text">
-          <string>Display coin &amp;control features (experts only!)</string>
+          <string>Display coin &amp;control features</string>
          </property>
          <property name="checked">
           <bool>true</bool>
@@ -369,6 +389,13 @@
          </property>
          <property name="text">
           <string>Minimize weight consumption (experimental)</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="hideAmounts">
+         <property name="text">
+          <string>Hide amounts for privacy (***.**)</string>
          </property>
         </widget>
        </item>

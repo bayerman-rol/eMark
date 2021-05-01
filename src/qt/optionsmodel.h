@@ -20,18 +20,21 @@ public:
 
     enum OptionID {
         StartAtStartup,    // bool
-        MinimizeToTray,    // bool
-        MapPortUPnP,       // bool
-        MinimizeOnClose,   // bool
+        DetachDatabases,   // bool
+        Fee,               // qint64
+        ReserveBalance,    // qint64
+        CoinControlFeatures, // bool
+        MinimizeCoinAge,   // bool
         ProxyUse,          // bool
         ProxyIP,           // QString
         ProxyPort,         // int
-        Fee,               // qint64
-        ReserveBalance,    // qint64
-        DisplayUnit,       // BitcoinUnits::Unit
+        MinimizeToTray,    // bool
+        MapPortUPnP,       // bool
+        MinimizeOnClose,   // bool
         Language,          // QString
-        CoinControlFeatures, // bool
-        MinimizeCoinAge,   // bool
+        DisplayUnit,       // BitcoinUnits::Unit
+        DisplayAddresses,  // bool
+        HideAmounts,       // bool
         UseBlackTheme,     // bool
         OptionIDRowCount,
     };
@@ -48,11 +51,15 @@ public:
     bool getMinimizeToTray();
     bool getMinimizeOnClose();
     int getDisplayUnit();
+    bool getDisplayAddresses();
+    bool getHideAmounts();
     bool getCoinControlFeatures();
     QString getLanguage() { return language; }
 
 private:
     int nDisplayUnit;
+    bool bDisplayAddresses;
+    bool bHideAmounts;
     bool fMinimizeToTray;
     bool fMinimizeOnClose;
     bool fCoinControlFeatures;
@@ -60,6 +67,7 @@ private:
 
 signals:
     void displayUnitChanged(int unit);
+    void hideAmountsChanged(bool hideamounts);
     void transactionFeeChanged(qint64);
     void reserveBalanceChanged(qint64);
     void coinControlFeaturesChanged(bool);

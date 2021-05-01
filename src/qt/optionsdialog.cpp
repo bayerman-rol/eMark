@@ -103,6 +103,7 @@ void OptionsDialog::setModel(OptionsModel *model)
     if(model)
     {
         connect(model, SIGNAL(displayUnitChanged(int)), this, SLOT(updateDisplayUnit()));
+        connect(model, SIGNAL(hideAmountsChanged(bool)), this, SLOT(updateHideAmounts()));
 
         mapper->setModel(model);
         setMapper();
@@ -111,6 +112,8 @@ void OptionsDialog::setModel(OptionsModel *model)
 
     /* update the display unit, to not use the default ("DEM") */
     updateDisplayUnit();
+    /* update hide amounts */
+    updateHideAmounts();
 
     /* warn only when language selection changes by user action (placed here so init via mapper doesn't trigger this) */
     connect(ui->lang, SIGNAL(valueChanged()), this, SLOT(showRestartWarning_Lang()));
@@ -125,6 +128,7 @@ void OptionsDialog::setMapper()
     mapper->addMapping(ui->transactionFee, OptionsModel::Fee);
     mapper->addMapping(ui->reserveBalance, OptionsModel::ReserveBalance);
     mapper->addMapping(ui->bitcoinAtStartup, OptionsModel::StartAtStartup);
+    mapper->addMapping(ui->detachDatabases, OptionsModel::DetachDatabases);
 
     /* Network */
     mapper->addMapping(ui->mapPortUpnp, OptionsModel::MapPortUPnP);
@@ -142,8 +146,10 @@ void OptionsDialog::setMapper()
     /* Display */
     mapper->addMapping(ui->lang, OptionsModel::Language);
     mapper->addMapping(ui->unit, OptionsModel::DisplayUnit);
+    mapper->addMapping(ui->displayAddresses, OptionsModel::DisplayAddresses);
     mapper->addMapping(ui->coinControlFeatures, OptionsModel::CoinControlFeatures);
     mapper->addMapping(ui->minimizeCoinAge, OptionsModel::MinimizeCoinAge);
+    mapper->addMapping(ui->hideAmounts, OptionsModel::HideAmounts);
     mapper->addMapping(ui->useBlackTheme, OptionsModel::UseBlackTheme);
 }
 
@@ -216,6 +222,15 @@ void OptionsDialog::updateDisplayUnit()
     {
         /* Update transactionFee with the current unit */
         ui->transactionFee->setDisplayUnit(model->getDisplayUnit());
+    }
+}
+
+void OptionsDialog::updateHideAmounts()
+{
+    if(model)
+    {
+        /* Update hideAmounts with the current value */
+        ui->hideAmounts->setChecked(model->getHideAmounts());
     }
 }
 

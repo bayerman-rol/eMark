@@ -1,5 +1,4 @@
 #include "optionsmodel.h"
-
 #include "bitcoinunits.h"
 #include "init.h"
 #include "wallet.h"
@@ -42,13 +41,15 @@ void OptionsModel::Init()
     nDisplayUnit = settings.value("nDisplayUnit", BitcoinUnits::DEM).toInt();
     fMinimizeToTray = settings.value("fMinimizeToTray", false).toBool();
     fMinimizeOnClose = settings.value("fMinimizeOnClose", false).toBool();
+    bDisplayAddresses = settings.value("bDisplayAddresses", false).toBool();
     fCoinControlFeatures = settings.value("fCoinControlFeatures", false).toBool();
+    bHideAmounts = settings.value("bHideAmounts", false).toBool();
     nTransactionFee = settings.value("nTransactionFee").toLongLong();
     nReserveBalance = settings.value("nReserveBalance").toLongLong();
     language = settings.value("language", "").toString();
     fUseBlackTheme = settings.value("fUseBlackTheme", true).toBool();
 
-    // These are shared with core Bitcoin; we want
+    // These are shared with core eMark; we want
     // command-line options to override the GUI settings:
     if (settings.contains("fUseUPnP"))
         SoftSetBoolArg("-upnp", settings.value("fUseUPnP").toBool());
@@ -56,6 +57,8 @@ void OptionsModel::Init()
         SoftSetArg("-proxy", settings.value("addrProxy").toString().toStdString());
     if (settings.contains("fMinimizeCoinAge"))
         SoftSetBoolArg("-minimizecoinage", settings.value("fMinimizeCoinAge").toBool());
+    if (settings.contains("detachDB"))
+        SoftSetBoolArg("-detachdb", settings.value("detachDB").toBool());
     if (!language.isEmpty())
         SoftSetArg("-lang", language.toStdString());
 }
@@ -102,6 +105,12 @@ QVariant OptionsModel::data(const QModelIndex & index, int role) const
             return QVariant((qint64) nReserveBalance);
         case DisplayUnit:
             return QVariant(nDisplayUnit);
+        case DisplayAddresses:
+            return QVariant(bDisplayAddresses);
+        case HideAmounts:
+            return QVariant(bHideAmounts);
+        case DetachDatabases:
+            return QVariant(bitdb.GetDetach());
         case Language:
             return settings.value("language", "");
         case CoinControlFeatures:
@@ -180,6 +189,21 @@ bool OptionsModel::setData(const QModelIndex & index, const QVariant & value, in
             settings.setValue("nDisplayUnit", nDisplayUnit);
             emit displayUnitChanged(nDisplayUnit);
             break;
+        case DisplayAddresses:
+            bDisplayAddresses = value.toBool();
+            settings.setValue("bDisplayAddresses", bDisplayAddresses);
+            break;
+        case HideAmounts:
+            bHideAmounts = value.toBool();
+            settings.setValue("bHideAmounts", bHideAmounts);
+            emit hideAmountsChanged(bHideAmounts);
+            break;
+        case DetachDatabases: {
+            bool fDetachDB = value.toBool();
+            bitdb.SetDetach(fDetachDB);
+            settings.setValue("detachDB", fDetachDB);
+            }
+            break;
         case Language:
             settings.setValue("language", value);
             break;
@@ -234,4 +258,14 @@ bool OptionsModel::getMinimizeOnClose()
 int OptionsModel::getDisplayUnit()
 {
     return nDisplayUnit;
+}
+
+bool OptionsModel::getDisplayAddresses()
+{
+    return bDisplayAddresses;
+}
+
+bool OptionsModel::getHideAmounts()
+{
+    return bHideAmounts;
 }

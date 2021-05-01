@@ -13,6 +13,8 @@
 #include <QAbstractItemDelegate>
 #include <QPainter>
 
+using namespace GUIUtil;
+
 #define DECORATION_SIZE 64
 #define NUM_ITEMS 6
 
@@ -67,7 +69,7 @@ public:
             foreground = option.palette.color(QPalette::Text);
         }
         painter->setPen(fUseBlackTheme ? QColor(255, 255, 255) : foreground);
-        QString amountText = BitcoinUnits::formatWithUnit(unit, amount, true);
+        QString amountText = BitcoinUnits::formatWithUnit(unit, amount, true, hideAmounts);
         if(!confirmed)
         {
             amountText = QString("[") + amountText + QString("]");
@@ -86,6 +88,7 @@ public:
     }
 
     int unit;
+    bool hideAmounts;
 
 };
 #include "overviewpage.moc"
@@ -144,15 +147,18 @@ OverviewPage::~OverviewPage()
 void OverviewPage::setBalance(qint64 balance, qint64 stake, qint64 unconfirmedBalance, qint64 immatureBalance)
 {
     int unit = walletModel->getOptionsModel()->getDisplayUnit();
+    bool hideAmounts = walletModel->getOptionsModel()->getHideAmounts();
+
     currentBalance = balance;
     currentStake = stake;
     currentUnconfirmedBalance = unconfirmedBalance;
     currentImmatureBalance = immatureBalance;
-    ui->labelBalance->setText(BitcoinUnits::formatWithUnit(unit, balance));
-    ui->labelStake->setText(BitcoinUnits::formatWithUnit(unit, stake));
-    ui->labelUnconfirmed->setText(BitcoinUnits::formatWithUnit(unit, unconfirmedBalance));
-    ui->labelImmature->setText(BitcoinUnits::formatWithUnit(unit, immatureBalance));
-    ui->labelTotal->setText(BitcoinUnits::formatWithUnit(unit, balance + stake + unconfirmedBalance + immatureBalance));
+
+    ui->labelBalance->setText(BitcoinUnits::formatWithUnit(unit, balance, false, hideAmounts));
+    ui->labelStake->setText(BitcoinUnits::formatWithUnit(unit, stake, false, hideAmounts));
+    ui->labelUnconfirmed->setText(BitcoinUnits::formatWithUnit(unit, unconfirmedBalance, false, hideAmounts));
+    ui->labelImmature->setText(BitcoinUnits::formatWithUnit(unit, immatureBalance, false, hideAmounts));
+    ui->labelTotal->setText(BitcoinUnits::formatWithUnit(unit, balance + stake + unconfirmedBalance + immatureBalance, false, hideAmounts));
 
     // only show immature (newly mined) balance if it's non-zero, so as not to complicate things
     // for the non-mining users
@@ -194,6 +200,7 @@ void OverviewPage::setWalletModel(WalletModel *model)
         connect(model, SIGNAL(balanceChanged(qint64, qint64, qint64, qint64)), this, SLOT(setBalance(qint64, qint64, qint64, qint64)));
 
         connect(model->getOptionsModel(), SIGNAL(displayUnitChanged(int)), this, SLOT(updateDisplayUnit()));
+        connect(model->getOptionsModel(), SIGNAL(hideAmountsChanged(bool)), this, SLOT(updateHideAmounts()));
     }
 
     // update the display unit, to not use the default ("DEM")
@@ -209,9 +216,15 @@ void OverviewPage::updateDisplayUnit()
 
         // Update txdelegate->unit with the current unit
         txdelegate->unit = walletModel->getOptionsModel()->getDisplayUnit();
+        txdelegate->hideAmounts = walletModel->getOptionsModel()->getHideAmounts();
 
         ui->listTransactions->update();
     }
+}
+
+void OverviewPage::updateHideAmounts()
+{
+    updateDisplayUnit();
 }
 
 void OverviewPage::updateAlerts(const QString &warnings)

@@ -2,6 +2,11 @@
 #define OVERVIEWPAGE_H
 
 #include <QWidget>
+#include <QLabel>
+
+QT_BEGIN_NAMESPACE
+class QModelIndex;
+QT_END_NAMESPACE
 
 namespace Ui {
     class OverviewPage;
@@ -10,10 +15,6 @@ class ClientModel;
 class WalletModel;
 class TxViewDelegate;
 class TransactionFilterProxy;
-
-QT_BEGIN_NAMESPACE
-class QModelIndex;
-QT_END_NAMESPACE
 
 /** Overview ("home") page widget */
 class OverviewPage : public QWidget
@@ -33,6 +34,7 @@ public slots:
 
 signals:
     void transactionClicked(const QModelIndex &index);
+    void hideAmountsChanged(bool hideamounts);
 
 private:
     Ui::OverviewPage *ui;
@@ -48,6 +50,7 @@ private:
 
 private slots:
     void updateDisplayUnit();
+    void updateHideAmounts();
     void handleTransactionClicked(const QModelIndex &index);
     void updateAlerts(const QString &warnings);
 };
