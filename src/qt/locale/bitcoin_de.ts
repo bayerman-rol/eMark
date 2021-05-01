@@ -1398,12 +1398,12 @@ Diese Bezeichnung wird rot, wenn die Priorität kleiner als &quot;mittel&quot; i
     <message>
         <location line="+40"/>
         <source>Whether to show eMark addresses in the transaction list or not.</source>
-        <translation>Whether to show eMark addresses in the transaction list or not.</translation>
+        <translation>Legt fest, ob eMark-Adressen in der Transaktionsliste angezeigt werden sollen oder nicht.</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>&amp;Display addresses in transaction list</source>
-        <translation>&amp;Display addresses in transaction list</translation>
+        <translation>&amp;Adressen in Transaktionsliste anzeigen</translation>
     </message>
     <message>
         <location line="+7"/>
