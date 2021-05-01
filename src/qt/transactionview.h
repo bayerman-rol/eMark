@@ -71,6 +71,7 @@ private slots:
     void copyLabel();
     void copyAmount();
     void copyTxID();
+    void openThirdPartyTxUrl(QString url);
 
 signals:
     void doubleClicked(const QModelIndex&);

@@ -162,7 +162,7 @@ TransactionView::TransactionView(QWidget *parent) :
     connect(showDetailsAction, SIGNAL(triggered()), this, SLOT(showDetails()));
 }
 
-void TransactionView::setModel(WalletModel *model)
+void TransactionView::setModel(WalletModel *model, bool fShoudAddThirdPartyURL)
 {
     this->model = model;
     if(model)
@@ -189,7 +189,7 @@ void TransactionView::setModel(WalletModel *model)
 		transactionView->horizontalHeader()->setResizeMode(TransactionTableModel::TxComment, QHeaderView::Stretch); // TX-Comment
         transactionView->horizontalHeader()->resizeSection(TransactionTableModel::Amount, 100);
 
-        if (model->getOptionsModel())
+        if (model->getOptionsModel() && fShoudAddThirdPartyURL)
         {
             // Add third party transaction URLs to context menu
             QStringList listUrls = model->getOptionsModel()->getThirdPartyTxUrls().split("|", QString::SkipEmptyParts);
@@ -402,6 +402,15 @@ void TransactionView::showDetails()
         TransactionDescDialog dlg(selection.at(0));
         dlg.exec();
     }
+}
+
+void TransactionView::openThirdPartyTxUrl(QString url)
+{
+    if(!transactionView->selectionModel())
+       return;
+    QModelIndexList selection = transactionView->selectionModel()->selectedRows(0);
+    if(!selection.isEmpty())
+        QDesktopServices::openUrl(QUrl::fromUserInput(url.replace("%s", selection.at(0).data(TransactionTableModel::TxHashRole).toString())));
 }
 
 QWidget *TransactionView::createDateRangeWidget()
