@@ -33,6 +33,7 @@ public:
         MinimizeOnClose,   // bool
         Language,          // QString
         DisplayUnit,       // BitcoinUnits::Unit
+        ThirdPartyTxUrls,  // QString
         DisplayAddresses,  // bool
         HideAmounts,       // bool
         UseBlackTheme,     // bool
@@ -51,6 +52,7 @@ public:
     bool getMinimizeToTray();
     bool getMinimizeOnClose();
     int getDisplayUnit();
+    QString getThirdPartyTxUrls() { return strThirdPartyTxUrls; }
     bool getDisplayAddresses();
     bool getHideAmounts();
     bool getCoinControlFeatures();
@@ -58,6 +60,7 @@ public:
 
 private:
     int nDisplayUnit;
+    QString strThirdPartyTxUrls;
     bool bDisplayAddresses;
     bool bHideAmounts;
     bool fMinimizeToTray;

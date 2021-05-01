@@ -49,14 +49,21 @@ void OptionsModel::Init()
     language = settings.value("language", "").toString();
     fUseBlackTheme = settings.value("fUseBlackTheme", true).toBool();
 
+    if (!settings.contains("strThirdPartyTxUrls"))
+        settings.setValue("strThirdPartyTxUrls", "");
+    strThirdPartyTxUrls = settings.value("strThirdPartyTxUrls", "").toString();
+
     // These are shared with core eMark; we want
     // command-line options to override the GUI settings:
     if (settings.contains("fUseUPnP"))
         SoftSetBoolArg("-upnp", settings.value("fUseUPnP").toBool());
+
     if (settings.contains("addrProxy") && settings.value("fUseProxy").toBool())
         SoftSetArg("-proxy", settings.value("addrProxy").toString().toStdString());
+
     if (settings.contains("fMinimizeCoinAge"))
         SoftSetBoolArg("-minimizecoinage", settings.value("fMinimizeCoinAge").toBool());
+
     if (settings.contains("detachDB"))
         SoftSetBoolArg("-detachdb", settings.value("detachDB").toBool());
     if (!language.isEmpty())
@@ -103,14 +110,16 @@ QVariant OptionsModel::data(const QModelIndex & index, int role) const
             return QVariant((qint64) nTransactionFee);
         case ReserveBalance:
             return QVariant((qint64) nReserveBalance);
+        case DetachDatabases:
+            return QVariant(bitdb.GetDetach());
         case DisplayUnit:
             return QVariant(nDisplayUnit);
+        case ThirdPartyTxUrls:
+            return strThirdPartyTxUrls;
         case DisplayAddresses:
             return QVariant(bDisplayAddresses);
         case HideAmounts:
             return QVariant(bHideAmounts);
-        case DetachDatabases:
-            return QVariant(bitdb.GetDetach());
         case Language:
             return settings.value("language", "");
         case CoinControlFeatures:
@@ -188,6 +197,12 @@ bool OptionsModel::setData(const QModelIndex & index, const QVariant & value, in
             nDisplayUnit = value.toInt();
             settings.setValue("nDisplayUnit", nDisplayUnit);
             emit displayUnitChanged(nDisplayUnit);
+            break;
+        case ThirdPartyTxUrls:
+            if (strThirdPartyTxUrls != value.toString()) {
+                strThirdPartyTxUrls = value.toString();
+                settings.setValue("strThirdPartyTxUrls", strThirdPartyTxUrls);
+            }
             break;
         case DisplayAddresses:
             bDisplayAddresses = value.toBool();

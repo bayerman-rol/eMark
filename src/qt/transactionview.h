@@ -1,6 +1,8 @@
 #ifndef TRANSACTIONVIEW_H
 #define TRANSACTIONVIEW_H
 
+#include "guiutil.h"
+
 #include <QWidget>
 
 class WalletModel;
@@ -11,6 +13,7 @@ class QTableView;
 class QComboBox;
 class QLineEdit;
 class QModelIndex;
+class QSignalMapper;
 class QMenu;
 class QFrame;
 class QDateTimeEdit;
@@ -51,6 +54,7 @@ private:
     QLineEdit *amountWidget;
 
     QMenu *contextMenu;
+    QSignalMapper *mapperThirdPartyTxUrls;
 
     QFrame *dateRangeWidget;
     QDateTimeEdit *dateFrom;
