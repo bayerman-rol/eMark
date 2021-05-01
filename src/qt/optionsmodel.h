@@ -52,21 +52,21 @@ public:
     bool getMinimizeToTray();
     bool getMinimizeOnClose();
     int getDisplayUnit();
-    QString getThirdPartyTxUrls() { return strThirdPartyTxUrls; }
     bool getDisplayAddresses();
     bool getHideAmounts();
     bool getCoinControlFeatures();
+    QString getThirdPartyTxUrls() { return strThirdPartyTxUrls; }
     QString getLanguage() { return language; }
 
 private:
     int nDisplayUnit;
-    QString strThirdPartyTxUrls;
     bool bDisplayAddresses;
     bool bHideAmounts;
     bool fMinimizeToTray;
     bool fMinimizeOnClose;
     bool fCoinControlFeatures;
     QString language;
+    QString strThirdPartyTxUrls;
 
 signals:
     void displayUnitChanged(int unit);

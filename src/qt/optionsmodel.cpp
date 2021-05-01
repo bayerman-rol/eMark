@@ -39,9 +39,9 @@ void OptionsModel::Init()
 
     // These are Qt-only settings:
     nDisplayUnit = settings.value("nDisplayUnit", BitcoinUnits::DEM).toInt();
+    bDisplayAddresses = settings.value("bDisplayAddresses", false).toBool();
     fMinimizeToTray = settings.value("fMinimizeToTray", false).toBool();
     fMinimizeOnClose = settings.value("fMinimizeOnClose", false).toBool();
-    bDisplayAddresses = settings.value("bDisplayAddresses", false).toBool();
     fCoinControlFeatures = settings.value("fCoinControlFeatures", false).toBool();
     bHideAmounts = settings.value("bHideAmounts", false).toBool();
     nTransactionFee = settings.value("nTransactionFee").toLongLong();
