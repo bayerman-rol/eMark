@@ -1,5 +1,5 @@
-eMark-qt: Qt5 GUI for eMark
-===============================
+eMark-qt: Qt5 GUI for eMark Core
+================================
 
 Build instructions
 ===================
