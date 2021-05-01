@@ -5,8 +5,6 @@
 #ifndef BITCOIN_WALLET_H
 #define BITCOIN_WALLET_H
 
-#include "walletdb.h"
-
 #include <string>
 #include <vector>
 
@@ -19,6 +17,7 @@
 #include "script.h"
 #include "ui_interface.h"
 #include "util.h"
+#include "walletdb.h"
 
 // Settings
 extern int64_t nTransactionFee;
