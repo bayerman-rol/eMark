@@ -1,5 +1,4 @@
 #include "transactiontablemodel.h"
-
 #include "guiutil.h"
 #include "transactionrecord.h"
 #include "guiconstants.h"
@@ -12,11 +11,11 @@
 #include "wallet.h"
 #include "ui_interface.h"
 
-#include <QList>
 #include <QColor>
-#include <QIcon>
 #include <QDateTime>
 #include <QDebug>
+#include <QIcon>
+#include <QList>
 
 // Amount column is right-aligned it contains numbers
 static int column_alignments[] = {
@@ -234,6 +233,7 @@ TransactionTableModel::TransactionTableModel(CWallet* wallet, WalletModel *paren
     priv->refreshWallet();
 
     connect(walletModel->getOptionsModel(), SIGNAL(displayUnitChanged(int)), this, SLOT(updateDisplayUnit()));
+    connect(walletModel->getOptionsModel(), SIGNAL(hideAmountsChanged(bool)), this, SLOT(updateHideAmounts()));
 }
 
 TransactionTableModel::~TransactionTableModel()
@@ -333,11 +333,25 @@ QString TransactionTableModel::lookupAddress(const std::string &address, bool to
     QString description;
     if(!label.isEmpty())
     {
-        description += label + QString(" ");
+        if (walletModel->getOptionsModel()->getHideAmounts())
+        {
+            description += label.replace(QRegExp("[a-zA-Z0-9]"),"*") + QString(" ");
+        }
+        else
+        {
+            description += label + QString(" ");
+        }
     }
-    if(label.isEmpty() || tooltip)
+    if(label.isEmpty() || walletModel->getOptionsModel()->getDisplayAddresses() || tooltip)
     {
-        description += QString("(") + QString::fromStdString(address) + QString(")");
+        if (walletModel->getOptionsModel()->getHideAmounts())
+        {
+            description += QString::fromStdString(address).replace(QRegExp("[a-zA-Z0-9]"),"*");
+        }
+        else
+        {
+            description += QString::fromStdString(address);
+        }
     }
     return description;
 }
@@ -439,7 +453,7 @@ QVariant TransactionTableModel::addressColor(const TransactionRecord *wtx) const
 
 QString TransactionTableModel::formatTxAmount(const TransactionRecord *wtx, bool showUnconfirmed) const
 {
-    QString str = BitcoinUnits::format(walletModel->getOptionsModel()->getDisplayUnit(), wtx->credit + wtx->debit);
+    QString str = BitcoinUnits::format(walletModel->getOptionsModel()->getDisplayUnit(), wtx->credit + wtx->debit, false, walletModel->getOptionsModel()->getHideAmounts());
     if(showUnconfirmed)
     {
         if(!wtx->status.countsForBalance)
@@ -644,6 +658,12 @@ QModelIndex TransactionTableModel::index(int row, int column, const QModelIndex 
 }
 
 void TransactionTableModel::updateDisplayUnit()
+{
+    // emit dataChanged to update Amount column with the current unit
+    emit dataChanged(index(0, Amount), index(priv->size()-1, Amount));
+}
+
+void TransactionTableModel::updateHideAmounts()
 {
     // emit dataChanged to update Amount column with the current unit
     emit dataChanged(index(0, Amount), index(priv->size()-1, Amount));

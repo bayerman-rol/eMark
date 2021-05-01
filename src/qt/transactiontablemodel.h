@@ -82,6 +82,7 @@ public slots:
     void updateTransaction(const QString &hash, int status);
     void updateConfirmations();
     void updateDisplayUnit();
+    void updateHideAmounts();
 
     friend class TransactionTablePriv;
 };

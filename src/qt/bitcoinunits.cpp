@@ -1,5 +1,5 @@
 #include "bitcoinunits.h"
-
+#include "optionsmodel.h"
 #include <QStringList>
 
 BitcoinUnits::BitcoinUnits(QObject *parent):
@@ -85,7 +85,7 @@ int BitcoinUnits::decimals(int unit)
     }
 }
 
-QString BitcoinUnits::format(int unit, qint64 n, bool fPlus)
+QString BitcoinUnits::format(int unit, qint64 n, bool fPlus, bool fHideAmounts)
 {
     // Note: not using straight sprintf here because we do NOT want
     // localized number formatting.
@@ -105,16 +105,27 @@ QString BitcoinUnits::format(int unit, qint64 n, bool fPlus)
         ++nTrim;
     remainder_str.chop(nTrim);
 
+    if(fHideAmounts)
+    {
+        quotient_str.replace(QRegExp("[0-9]"),"*");
+        remainder_str.replace(QRegExp("[0-9]"),"*");
+    }
+
     if (n < 0)
         quotient_str.insert(0, '-');
     else if (fPlus && n > 0)
         quotient_str.insert(0, '+');
-    return quotient_str + QString(".") + remainder_str;
+
+    if (remainder_str.size())
+        return quotient_str + QString(".") + remainder_str;
+    else
+        return quotient_str;
 }
 
-QString BitcoinUnits::formatWithUnit(int unit, qint64 amount, bool plussign)
+// Calling this function will return the maximum number of decimals based on the options setting.
+QString BitcoinUnits::formatWithUnit(int unit, qint64 amount, bool plussign, bool hideamounts)
 {
-    return format(unit, amount, plussign) + QString(" ") + name(unit);
+    return format(unit, amount, plussign, hideamounts) + QString(" ") + name(unit);
 }
 
 bool BitcoinUnits::parse(int unit, const QString &value, qint64 *val_out)
