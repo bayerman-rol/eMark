@@ -66,6 +66,8 @@ QT_TRANSLATE_NOOP("bitcoin-core", "Maximum per-connection receive buffer, <n>*10
 QT_TRANSLATE_NOOP("bitcoin-core", "Maximum per-connection send buffer, <n>*1000 bytes (default: 1000)"),
 QT_TRANSLATE_NOOP("bitcoin-core", "Use UPnP to map the listening port (default: 1 when listening)"),
 QT_TRANSLATE_NOOP("bitcoin-core", "Use UPnP to map the listening port (default: 0)"),
+QT_TRANSLATE_NOOP("bitcoin-core", ""
+"Detach block and address databases. Increases shutdown time (default: 0)"),
 QT_TRANSLATE_NOOP("bitcoin-core", "Fee per KB to add to transactions you send"),
 QT_TRANSLATE_NOOP("bitcoin-core", ""
 "When creating transactions, ignore inputs with value less than this "

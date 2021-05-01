@@ -4,7 +4,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "db.h"
-
+#include "main.h"
 #include "addrman.h"
 #include "hash.h"
 #include "util.h"
@@ -293,6 +293,14 @@ CDB::CDB(const std::string& strFilename, const char* pszMode) :
     }
 }
 
+static bool IsChainFile(std::string strFile)
+{
+    if (strFile == "blkindex.dat")
+        return true;
+
+    return false;
+}
+
 void CDB::Close()
 {
     if (!pdb)
@@ -306,6 +314,10 @@ void CDB::Close()
     unsigned int nMinutes = 0;
     if (fReadOnly)
         nMinutes = 1;
+    if (IsChainFile(strFile))
+        nMinutes = 2;
+    if (IsChainFile(strFile) && IsInitialBlockDownload())
+        nMinutes = 5;
 
     bitdb.dbenv.txn_checkpoint(nMinutes ? GetArg("-dblogsize", 100)*1024 : 0, nMinutes, 0);
 
@@ -455,9 +467,11 @@ void CDBEnv::Flush(bool fShutdown)
                 CloseDb(strFile);
                 LogPrint("db", "%s checkpoint\n", strFile);
                 dbenv.txn_checkpoint(0, 0, 0);
-                LogPrint("db", "%s detach\n", strFile);
-                if (!fMockDb)
-                    dbenv.lsn_reset(strFile.c_str(), 0);
+                if (!IsChainFile(strFile) || fDetachDB) {
+                    LogPrint("db", "%s detach\n", strFile);
+                    if (!fMockDb)
+                        dbenv.lsn_reset(strFile.c_str(), 0);
+                }
                 LogPrint("db", "%s closed\n", strFile);
                 mapFileUseCount.erase(mi++);
             }

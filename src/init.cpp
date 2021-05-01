@@ -198,6 +198,7 @@ std::string HelpMessage()
     strUsage += "  -upnp                  " + _("Use UPnP to map the listening port (default: 0)") + "\n";
 #endif
 #endif
+    strUsage += "  -detachdb              " + _("Detach block and address databases. Increases shutdown time (default: 0)") + "\n" +
     strUsage += "  -paytxfee=<amt>        " + _("Fee per KB to add to transactions you send") + "\n";
     strUsage += "  -mininput=<amt>        " + _("When creating transactions, ignore inputs with value less than this (default: 0.01)") + "\n";
     if (fHaveGUI)
@@ -413,6 +414,9 @@ bool AppInit2(boost::thread_group& threadGroup)
     // Check for -debugnet (deprecated)
     if (GetBoolArg("-debugnet", false))
         InitWarning(_("Warning: Deprecated argument -debugnet ignored, use -debug=net"));
+
+    bitdb.SetDetach(GetBoolArg("-detachdb", false));
+
     // Check for -socks - as this is a privacy risk to continue, exit here
 	if (mapArgs.count("-socks"))
         return InitError(_("Error: Unsupported argument -socks found. Setting SOCKS version isn't possible anymore, only SOCKS5 proxies are supported."));

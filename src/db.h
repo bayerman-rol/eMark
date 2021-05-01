@@ -6,6 +6,7 @@
 #ifndef BITCOIN_DB_H
 #define BITCOIN_DB_H
 
+#include "main.h"
 #include "serialize.h"
 #include "sync.h"
 #include "version.h"
@@ -32,6 +33,7 @@ void ThreadFlushWalletDB(const std::string& strWalletFile);
 class CDBEnv
 {
 private:
+    bool fDetachDB;
     bool fDbEnvInit;
     bool fMockDb;
     boost::filesystem::path pathEnv;
@@ -72,6 +74,8 @@ public:
     void Close();
     void Flush(bool fShutdown);
     void CheckpointLSN(const std::string& strFile);
+    void SetDetach(bool fDetachDB_) { fDetachDB = fDetachDB_; }
+    bool GetDetach() { return fDetachDB; }
 
     void CloseDb(const std::string& strFile);
     bool RemoveDb(const std::string& strFile);
