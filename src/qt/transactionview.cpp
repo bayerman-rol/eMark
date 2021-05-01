@@ -16,6 +16,7 @@
 
 #include <QComboBox>
 #include <QDateTimeEdit>
+#include <QDesktopServices>
 #include <QDoubleValidator>
 #include <QHBoxLayout>
 #include <QHeaderView>
@@ -28,6 +29,7 @@
 #include <QSignalMapper>
 #include <QStyledItemDelegate>
 #include <QTableView>
+#include <QUrl>
 #include <QVBoxLayout>
 
 TransactionView::TransactionView(QWidget *parent) :
