@@ -80,8 +80,8 @@ extern const std::string strMessageMagic;
 extern int64_t nTimeBestReceived;
 extern bool fImporting;
 extern bool fReindex;
-struct COrphanBlock;
-extern std::map<uint256, COrphanBlock*> mapOrphanBlocks;
+// struct COrphanBlock;
+extern std::map<uint256, CBlock*> mapOrphanBlocks;
 extern bool fHaveGUI;
 
 // Settings
@@ -135,7 +135,8 @@ unsigned int ComputeMinWork(unsigned int nBase, int64_t nTime);
 bool IsInitialBlockDownload();
 std::string GetWarnings(std::string strFor);
 bool GetTransaction(const uint256 &hash, CTransaction &tx, uint256 &hashBlock);
-uint256 WantedByOrphan(const COrphanBlock* pblockOrphan);
+// uint256 WantedByOrphan(const COrphanBlock* pblockOrphan);
+uint256 WantedByOrphan(const CBlock* pblockOrphan);
 const CBlockIndex* GetLastBlockIndex(const CBlockIndex* pindex, bool fProofOfStake);
 void ThreadStakeMiner(CWallet *pwallet);
 
