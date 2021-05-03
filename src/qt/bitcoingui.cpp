@@ -245,31 +245,31 @@ void BitcoinGUI::createActions()
 {
     QActionGroup *tabGroup = new QActionGroup(this);
 
-    overviewAction = new QAction(QIcon(":/icons/overview"), tr("&Overview"), this);
+    overviewAction = new QAction(QIcon(fUseBlackTheme ? ":/icons/black/overview" : ":/icons/overview"), tr("Overview"), this);
     overviewAction->setToolTip(tr("Show general overview of wallet"));
     overviewAction->setCheckable(true);
     overviewAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_1));
     tabGroup->addAction(overviewAction);
 
-    sendCoinsAction = new QAction(QIcon(":/icons/send"), tr("&Send"), this);
+    sendCoinsAction = new QAction(QIcon(fUseBlackTheme ? ":/icons/black/send" : ":/icons/send"), tr("Send"), this);
     sendCoinsAction->setToolTip(tr("Send coins to a eMark address"));
     sendCoinsAction->setCheckable(true);
     sendCoinsAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_2));
     tabGroup->addAction(sendCoinsAction);
 
-    receiveCoinsAction = new QAction(QIcon(":/icons/receiving_addresses"), tr("&Receive"), this);
+    receiveCoinsAction = new QAction(QIcon(fUseBlackTheme ? ":/icons/black/receiving_addresses" : ":/icons/receiving_addresses"), tr("Receive"), this);
     receiveCoinsAction->setToolTip(tr("Show the list of addresses for receiving payments"));
     receiveCoinsAction->setCheckable(true);
     receiveCoinsAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_3));
     tabGroup->addAction(receiveCoinsAction);
 
-    historyAction = new QAction(QIcon(":/icons/history"), tr("&Transactions"), this);
+    historyAction = new QAction(QIcon(fUseBlackTheme ? ":/icons/black/history" : ":/icons/history"), tr("Transactions"), this);
     historyAction->setToolTip(tr("Browse transaction history"));
     historyAction->setCheckable(true);
     historyAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_4));
     tabGroup->addAction(historyAction);
 
-    addressBookAction = new QAction(QIcon(":/icons/address-book"), tr("&Address Book"), this);
+    addressBookAction = new QAction(QIcon(fUseBlackTheme ? ":/icons/black/address-book" : ":/icons/address-book"), tr("Address Book"), this);
     addressBookAction->setToolTip(tr("Edit the list of stored addresses and labels"));
     addressBookAction->setCheckable(true);
     addressBookAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_5));
@@ -286,49 +286,49 @@ void BitcoinGUI::createActions()
     connect(addressBookAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(addressBookAction, SIGNAL(triggered()), this, SLOT(gotoAddressBookPage()));
 
-    backupWalletAction = new QAction(tr("&Backup Wallet..."), this);
+    backupWalletAction = new QAction(QIcon(fUseBlackTheme ? ":/icons/black/filesave" : ":/icons/filesave"), tr("&Backup Wallet"), this);
     backupWalletAction->setToolTip(tr("Backup wallet to another location"));
-    exportAction = new QAction(tr("&Export..."), this);
+    exportAction = new QAction(QIcon(fUseBlackTheme ? ":/icons/black/export" : ":/icons/export"), tr("&Export Data"), this);
     exportAction->setToolTip(tr("Export the data in the current tab to a file"));
-    signMessageAction = new QAction(tr("Sign &message..."), this);
-    verifyMessageAction = new QAction(tr("&Verify message..."), this);
-    quitAction = new QAction(tr("E&xit"), this);
+    signMessageAction = new QAction(QIcon(fUseBlackTheme ? ":/icons/black/edit" : ":/icons/edit"), tr("Sign &Message"), this);
+    verifyMessageAction = new QAction(QIcon(fUseBlackTheme ? ":/icons/black/verify" : ":/icons/verify"), tr("&Verify message"), this);
+    quitAction = new QAction(QIcon(fUseBlackTheme ? ":/icons/black/quit" : ":/icons/quit"), tr("E&xit"), this);
     quitAction->setToolTip(tr("Quit application"));
     quitAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_Q));
     quitAction->setMenuRole(QAction::QuitRole);
 
-    changePassphraseAction = new QAction(tr("&Change Passphrase..."), this);
+    changePassphraseAction = new QAction(QIcon(fUseBlackTheme ? ":/icons/black/key" : ":/icons/key"), tr("&Change Password"), this);
     changePassphraseAction->setToolTip(tr("Change the passphrase used for wallet encryption"));
-    lockWalletAction = new QAction(tr("&Lock Wallet"), this);
+    lockWalletAction = new QAction(QIcon(fUseBlackTheme ? ":/icons/black/lock_closed" : ":/icons/lock_closed"), tr("&Lock Wallet"), this);
     lockWalletAction->setToolTip(tr("Lock wallet"));
-    unlockWalletAction = new QAction(tr("&Unlock Wallet..."), this);
+    unlockWalletAction = new QAction(QIcon(fUseBlackTheme ? ":/icons/black/lock_open" : ":/icons/lock_open"), tr("&Unlock Wallet"), this);
     unlockWalletAction->setToolTip(tr("Unlock wallet"));
-    encryptWalletAction = new QAction(tr("&Encrypt Wallet..."), this);
+    encryptWalletAction = new QAction(QIcon(fUseBlackTheme ? ":/icons/black/lock_closed" : ":/icons/lock_closed"), tr("En&crypt Wallet"), this);
     encryptWalletAction->setToolTip(tr("Encrypt or decrypt wallet"));
-    optionsAction = new QAction(tr("&Options..."), this);
+    optionsAction = new QAction(QIcon(fUseBlackTheme ? ":/icons/black/options" : ":/icons/options"), tr("&Options"), this);
     optionsAction->setToolTip(tr("Modify configuration options for eMark"));
     optionsAction->setMenuRole(QAction::PreferencesRole);
 
-    toggleHideAction = new QAction(tr("&Show / Hide"), this);
+    toggleHideAction = new QAction(QIcon(fUseBlackTheme ? ":/icons/black/about" : ":/icons/about"), tr("&Show / Hide"), this);
     toggleHideAction->setToolTip(tr("Show or hide the main Window"));
 
-    openRPCConsoleAction = new QAction(tr("&Debug window"), this);
+    openRPCConsoleAction = new QAction(QIcon(fUseBlackTheme ? ":/icons/black/debugwindow" : ":/icons/debugwindow"), tr("&Debug window"), this);
     openRPCConsoleAction->setToolTip(tr("Open debugging and diagnostic console"));
-    openConfEditorAction = new QAction(tr("Open Wallet &Configuration File"), this);
+    openConfEditorAction = new QAction(QIcon(fUseBlackTheme ? ":/icons/black/edit" : ":/icons/edit"), tr("Open Wallet &Configuration File"), this);
     openConfEditorAction->setToolTip(tr("Open configuration file"));
     // override TextHeuristicRole set by default which confuses this action with application settings
     openConfEditorAction->setMenuRole(QAction::NoRole);	
 
-    openWebAction = new QAction(tr("&Website"), this);
+    openWebAction = new QAction(QIcon(fUseBlackTheme ? ":/icons/black/site" : ":/icons/site"), tr("Website"), this);
     openWebAction->setStatusTip(tr("Open the eMark website in a web browser."));
 
-    openChatroomAction = new QAction(tr("&Chatroom"), this);
+    openChatroomAction = new QAction(QIcon(fUseBlackTheme ? ":/icons/black/chat" : ":/icons/chat"), tr("Chat"), this);
     openChatroomAction->setStatusTip(tr("Open the eMark Discord chat in a web browser."));
 
-    aboutAction = new QAction(tr("&About eMark Core"), this);
+    aboutAction = new QAction(QIcon(fUseBlackTheme ? ":/icons/black/about" : ":/icons/about"), tr("&About eMark Core"), this);
     aboutAction->setToolTip(tr("Show information about eMark"));
     aboutAction->setMenuRole(QAction::AboutRole);
-    aboutQtAction = new QAction(tr("About &Qt"), this);
+    aboutQtAction = new QAction(QIcon(fUseBlackTheme ? ":/icons/black/about_qt" : ":/icons/about_qt"), tr("About &Qt"), this);;
     aboutQtAction->setToolTip(tr("Show information about Qt"));
     aboutQtAction->setMenuRole(QAction::AboutQtRole);
 
