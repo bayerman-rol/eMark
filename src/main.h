@@ -132,8 +132,13 @@ unsigned int GetNextTargetRequired(const CBlockIndex* pindexLast, bool fProofOfS
 int64_t GetProofOfWorkReward(int64_t nFees);
 int64_t GetProofOfStakeReward(int64_t nCoinAge,  unsigned int nBits, unsigned int nTime);
 unsigned int ComputeMinWork(unsigned int nBase, int64_t nTime);
+/** Get the number of active peers */
+int GetNumBlocksOfPeers();
+/** Check whether we are doing an initial block download (synchronizing from disk or network) */
 bool IsInitialBlockDownload();
+/** Format a string that describes several potential problems detected by the core */
 std::string GetWarnings(std::string strFor);
+/** Retrieve a transaction (from memory pool, or from disk, if possible) */
 bool GetTransaction(const uint256 &hash, CTransaction &tx, uint256 &hashBlock);
 // uint256 WantedByOrphan(const COrphanBlock* pblockOrphan);
 uint256 WantedByOrphan(const CBlock* pblockOrphan);

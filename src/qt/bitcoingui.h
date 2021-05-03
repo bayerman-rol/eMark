@@ -22,10 +22,11 @@ class QLabel;
 class QModelIndex;
 class QProgressBar;
 class QStackedWidget;
+class QUrl;
 QT_END_NAMESPACE
 
 /**
-  Bitcoin GUI main class. This class represents the main window of the Bitcoin UI. It communicates with both the client and
+  eMark GUI main class. This class represents the main window of the eMark UI. It communicates with both the client and
   wallet models to give the user an up-to-date view of the current core state.
 */
 class BitcoinGUI : public QMainWindow
@@ -41,7 +42,7 @@ public:
     */
     void setClientModel(ClientModel *clientModel);
     /** Set the wallet model.
-        The wallet model represents a bitcoin wallet, and offers access to the list of transactions, address book and sending
+        The wallet model represents a eMark wallet, and offers access to the list of transactions, address book and sending
         functionality.
     */
     void setWalletModel(WalletModel *walletModel);
@@ -85,6 +86,8 @@ private:
     QAction *aboutAction;
     QAction *receiveCoinsAction;
     QAction *optionsAction;
+    QAction *openWebAction;
+    QAction *openChatroomAction;
     QAction *toggleHideAction;
     QAction *exportAction;
     QAction *encryptWalletAction;
@@ -94,6 +97,7 @@ private:
     QAction *lockWalletAction;
     QAction *aboutQtAction;
     QAction *openRPCConsoleAction;
+    QAction *openConfEditorAction;
 
     QSystemTrayIcon *trayIcon;
     Notificator *notificator;
@@ -127,7 +131,7 @@ public slots:
     /** Set number of connections shown in the UI */
     void setNumConnections(int count);
     /** Set number of blocks shown in the UI */
-    void setNumBlocks(int count);
+    void setNumBlocks(int count, int nTotalBlocks);
     /** Set the encryption status as shown in the UI.
        @param[in] status            current encryption status
        @see WalletModel::EncryptionStatus
@@ -172,6 +176,12 @@ private slots:
 
     /** Show configuration dialog */
     void optionsClicked();
+    /** Open config file */
+    void openConfigfile();
+     /** Show web page */
+    void openWeb();
+     /** Show Chat page */
+    void openChatroom();
     /** Show about dialog */
     void aboutClicked();
 #ifndef Q_OS_MAC

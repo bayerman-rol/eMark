@@ -75,6 +75,8 @@ bool fImporting = false;
 bool fReindex = false;
 bool fHaveGUI = false;
 
+CMedianFilter<int> cPeerBlockCounts(8, 0); // Amount of blocks that other nodes claim to have
+
 // struct COrphanBlock {
 //     uint256 hashBlock;
 //     uint256 hashPrev;
@@ -1149,6 +1151,12 @@ bool CheckProofOfWork(uint256 hash, unsigned int nBits)
         return error("CheckProofOfWork() : hash doesn't match nBits");
 
     return true;
+}
+
+// Return maximum amount of blocks that other nodes claim to have
+int GetNumBlocksOfPeers()
+{
+    return std::max(cPeerBlockCounts.median(), Checkpoints::GetTotalBlocksEstimate());
 }
 
 bool IsInitialBlockDownload()
@@ -3330,6 +3338,8 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
         pfrom->fSuccessfullyConnected = true;
 
         LogPrintf("receive version message: version %d, blocks=%d, us=%s, them=%s, peer=%s\n", pfrom->nVersion, pfrom->nStartingHeight, addrMe.ToString(), addrFrom.ToString(), pfrom->addr.ToString());
+
+        cPeerBlockCounts.input(pfrom->nStartingHeight);
 
         // ppcoin: ask for pending sync-checkpoint if any
         if (!IsInitialBlockDownload())

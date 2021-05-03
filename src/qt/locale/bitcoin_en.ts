@@ -17,11 +17,11 @@
         <location line="+41"/>
         <source>Copyright © 2009-2012 The Bitcoin developers
 Copyright © 2011-2012 The PPCoin developers
-Copyright © 2013 The Novacoin developers
+Copyright © 2013-2014 The Novacoin developers
 Copyright © 2013-2021 The eMark Core developers</source>
         <translation>Copyright © 2009-2012 The Bitcoin developers
 Copyright © 2011-2012 The PPCoin developers
-Copyright © 2013 The Novacoin developers
+Copyright © 2013-2014 The Novacoin developers
 Copyright © 2013-2021 The eMark Core developers</translation>
     </message>
     <message>
@@ -322,22 +322,12 @@ This product includes software developed by the OpenSSL Project for use in the O
 <context>
     <name>BitcoinGUI</name>
     <message>
-        <location filename="../bitcoin.cpp" line="+102"/>
+        <location filename="../bitcoin.cpp" line="+103"/>
         <source>A fatal error occurred. eMark Core can no longer continue safely and will quit.</source>
         <translation>A fatal error occurred. eMark Core can no longer continue safely and will quit.</translation>
     </message>
     <message>
-        <location filename="../bitcoingui.cpp" line="+712"/>
-        <source>Synchronizing with network...</source>
-        <translation>Synchronizing with network...</translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source>Importing blocks...</source>
-        <translation>Importing blocks...</translation>
-    </message>
-    <message>
-        <location line="-624"/>
+        <location filename="../bitcoingui.cpp" line="+100"/>
         <source>eMark Core</source>
         <translation>eMark Core</translation>
     </message>
@@ -347,7 +337,7 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Wallet</translation>
     </message>
     <message>
-        <location line="+171"/>
+        <location line="+156"/>
         <source>Overview</source>
         <translation>Overview</translation>
     </message>
@@ -357,12 +347,7 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Wallet Overview</translation>
     </message>
     <message>
-        <location line="+39"/>
-        <source>Open &amp;URI...</source>
-        <translation>Open &amp;URI...</translation>
-    </message>
-    <message>
-        <location line="-34"/>
+        <location line="+5"/>
         <source>Send</source>
         <translation>Send</translation>
     </message>
@@ -422,24 +407,24 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Export the data in the current tab to a file</translation>
     </message>
     <message>
-        <location line="+7"/>
-        <source>Sign &amp;Message</source>
-        <translation>Sign &amp;Message</translation>
+        <location line="+1"/>
+        <source>Re&amp;scan Wallet</source>
+        <translation>Re&amp;scan Wallet</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>&amp;Verify message</source>
-        <translation>&amp;Verify message</translation>
-    </message>
-    <message>
-        <location line="-7"/>
-        <source>E&amp;xit</source>
-        <translation>E&amp;xit</translation>
+        <source>Rescan the blockchain for your wallet transactions.</source>
+        <translation>Rescan the blockchain for your wallet transactions.</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Quit application</source>
-        <translation>Quit application</translation>
+        <source>&amp;Export Keys</source>
+        <translation>&amp;Export Keys</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Export private keys in wallet.</source>
+        <translation>Export private keys in wallet.</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -453,18 +438,28 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+1"/>
-        <source>&amp;Export Keys</source>
-        <translation>&amp;Export Keys</translation>
+        <source>Sign &amp;Message</source>
+        <translation>Sign &amp;Message</translation>
     </message>
     <message>
-        <location line="+0"/>
-        <source>Export private keys in wallet.</source>
-        <translation>Export private keys in wallet.</translation>
+        <location line="+1"/>
+        <source>&amp;Verify message</source>
+        <translation>&amp;Verify message</translation>
     </message>
     <message>
-        <location line="-2"/>
+        <location line="+1"/>
+        <source>E&amp;xit</source>
+        <translation>E&amp;xit</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Quit application</source>
+        <translation>Quit application</translation>
+    </message>
+    <message>
+        <location line="+4"/>
         <source>&amp;Change Password</source>
-        <translation>&amp;Change Password</translation>
+        <translation>&amp;Change Passphrase</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -532,9 +527,9 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Open debugging and diagnostic console</translation>
     </message>
     <message>
-        <location line="+4"/>
-        <source>Open eMark.conf</source>
-        <translation>Open eMark.conf</translation>
+        <location line="+2"/>
+        <source>Open Wallet &amp;Configuration File</source>
+        <translation>Open Wallet &amp;Configuration File</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -542,7 +537,27 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Open configuration file</translation>
     </message>
     <message>
-        <location line="-2"/>
+        <location line="+3"/>
+        <source>Website</source>
+        <translation>Website</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Open the eMark website in a web browser.</source>
+        <translation>Open the eMark website in a web browser.</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Chat</source>
+        <translation>Chat</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Open the eMark Discord chat in a web browser.</source>
+        <translation>Open the eMark Discord chat in a web browser.</translation>
+    </message>
+    <message>
+        <location line="+1"/>
         <source>&amp;About eMark Core</source>
         <translation>&amp;About eMark Core</translation>
     </message>
@@ -562,7 +577,7 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Show information about Qt</translation>
     </message>
     <message>
-        <location line="+57"/>
+        <location line="+33"/>
         <source>&amp;File</source>
         <translation>&amp;File</translation>
     </message>
@@ -572,22 +587,17 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>&amp;Settings</translation>
     </message>
     <message>
-        <location line="+9"/>
-        <source>&amp;Links</source>
-        <translation>&amp;Links</translation>
+        <location line="+8"/>
+        <source>&amp;Tools</source>
+        <translation>&amp;Tools</translation>
     </message>
     <message>
-        <location line="+15"/>
-        <source>&amp;Exchanges</source>
-        <translation>&amp;Exchanges</translation>
-    </message>
-    <message>
-        <location line="+5"/>
+        <location line="+7"/>
         <source>&amp;Help</source>
         <translation>&amp;Help</translation>
     </message>
     <message>
-        <location line="+19"/>
+        <location line="+18"/>
         <source>Tabs Toolbar</source>
         <translation>Tabs Toolbar</translation>
     </message>
@@ -603,25 +613,31 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>eMark client</translation>
     </message>
     <message numerus="yes">
-        <location line="+76"/>
+        <location line="+107"/>
         <source>%n active connection(s) to eMark network</source>
         <translation>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+            <numerusform>%n active connection to eMark network</numerusform>
+            <numerusform>%n active connection(s) to eMark network</numerusform>
         </translation>
     </message>
     <message>
-        <location line="+21"/>
+        <location line="+23"/>
+        <source>Processed %1 of %2 (estimated) blocks of transaction history (%3% done).</source>
+        <translation>Processed %1 of %2 (estimated) blocks of transaction history (%3% done).</translation>
+    </message>
+    <message>
+        <location line="+4"/>
         <source>Processed %1 blocks of transaction history.</source>
         <translation>Processed %1 blocks of transaction history.</translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="+6"/>
         <source>Up to date</source>
         <translation>Up to date</translation>
     </message>
     <message numerus="yes">
         <location line="+18"/>
+        <location line="+567"/>
         <source>%n hour(s)</source>
         <translation>
             <numerusform>%n hour</numerusform>
@@ -629,7 +645,8 @@ This product includes software developed by the OpenSSL Project for use in the O
         </translation>
     </message>
     <message numerus="yes">
-        <location line="+4"/>
+        <location line="-563"/>
+        <location line="+567"/>
         <source>%n day(s)</source>
         <translation>
             <numerusform>%n day</numerusform>
@@ -637,7 +654,8 @@ This product includes software developed by the OpenSSL Project for use in the O
         </translation>
     </message>
     <message numerus="yes">
-        <location line="+4"/>
+        <location line="-563"/>
+        <location line="+6"/>
         <source>%n week(s)</source>
         <translation>
             <numerusform>%n week</numerusform>
@@ -645,7 +663,7 @@ This product includes software developed by the OpenSSL Project for use in the O
         </translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+0"/>
         <source>%1 and %2</source>
         <translation>%1 and %2</translation>
     </message>
@@ -658,7 +676,17 @@ This product includes software developed by the OpenSSL Project for use in the O
         </translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="+0"/>
+        <source>Importing blocks...</source>
+        <translation>Importing blocks...</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Synchronizing with network...</source>
+        <translation>Synchronizing with network...</translation>
+    </message>
+    <message>
+        <location line="+2"/>
         <source>%1 behind</source>
         <translation>%1 behind</translation>
     </message>
@@ -758,7 +786,7 @@ Address: %4
         <translation>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</translation>
     </message>
     <message>
-        <location line="+24"/>
+        <location line="+28"/>
         <source>Backup Wallet</source>
         <translation>Backup Wallet</translation>
     </message>
@@ -777,8 +805,82 @@ Address: %4
         <source>There was an error trying to save the wallet data to the new location.</source>
         <translation>There was an error trying to save the wallet data to the new location.</translation>
     </message>
+    <message>
+        <location line="+22"/>
+        <location line="+8"/>
+        <location line="+9"/>
+        <location line="+8"/>
+        <location line="+7"/>
+        <source>Export Private Key</source>
+        <translation>Export Private Key</translation>
+    </message>
+    <message>
+        <location line="-31"/>
+        <source>This is an invalid eMark address</source>
+        <translation>This is an invalid eMark address</translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>Address does not refer to a key</source>
+        <translation>Address does not refer to a key</translation>
+    </message>
+    <message>
+        <location line="+9"/>
+        <source>Private key for address %1 is not known</source>
+        <translation>Private key for address %1 is not known</translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>This is the private key:\n%1 \n\nAssociated with this eMark address: \n%2\n\nCopy to secure location, this allows access to coins.</source>
+        <translation>This is the private key:\n%1 \n\nAssociated with this eMark address: \n%2\n\nCopy to secure location, this allows access to coins.</translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Cannot export the private key from a locked wallet</source>
+        <translation>Cannot export the private key from a locked wallet</translation>
+    </message>
+    <message>
+        <location line="+14"/>
+        <location line="+9"/>
+        <location line="+19"/>
+        <location line="+10"/>
+        <location line="+6"/>
+        <location line="+14"/>
+        <source>Import Private Key</source>
+        <translation>Import Private Key</translation>
+    </message>
+    <message>
+        <location line="-58"/>
+        <source>Input Private key: </source>
+        <translation>Input Private key: </translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>This is an invalid private key</source>
+        <translation>This is an invalid private key</translation>
+    </message>
+    <message>
+        <location line="+19"/>
+        <source>This key is already in wallet</source>
+        <translation>This key is already in wallet</translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Error importing private key</source>
+        <translation>Error importing private key</translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>The wallet will now scan the blockchain for all transactions with this key</source>
+        <translation>The wallet will now scan the blockchain for all transactions with this key</translation>
+    </message>
+    <message>
+        <location line="+14"/>
+        <source>Cannot import a private key into a locked wallet</source>
+        <translation>Cannot import a private key into a locked wallet</translation>
+    </message>
     <message numerus="yes">
-        <location line="+91"/>
+        <location line="+93"/>
         <source>%n second(s)</source>
         <translation>
             <numerusform>%n second</numerusform>
@@ -1213,31 +1315,67 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
 </context>
 <context>
-    <name>OpenURIDialog</name>
+    <name>Intro</name>
     <message>
-        <location filename="../forms/openuridialog.ui" line="+14"/>
-        <source>Open URI</source>
-        <translation>Open URI</translation>
-    </message>
-    <message>
-        <location line="+6"/>
-        <source>Open payment request from URI or file</source>
-        <translation>Open payment request from URI or file</translation>
+        <location filename="../forms/intro.ui" line="+14"/>
+        <source>Welcome</source>
+        <translation>Welcome</translation>
     </message>
     <message>
         <location line="+9"/>
-        <source>URI:</source>
-        <translation>URI:</translation>
+        <source>Welcome to eMark Core.</source>
+        <translation>Welcome to eMark Core.</translation>
     </message>
     <message>
-        <location line="+11"/>
-        <source>Select payment request file</source>
-        <translation>Select payment request file</translation>
+        <location line="+26"/>
+        <source>As this is the first time the program is launched, you can choose where eMark Core will store its data.</source>
+        <translation>As this is the first time the program is launched, you can choose where eMark Core will store its data.</translation>
     </message>
     <message>
-        <location filename="../openuridialog.cpp" line="+47"/>
-        <source>Select payment request file to open</source>
-        <translation>Select payment request file to open</translation>
+        <location line="+10"/>
+        <source>eMark Core will download and store a copy of the eMark block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>eMark Core will download and store a copy of the eMark block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Use the default data directory</source>
+        <translation>Use the default data directory</translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Use a custom data directory:</source>
+        <translation>Use a custom data directory:</translation>
+    </message>
+    <message>
+        <location filename="../intro.cpp" line="+184"/>
+        <source>eMark Core</source>
+        <translation>eMark Core</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Error: Specified data directory &quot;%1&quot; cannot be created.</source>
+        <translation>Error: Specified data directory &quot;%1&quot; cannot be created.</translation>
+    </message>
+    <message>
+        <location line="+24"/>
+        <source>Error</source>
+        <translation>Error</translation>
+    </message>
+    <message numerus="yes">
+        <location line="+9"/>
+        <source>%n GB of free space available</source>
+        <translation>
+            <numerusform>%n GB of free space available</numerusform>
+            <numerusform>%n GB of free space available</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location line="+3"/>
+        <source>(of %n GB needed)</source>
+        <translation>
+            <numerusform>(of %n GB needed)</numerusform>
+            <numerusform>(of %n GB needed)</numerusform>
+        </translation>
     </message>
 </context>
 <context>
@@ -1251,6 +1389,31 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <location line="+16"/>
         <source>&amp;Main</source>
         <translation>&amp;Main</translation>
+    </message>
+    <message>
+        <location line="+11"/>
+        <source>Automatically start eMark Core after logging in to the system.</source>
+        <translation>Automatically start eMark Core after logging in to the system.</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>&amp;Start eMark Core on system login</source>
+        <translation>&amp;Start eMark Core on system login</translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Detach block and address databases at shutdown. This means they can be moved to another data directory, but it slows down shutdown. The wallet is always detached.</source>
+        <translation>Detach block and address databases at shutdown. This means they can be moved to another data directory, but it slows down shutdown. The wallet is always detached.</translation>
+    </message>
+    <message>
+        <location line="-4"/>
+        <source>&amp;Detach databases at shutdown</source>
+        <translation>&amp;Detach databases at shutdown</translation>
+    </message>
+    <message>
+        <location line="+21"/>
+        <source>W&amp;allet</source>
+        <translation>W&amp;allet</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -1274,31 +1437,46 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+31"/>
-        <source>Automatically start eMark Core after logging in to the system.</source>
-        <translation>Automatically start eMark Core after logging in to the system.</translation>
+        <source>Expert</source>
+        <translation>Expert</translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>Whether to show coin control features or not.</source>
+        <translation>Whether to show coin control features or not.</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>&amp;Start eMark Core on system login</source>
-        <translation>&amp;Start eMark Core on system login</translation>
+        <source>Enable coin &amp;control features</source>
+        <translation>Enable coin &amp;control features</translation>
+    </message>
+    <message>
+        <location line="-1"/>
+        <source>If you disable the spending of unconfirmed change, the change from a transaction cannot be used until that transaction has at least one confirmation. This also affects how your balance is computed.</source>
+        <translation>If you disable the spending of unconfirmed change, the change from a transaction cannot be used until that transaction has at least one confirmation. This also affects how your balance is computed.</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>&amp;Spend unconfirmed change</source>
+        <translation>&amp;Spend unconfirmed change</translation>
     </message>
     <message>
         <location line="+7"/>
-        <source>Detach block and address databases at shutdown. This means they can be moved to another data directory, but it slows down shutdown. The wallet is always detached.</source>
-        <translation>Detach block and address databases at shutdown. This means they can be moved to another data directory, but it slows down shutdown. The wallet is always detached.</translation>
+        <source>Whether to select the coin outputs randomly or with minimal coin age.</source>
+        <translation>Whether to select the coin outputs randomly or with minimal coin age.</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>&amp;Detach databases at shutdown</source>
-        <translation>&amp;Detach databases at shutdown</translation>
+        <source>Minimize weight consumption</source>
+        <translation>Minimize weight consumption</translation>
     </message>
     <message>
-        <location line="+21"/>
+        <location line="+24"/>
         <source>&amp;Network</source>
         <translation>&amp;Network</translation>
     </message>
     <message>
-        <location line="-25"/>
+        <location line="+6"/>
         <source>Automatically open the eMark client port on the router. This only works when your router supports UPnP and it is enabled.</source>
         <translation>Automatically open the eMark client port on the router. This only works when your router supports UPnP and it is enabled.</translation>
     </message>
@@ -1320,7 +1498,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+9"/>
         <source>Proxy &amp;IP:</source>
-        <translation>Proxy &amp;IP:</translation>
+        <translation>Proxy-&amp;IP:</translation>
     </message>
     <message>
         <location line="+19"/>
@@ -1396,37 +1574,28 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Choose the default subdivision unit to show in the interface and when sending coins.</translation>
     </message>
     <message>
-        <location line="+40"/>
-        <source>Whether to show eMark addresses in the transaction list or not.</source>
-        <translation>Whether to show eMark addresses in the transaction list or not.</translation>
+        <location line="+38"/>
+        <location line="+13"/>
+        <source>Third party URLs (e.g. a block explorer) that appear in the transactions tab as context menu items. %s in the URL is replaced by transaction hash. Multiple URLs are separated by vertical bar |.</source>
+        <translation>Third party URLs (e.g. a block explorer) that appear in the transactions tab as context menu items. %s in the URL is replaced by transaction hash. Multiple URLs are separated by vertical bar |.</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="-10"/>
+        <source>Third party transaction URLs</source>
+        <translation>Third party transaction URLs</translation>
+    </message>
+    <message>
+        <location line="+22"/>
         <source>&amp;Display addresses in transaction list</source>
         <translation>&amp;Display addresses in transaction list</translation>
     </message>
     <message>
-        <location line="+7"/>
-        <source>Whether to show coin control features or not.</source>
-        <translation>Whether to show coin control features or not.</translation>
+        <location line="-66"/>
+        <source>Whether to show eMark addresses in the transaction list or not.</source>
+        <translation>Whether to show eMark addresses in the transaction list or not.</translation>
     </message>
     <message>
-        <location line="-47"/>
-        <source>Display coin &amp;control features</source>
-        <translation>Display coin &amp;control features</translation>
-    </message>
-    <message>
-        <location line="+10"/>
-        <source>Whether to select the coin outputs randomly or with minimal coin age.</source>
-        <translation>Whether to select the coin outputs randomly or with minimal coin age.</translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Minimize weight consumption (experimental)</source>
-        <translation>Minimize weight consumption (experimental)</translation>
-    </message>
-    <message>
-        <location line="+57"/>
+        <location line="+44"/>
         <source>Hide amounts for privacy (***.**)</source>
         <translation>Hide amounts for privacy (***.**)</translation>
     </message>
@@ -1436,7 +1605,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Use black visual theme (requires restart)</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="-23"/>
         <source>&amp;OK</source>
         <translation>&amp;OK</translation>
     </message>
@@ -1532,12 +1701,22 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Mined balance that has not yet matured</translation>
     </message>
     <message>
-        <location line="+23"/>
+        <location line="+277"/>
+        <source>Total minted:</source>
+        <translation>Total minted:</translation>
+    </message>
+    <message>
+        <location line="+13"/>
+        <source>Total number of eMark made by POS</source>
+        <translation>Total number of eMark made by POS</translation>
+    </message>
+    <message>
+        <location line="+16"/>
         <source>Total:</source>
         <translation>Total:</translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location line="-290"/>
         <source>Your current total balance</source>
         <translation>Your current total balance</translation>
     </message>
@@ -1562,12 +1741,23 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Price in USD, click to refresh</translation>
     </message>
     <message>
-        <location filename="../forms/overviewpage.ui" line="+295"/>
+        <location filename="../forms/overviewpage.ui" line="+335"/>
+        <location line="+10"/>
+        <source>Total number of transactions in wallet</source>
+        <translation>Total number of transactions in wallet</translation>
+    </message>
+    <message>
+        <location line="-7"/>
+        <source>Number of transactions:</source>
+        <translation>Number of transactions:</translation>
+    </message>
+    <message>
+        <location line="+51"/>
         <source>&lt;b&gt;Recent transactions&lt;/b&gt;</source>
         <translation>&lt;b&gt;Recent transactions&lt;/b&gt;</translation>
     </message>
     <message>
-        <location line="-312"/>
+        <location line="-701"/>
         <location line="+325"/>
         <source>out of sync</source>
         <translation>out of sync</translation>
@@ -1699,12 +1889,17 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Build date</translation>
     </message>
     <message>
+        <location line="+55"/>
+        <source>Datadir</source>
+        <translation>Datadir</translation>
+    </message>
+    <message>
         <location line="+23"/>
         <source>Startup time</source>
         <translation>Startup time</translation>
     </message>
     <message>
-        <location line="+29"/>
+        <location line="-49"/>
         <source>Network</source>
         <translation>Network</translation>
     </message>
@@ -1724,22 +1919,27 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Block chain</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+62"/>
         <source>Current number of blocks</source>
         <translation>Current number of blocks</translation>
     </message>
     <message>
         <location line="+23"/>
+        <source>Estimated total blocks</source>
+        <translation>Estimated total blocks</translation>
+    </message>
+    <message>
+        <location line="-62"/>
         <source>Last block time</source>
         <translation>Last block time</translation>
     </message>
     <message>
-        <location line="+42"/>
+        <location line="+150"/>
         <source>Debug log file</source>
         <translation>Debug log file</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="-352"/>
         <source>Open the eMark debug log file from the current data directory. This can take a few seconds for large log files.</source>
         <translation>Open the eMark debug log file from the current data directory. This can take a few seconds for large log files.</translation>
     </message>
@@ -1799,12 +1999,12 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Out:</translation>
     </message>
     <message>
-        <location filename="../rpcconsole.cpp" line="+325"/>
+        <location filename="../rpcconsole.cpp" line="+333"/>
         <source>Welcome to the eMark Core RPC console.</source>
         <translation>Welcome to the eMark Core RPC console.</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="-332"/>
         <source>Use up and down arrows to navigate history, and &lt;b&gt;Ctrl-L&lt;/b&gt; to clear screen.</source>
         <translation>Use up and down arrows to navigate history, and &lt;b&gt;Ctrl-L&lt;/b&gt; to clear screen.</translation>
     </message>
@@ -1814,7 +2014,12 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Type &lt;b&gt;help&lt;/b&gt; for an overview of available commands.</translation>
     </message>
     <message>
-        <location line="+134"/>
+        <location line="+335"/>
+        <source>WARNING: Scammers have been active, telling users to type commands here, stealing their wallet contents. Do not use this console without fully understanding the ramifications of a command.</source>
+        <translation>WARNING: Scammers have been active, telling users to type commands here, stealing their wallet contents. Do not use this console without fully understanding the ramifications of a command.</translation>
+    </message>
+    <message>
+        <location line="+149"/>
         <source>%1 B</source>
         <translation>%1 B</translation>
     </message>
@@ -2518,8 +2723,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+5"/>
-        <source>Wallet comment</source>
-        <translation>Wallet comment</translation>
+        <source>Comment</source>
+        <translation>Comment</translation>
     </message>
     <message>
         <location line="+3"/>

@@ -20,7 +20,7 @@ enum NumConnections {
     CONNECTIONS_ALL  = (CONNECTIONS_IN | CONNECTIONS_OUT),
 };
 
-/** Model for Bitcoin network client. */
+/** Model for eMark network client. */
 class ClientModel : public QObject
 {
     Q_OBJECT
@@ -47,6 +47,8 @@ public:
     bool inInitialBlockDownload() const;
     //! Return true if core is importing blocks
     bool isImporting() const;
+    //! Return conservative estimate of total number of blocks, or 0 if unknown
+    int getNumBlocksOfPeers() const;
     //! Return warnings to be displayed in status bar
     QString getStatusBarWarnings() const;
 
@@ -60,6 +62,9 @@ private:
     OptionsModel *optionsModel;
 
     int cachedNumBlocks;
+    int cachedNumBlocksOfPeers;
+	bool cachedReindexing;
+	bool cachedImporting;
 
     int numBlocksAtStartup;
 
@@ -70,7 +75,7 @@ private:
 
 signals:
     void numConnectionsChanged(int count);
-    void numBlocksChanged(int count);
+    void numBlocksChanged(int count, int countOfPeers);
     void alertsChanged(const QString &warnings);
     void bytesChanged(quint64 totalBytesIn, quint64 totalBytesOut);
 

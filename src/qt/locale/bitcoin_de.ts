@@ -17,11 +17,11 @@
         <location line="+41"/>
         <source>Copyright © 2009-2012 The Bitcoin developers
 Copyright © 2011-2012 The PPCoin developers
-Copyright © 2013 The Novacoin developers
+Copyright © 2013-2014 The Novacoin developers
 Copyright © 2013-2021 The eMark Core developers</source>
-        <translation>Copyright © 2009-2014 Die Bitcoin-Entwickler
+        <translation>Copyright © 2009-2012 Die Bitcoin-Entwickler
 Copyright © 2011-2012 Die PPCoin-Entwickler
-Copyright © 2013 Die Novacoin-Entwickler
+Copyright © 2013-2014 Die Novacoin-Entwickler
 Copyright © 2013-2021 Die eMark Core-Entwickler</translation>
     </message>
     <message>
@@ -202,32 +202,32 @@ Dieses Produkt enthält Software, entwickelt vom OpenSSL Project für das OpenSS
     <message>
         <location filename="../askpassphrasedialog.cpp" line="+37"/>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
-        <translation>Geben Sie die neue Passphrase in die Brieftasche ein.&lt;br/&gt;Verwenden Sie eine Passphrase mit &lt;b&gt;zehn oder mehr zufälligen Zeichen&lt;/b&gt; oder &lt;b&gt;acht oder mehr Wörtern&lt;/b&gt;.</translation>
+        <translation>Geben Sie die neue Passphrase in die Wallet ein.&lt;br/&gt;Verwenden Sie eine Passphrase mit &lt;b&gt;zehn oder mehr zufälligen Zeichen&lt;/b&gt; oder &lt;b&gt;acht oder mehr Wörtern&lt;/b&gt;.</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Encrypt wallet</source>
-        <translation>Brieftasche verschlüsseln</translation>
+        <translation>Wallet verschlüsseln</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>This operation needs your wallet passphrase to unlock the wallet.</source>
-        <translation>Dieser Vorgang benötigt Ihre Brieftaschen-Passphrase, um die Brieftasche zu entsperren.</translation>
+        <translation>Dieser Vorgang benötigt Ihre Wallet-Passphrase, um die Wallet zu entsperren.</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Unlock wallet</source>
-        <translation>Brieftasche entsperren</translation>
+        <translation>Wallet entsperren</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>This operation needs your wallet passphrase to decrypt the wallet.</source>
-        <translation>Dieser Vorgang benötigt Ihre Brieftaschen-Passphrase, um die Brieftasche zu entschlüsseln.</translation>
+        <translation>Dieser Vorgang benötigt Ihre Wallet-Passphrase, um die Wallet zu entschlüsseln.</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Decrypt wallet</source>
-        <translation>Brieftasche entschlüsseln</translation>
+        <translation>Wallet entschlüsseln</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -237,38 +237,38 @@ Dieses Produkt enthält Software, entwickelt vom OpenSSL Project für das OpenSS
     <message>
         <location line="+1"/>
         <source>Enter the old and new passphrase to the wallet.</source>
-        <translation>Geben Sie die alte und die neue Passphrase in die Brieftasche ein.</translation>
+        <translation>Geben Sie die alte und die neue Passphrase in die Wallet ein.</translation>
     </message>
     <message>
         <location line="+45"/>
         <source>Confirm wallet encryption</source>
-        <translation>Brieftaschenverschlüsselung bestätigen</translation>
+        <translation>Wallet-Verschlüsselung bestätigen</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR EMARK&lt;/b&gt;!</source>
-        <translation>Warnung: Wenn Sie Ihre Brieftasche verschlüsseln und Ihre Passphrase verlieren, &lt;b&gt;VERLIEREN SIE ALLE EMARK&lt;/b&gt;!</translation>
+        <translation>Warnung: Wenn Sie Ihre Wallet verschlüsseln und Ihre Passphrase verlieren, &lt;b&gt;VERLIEREN SIE ALLE EMARK&lt;/b&gt;!</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Are you sure you wish to encrypt your wallet?</source>
-        <translation>Sind Sie sich sicher, dass Sie Ihre Brieftasche verschlüsseln möchten?</translation>
+        <translation>Sind Sie sich sicher, dass Sie Ihre Wallet verschlüsseln möchten?</translation>
     </message>
     <message>
         <location line="+9"/>
         <location line="+60"/>
         <source>Wallet encrypted</source>
-        <translation>Brieftasche verschlüsselt</translation>
+        <translation>Wallet verschlüsselt</translation>
     </message>
     <message>
         <location line="-58"/>
         <source>eMark Core will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your coins from being stolen by malware infecting your computer.</source>
-        <translation>eMark Core wird jetzt beendet, um den Verschlüsselungsprozess abzuschließen. Bitte beachten Sie, dass die Verschlüsselung Ihrer Brieftasche nicht vollständig vor Diebstahl Ihrer eMark durch Schadsoftware schützt, die Ihren Computer befällt.</translation>
+        <translation>eMark Core wird jetzt beendet, um den Verschlüsselungsprozess abzuschließen. Bitte beachten Sie, dass die Verschlüsselung Ihrer Wallet nicht vollständig vor Diebstahl Ihrer eMark durch Schadsoftware schützt, die Ihren Computer befällt.</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
-        <translation>WICHTIG: Alle vorherigen Sicherungen Ihrer Brieftasche sollten durch die neu erzeugte, verschlüsselte Brieftasche ersetzt werden. Aus Sicherheitsgründen werden vorherige Sicherungen der unverschlüsselten Brieftasche nutzlos, sobald Sie die neue, verschlüsselte Brieftasche verwenden.</translation>
+        <translation>WICHTIG: Alle vorherigen Sicherungen Ihrer Wallet sollten durch die neu erzeugte, verschlüsselte Wallet ersetzt werden. Aus Sicherheitsgründen werden vorherige Sicherungen der unverschlüsselten Wallet nutzlos, sobald Sie die neue, verschlüsselte Wallet verwenden.</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -276,12 +276,12 @@ Dieses Produkt enthält Software, entwickelt vom OpenSSL Project für das OpenSS
         <location line="+44"/>
         <location line="+6"/>
         <source>Wallet encryption failed</source>
-        <translation>Brieftaschenverschlüsselung fehlgeschlagen</translation>
+        <translation>Wallet-Verschlüsselung fehlgeschlagen</translation>
     </message>
     <message>
         <location line="-56"/>
         <source>Wallet encryption failed due to an internal error. Your wallet was not encrypted.</source>
-        <translation>Die Brieftaschenverschlüsselung ist aufgrund eines internen Fehlers fehlgeschlagen. Ihre Brieftasche wurde nicht verschlüsselt.</translation>
+        <translation>Die Wallet-Verschlüsselung ist aufgrund eines internen Fehlers fehlgeschlagen. Ihre Wallet wurde nicht verschlüsselt.</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -293,24 +293,24 @@ Dieses Produkt enthält Software, entwickelt vom OpenSSL Project für das OpenSS
         <location line="-38"/>
         <location line="+12"/>
         <source>Wallet unlock failed</source>
-        <translation>Brieftaschenentsperrung fehlgeschlagen</translation>
+        <translation>Wallet-Entsperrung fehlgeschlagen</translation>
     </message>
     <message>
         <location line="-11"/>
         <location line="+12"/>
         <location line="+19"/>
         <source>The passphrase entered for the wallet decryption was incorrect.</source>
-        <translation>Die für die Brieftaschenentschlüsselung eingegebene Passphrase war falsch.</translation>
+        <translation>Die für die Wallet-Entschlüsselung eingegebene Passphrase war falsch.</translation>
     </message>
     <message>
         <location line="-20"/>
         <source>Wallet decryption failed</source>
-        <translation>Brieftaschenentschlüsselung fehlgeschlagen</translation>
+        <translation>Wallet-Entschlüsselung fehlgeschlagen</translation>
     </message>
     <message>
         <location line="+14"/>
         <source>Wallet passphrase was successfully changed.</source>
-        <translation>Die Brieftaschen-Passphrase wurde erfolgreich geändert.</translation>
+        <translation>Die Wallet-Passphrase wurde erfolgreich geändert.</translation>
     </message>
     <message>
         <location line="+48"/>
@@ -322,22 +322,12 @@ Dieses Produkt enthält Software, entwickelt vom OpenSSL Project für das OpenSS
 <context>
     <name>BitcoinGUI</name>
     <message>
-        <location filename="../bitcoin.cpp" line="+102"/>
+        <location filename="../bitcoin.cpp" line="+103"/>
         <source>A fatal error occurred. eMark Core can no longer continue safely and will quit.</source>
         <translation>Ein schwerwiegender Fehler ist aufgetreten. eMark Core kann nicht mehr sicher fortgesetzt werden und wird beendet.</translation>
     </message>
     <message>
-        <location filename="../bitcoingui.cpp" line="+712"/>
-        <source>Synchronizing with network...</source>
-        <translation>Synchronisiere mit Netzwerk...</translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source>Importing blocks...</source>
-        <translation>Blöcke werden importiert...</translation>
-    </message>
-    <message>
-        <location line="-624"/>
+        <location filename="../bitcoingui.cpp" line="+100"/>
         <source>eMark Core</source>
         <translation>eMark Core</translation>
     </message>
@@ -347,22 +337,17 @@ Dieses Produkt enthält Software, entwickelt vom OpenSSL Project für das OpenSS
         <translation>Wallet</translation>
     </message>
     <message>
-        <location line="+171"/>
+        <location line="+156"/>
         <source>Overview</source>
         <translation>Übersicht</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Wallet Overview</source>
-        <translation>Allgemeine Brieftaschen-Übersicht anzeigen</translation>
+        <translation>Allgemeine Wallet-Übersicht anzeigen</translation>
     </message>
     <message>
-        <location line="+39"/>
-        <source>Open &amp;URI...</source>
-        <translation>&amp;URI öffnen...</translation>
-    </message>
-    <message>
-        <location line="-34"/>
+        <location line="+5"/>
         <source>Send</source>
         <translation>Überweisen</translation>
     </message>
@@ -404,12 +389,12 @@ Dieses Produkt enthält Software, entwickelt vom OpenSSL Project für das OpenSS
     <message>
         <location line="+16"/>
         <source>&amp;Backup Wallet</source>
-        <translation>&amp;Brieftasche sichern</translation>
+        <translation>&amp;Wallet sichern</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Backup wallet to another location</source>
-        <translation>Eine Sicherungskopie der Brieftasche erstellen und abspeichern</translation>
+        <translation>Eine Sicherungskopie der Wallet erstellen und abspeichern</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -422,24 +407,24 @@ Dieses Produkt enthält Software, entwickelt vom OpenSSL Project für das OpenSS
         <translation>Die Daten der aktuellen Ansicht in eine Datei exportieren</translation>
     </message>
     <message>
-        <location line="+7"/>
-        <source>Sign &amp;Message</source>
-        <translation>&amp;Nachricht signieren</translation>
+        <location line="+1"/>
+        <source>Re&amp;scan Wallet</source>
+        <translation>Wallet erneut &amp;scannen</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>&amp;Verify message</source>
-        <translation>&amp;Nachricht verifizieren</translation>
-    </message>
-    <message>
-        <location line="-7"/>
-        <source>E&amp;xit</source>
-        <translation>&amp;Beenden</translation>
+        <source>Rescan the blockchain for your wallet transactions.</source>
+        <translation>Blockkette erneut nach fehlenden Transaktionen der Wallet durchsuchen.</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Quit application</source>
-        <translation>Anwendung beenden</translation>
+        <source>&amp;Export Keys</source>
+        <translation>&amp;Export Keys</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Export private keys in wallet.</source>
+        <translation>Export private keys in wallet.</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -453,53 +438,63 @@ Dieses Produkt enthält Software, entwickelt vom OpenSSL Project für das OpenSS
     </message>
     <message>
         <location line="+1"/>
-        <source>&amp;Export Keys</source>
-        <translation>&amp;Export Keys</translation>
+        <source>Sign &amp;Message</source>
+        <translation>&amp;Nachricht signieren</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Export private keys in wallet.</source>
-        <translation>Export private keys in wallet.</translation>
+        <source>&amp;Verify message</source>
+        <translation>&amp;Nachricht verifizieren</translation>
     </message>
     <message>
-        <location line="-3"/>
+        <location line="+1"/>
+        <source>E&amp;xit</source>
+        <translation>&amp;Beenden</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Quit application</source>
+        <translation>Anwendung beenden</translation>
+    </message>
+    <message>
+        <location line="+4"/>
         <source>&amp;Change Password</source>
         <translation>&amp;Passphrase ändern</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Change the passphrase used for wallet encryption</source>
-        <translation>Ändern der für die Brieftaschenverschlüsselung verwendeten Passphrase</translation>
+        <translation>Ändern der für die Wallet-Verschlüsselung verwendeten Passphrase</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>&amp;Lock Wallet</source>
-        <translation>Brieftasche &amp;sperren</translation>
+        <translation>Wallet &amp;sperren</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Lock wallet</source>
-        <translation>Brieftasche sperren</translation>
+        <translation>Wallet sperren</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>&amp;Unlock Wallet</source>
-        <translation>&amp;Brieftasche entsperren</translation>
+        <translation>&amp;Wallet entsperren</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Unlock wallet</source>
-        <translation>Brieftasche entsperren</translation>
+        <translation>Wallet entsperren</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>En&amp;crypt Wallet</source>
-        <translation>Brieftasche &amp;verschlüsseln</translation>
+        <translation>Wallet &amp;verschlüsseln</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Encrypt or decrypt wallet</source>
-        <translation>Brieftasche verschlüsseln oder entschlüsseln</translation>
+        <translation>Wallet verschlüsseln oder entschlüsseln</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -532,17 +527,37 @@ Dieses Produkt enthält Software, entwickelt vom OpenSSL Project für das OpenSS
         <translation>Debugging- und Diagnosekonsole öffnen</translation>
     </message>
     <message>
-        <location line="+4"/>
-        <source>Open eMark.conf</source>
-        <translation>eMark.conf öffnen</translation>
+        <location line="+2"/>
+        <source>Open Wallet &amp;Configuration File</source>
+        <translation>&amp;Konfigurationsdatei öffnen</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Open configuration file</source>
-        <translation>eMark.conf öffnen</translation>
+        <translation>Konfigurationsdatei öffnen</translation>
     </message>
     <message>
-        <location line="-2"/>
+        <location line="+3"/>
+        <source>Website</source>
+        <translation>Webseite</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Open the eMark website in a web browser.</source>
+        <translation>Öffnen Sie die eMark-Webseite in einem Webbrowser.</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Chatroom</source>
+        <translation>Chat</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Open the eMark Discord chat in a web browser.</source>
+        <translation>Öffnen Sie den eMark Discord-Chat in einem Webbrowser.</translation>
+    </message>
+    <message>
+        <location line="+1"/>
         <source>&amp;About eMark Core</source>
         <translation>&amp;Über eMark Core</translation>
     </message>
@@ -562,7 +577,7 @@ Dieses Produkt enthält Software, entwickelt vom OpenSSL Project für das OpenSS
         <translation>Informationen über Qt anzeigen</translation>
     </message>
     <message>
-        <location line="+57"/>
+        <location line="+33"/>
         <source>&amp;File</source>
         <translation>&amp;Datei</translation>
     </message>
@@ -572,22 +587,17 @@ Dieses Produkt enthält Software, entwickelt vom OpenSSL Project für das OpenSS
         <translation>&amp;Einstellungen</translation>
     </message>
     <message>
-        <location line="+9"/>
-        <source>&amp;Links</source>
-        <translation>&amp;Links</translation>
+        <location line="+8"/>
+        <source>&amp;Tools</source>
+        <translation>&amp;Werkzeuge</translation>
     </message>
     <message>
-        <location line="+15"/>
-        <source>&amp;Exchanges</source>
-        <translation>&amp;Börsen</translation>
-    </message>
-    <message>
-        <location line="+5"/>
+        <location line="+7"/>
         <source>&amp;Help</source>
         <translation>&amp;Hilfe</translation>
     </message>
     <message>
-        <location line="+19"/>
+        <location line="+18"/>
         <source>Tabs Toolbar</source>
         <translation>Registerkartenleiste</translation>
     </message>
@@ -603,7 +613,7 @@ Dieses Produkt enthält Software, entwickelt vom OpenSSL Project für das OpenSS
         <translation>eMark-Client</translation>
     </message>
     <message numerus="yes">
-        <location line="+76"/>
+        <location line="+107"/>
         <source>%n active connection(s) to eMark network</source>
         <translation>
             <numerusform>%n aktive Verbindung zum eMark-Netzwerk</numerusform>
@@ -611,17 +621,23 @@ Dieses Produkt enthält Software, entwickelt vom OpenSSL Project für das OpenSS
         </translation>
     </message>
     <message>
-        <location line="+21"/>
-        <source>Processed %1 blocks of transaction history.</source>
-        <translation>%1 des Transaktionsverlaufes geladen.</translation>
+        <location line="+23"/>
+        <source>Processed %1 of %2 (estimated) blocks of transaction history (%3% done).</source>
+        <translation>%1 von (geschätzten) %2 Blöcken des Transaktionsverlaufs verarbeitet (%3% fertig).</translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="+4"/>
+        <source>Processed %1 blocks of transaction history.</source>
+        <translation>%1 Blöcke des Transaktionsverlaufes geladen.</translation>
+    </message>
+    <message>
+        <location line="+6"/>
         <source>Up to date</source>
         <translation>Auf aktuellem Stand</translation>
     </message>
     <message numerus="yes">
         <location line="+18"/>
+        <location line="+567"/>
         <source>%n hour(s)</source>
         <translation>
             <numerusform>%n Stunde</numerusform>
@@ -629,7 +645,8 @@ Dieses Produkt enthält Software, entwickelt vom OpenSSL Project für das OpenSS
         </translation>
     </message>
     <message numerus="yes">
-        <location line="+4"/>
+        <location line="-563"/>
+        <location line="+567"/>
         <source>%n day(s)</source>
         <translation>
             <numerusform>%n Tag</numerusform>
@@ -637,7 +654,8 @@ Dieses Produkt enthält Software, entwickelt vom OpenSSL Project für das OpenSS
         </translation>
     </message>
     <message numerus="yes">
-        <location line="+4"/>
+        <location line="-563"/>
+        <location line="+6"/>
         <source>%n week(s)</source>
         <translation>
             <numerusform>%n Woche</numerusform>
@@ -645,7 +663,7 @@ Dieses Produkt enthält Software, entwickelt vom OpenSSL Project für das OpenSS
         </translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+0"/>
         <source>%1 and %2</source>
         <translation>%1 und %2</translation>
     </message>
@@ -658,9 +676,19 @@ Dieses Produkt enthält Software, entwickelt vom OpenSSL Project für das OpenSS
         </translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="+0"/>
+        <source>Importing blocks...</source>
+        <translation>Blöcke werden importiert...</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Synchronizing with network...</source>
+        <translation>Synchronisiere mit Netzwerk...</translation>
+    </message>
+    <message>
+        <location line="+2"/>
         <source>%1 behind</source>
-        <translation>%1 am aufholen</translation>
+        <translation>%1 im Rückstand</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -675,7 +703,7 @@ Dieses Produkt enthält Software, entwickelt vom OpenSSL Project für das OpenSS
     <message>
         <location line="+2"/>
         <source>Transactions after this will not yet be visible.</source>
-        <translation>Die Transaktionen danach sind noch nicht sichtbar.</translation>
+        <translation>Transaktionen hiernach werden noch nicht angezeigt.</translation>
     </message>
     <message>
         <location line="+15"/>
@@ -700,7 +728,7 @@ Dieses Produkt enthält Software, entwickelt vom OpenSSL Project für das OpenSS
     <message>
         <location line="+69"/>
         <source>To send this transaction it requires a fee of %1, This fee goes to the nodes that process your transaction. Do you want to continue?</source>
-        <translation>Diese Transaktion übersteigt das Limit, unterstützen Sie das Netzwerk indem sie %1 Gebühr an die Knoten entrichten. Möchten Sie die Gebühr bezahlen?</translation>
+        <translation>Um diese Transaktion zu senden, ist eine Gebühr von %1 erforderlich. Diese Gebühr geht an die Knoten, die Ihre Transaktion verarbeiten. Möchten Sie fortfahren?</translation>
     </message>
     <message>
         <location line="+4"/>
@@ -745,27 +773,27 @@ Adresse: %4
     <message>
         <location line="+9"/>
         <source>Wallet is &lt;b&gt;not encrypted&lt;/b&gt;</source>
-        <translation>Die Brieftasche ist &lt;b&gt;nicht verschlüsselt&lt;/b&gt;</translation>
+        <translation>Die Wallet ist &lt;b&gt;nicht verschlüsselt&lt;/b&gt;</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt;</source>
-        <translation>Die Brieftasche ist &lt;b&gt;verschlüsselt&lt;/b&gt; und aktuell &lt;b&gt;entsperrt&lt;/b&gt;</translation>
+        <translation>Die Wallet ist &lt;b&gt;verschlüsselt&lt;/b&gt; und aktuell &lt;b&gt;entsperrt&lt;/b&gt;</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
-        <translation>Die Brieftasche ist &lt;b&gt;verschlüsselt&lt;/b&gt; und aktuell &lt;b&gt;gesperrt&lt;/b&gt;</translation>
+        <translation>Die Wallet ist &lt;b&gt;verschlüsselt&lt;/b&gt; und aktuell &lt;b&gt;gesperrt&lt;/b&gt;</translation>
     </message>
     <message>
-        <location line="+24"/>
+        <location line="+28"/>
         <source>Backup Wallet</source>
-        <translation>Brieftasche sichern</translation>
+        <translation>Wallet sichern</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Wallet Data (*.dat)</source>
-        <translation>Brieftaschendaten (*.dat)</translation>
+        <translation>Wallet-Daten (*.dat)</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -775,10 +803,84 @@ Adresse: %4
     <message>
         <location line="+0"/>
         <source>There was an error trying to save the wallet data to the new location.</source>
-        <translation>Beim Versuch, die Brieftaschendaten am neuen Speicherort zu speichern, ist ein Fehler aufgetreten.</translation>
+        <translation>Beim Versuch, die Wallet-Daten am neuen Speicherort zu speichern, ist ein Fehler aufgetreten.</translation>
+    </message>
+    <message>
+        <location line="+22"/>
+        <location line="+8"/>
+        <location line="+9"/>
+        <location line="+8"/>
+        <location line="+7"/>
+        <source>Export Private Key</source>
+        <translation>Privaten Schlüssel exportieren</translation>
+    </message>
+    <message>
+        <location line="-31"/>
+        <source>This is an invalid eMark address</source>
+        <translation>Dies ist eine ungültige eMark-Adresse</translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>Address does not refer to a key</source>
+        <translation>Adresse bezieht sich nicht auf einen Schlüssel</translation>
+    </message>
+    <message>
+        <location line="+9"/>
+        <source>Private key for address %1 is not known</source>
+        <translation>Privater Schlüssel für Adresse %1 ist nicht bekannt</translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>This is the private key:\n%1 \n\nAssociated with this eMark address: \n%2\n\nCopy to secure location, this allows access to coins.</source>
+        <translation>Dies ist der private Schlüssel:\n%1 \n\nVerbunden mit dieser eMark-Adresse: \n%2\n\nKopieren Sie ihn an einen sicheren Ort, dies ermöglicht den Zugriff auf Münzen.</translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Cannot export the private key from a locked wallet</source>
+        <translation>Exportieren des privaten Schlüssels aus einer gesperrten Wallet nicht möglich</translation>
+    </message>
+    <message>
+        <location line="+14"/>
+        <location line="+9"/>
+        <location line="+19"/>
+        <location line="+10"/>
+        <location line="+6"/>
+        <location line="+14"/>
+        <source>Import Private Key</source>
+        <translation>Privaten Schlüssel importieren</translation>
+    </message>
+    <message>
+        <location line="-58"/>
+        <source>Input Private key: </source>
+        <translation>Eingabe Privater Schlüssel: </translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>This is an invalid private key</source>
+        <translation>Dies ist ein ungültiger privater Schlüssel</translation>
+    </message>
+    <message>
+        <location line="+19"/>
+        <source>This key is already in wallet</source>
+        <translation>Dieser Schlüssel befindet sich bereits in der Wallet</translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Error importing private key</source>
+        <translation>Fehler beim Importieren des privaten Schlüssels</translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>The wallet will now scan the blockchain for all transactions with this key</source>
+        <translation>Die Wallet durchsucht nun die Blockchain nach allen Transaktionen mit diesem Schlüssel</translation>
+    </message>
+    <message>
+        <location line="+14"/>
+        <source>Cannot import a private key into a locked wallet</source>
+        <translation>Importieren eines privaten Schlüssels in eine gesperrte Wallet ist nicht möglich</translation>
     </message>
     <message numerus="yes">
-        <location line="+91"/>
+        <location line="+93"/>
         <source>%n second(s)</source>
         <translation>
             <numerusform>%n Sekunde</numerusform>
@@ -801,17 +903,17 @@ Adresse: %4
     <message>
         <location line="+6"/>
         <source>Not staking because wallet is locked</source>
-        <translation>Es werden keine Zinsen erzeugt, da die Brieftasche gesperrt ist</translation>
+        <translation>Es werden keine Zinsen erzeugt, da die Wallet gesperrt ist</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Not staking because wallet is offline</source>
-        <translation>Es werden keine Zinsen erzeugt, da die Brieftasche offline ist</translation>
+        <translation>Es werden keine Zinsen erzeugt, da die Wallet offline ist</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Not staking because wallet is syncing</source>
-        <translation>Es werden keine Zinsen erzeugt, da die Brieftasche nicht synchronisiert ist</translation>
+        <translation>Es werden keine Zinsen erzeugt, da die Wallet nicht synchronisiert ist</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -1160,7 +1262,7 @@ Diese Bezeichnung wird rot, wenn die Priorität kleiner als &quot;mittel&quot; i
     <message>
         <location line="+5"/>
         <source>Could not unlock wallet.</source>
-        <translation>Brieftasche konnte nicht entsperrt werden.</translation>
+        <translation>Wallet konnte nicht entsperrt werden.</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -1213,31 +1315,67 @@ Diese Bezeichnung wird rot, wenn die Priorität kleiner als &quot;mittel&quot; i
     </message>
 </context>
 <context>
-    <name>OpenURIDialog</name>
+    <name>Intro</name>
     <message>
-        <location filename="../forms/openuridialog.ui" line="+14"/>
-        <source>Open URI</source>
-        <translation>URI öffnen</translation>
-    </message>
-    <message>
-        <location line="+6"/>
-        <source>Open payment request from URI or file</source>
-        <translation>Zahlungsanforderung über URI oder aus Datei öffnen</translation>
+        <location filename="../forms/intro.ui" line="+14"/>
+        <source>Welcome</source>
+        <translation>Willkommen</translation>
     </message>
     <message>
         <location line="+9"/>
-        <source>URI:</source>
-        <translation>URI:</translation>
+        <source>Welcome to eMark Core.</source>
+        <translation>Willkommen zu eMark Core.</translation>
     </message>
     <message>
-        <location line="+11"/>
-        <source>Select payment request file</source>
-        <translation>Zahlungsanforderungsdatei auswählen</translation>
+        <location line="+26"/>
+        <source>As this is the first time the program is launched, you can choose where eMark Core will store its data.</source>
+        <translation>Da Sie das Programm gerade zum ersten Mal starten, können Sie nun auswählen wo eMark Core seine Daten ablegen wird.</translation>
     </message>
     <message>
-        <location filename="../openuridialog.cpp" line="+47"/>
-        <source>Select payment request file to open</source>
-        <translation>Zu öffnende Zahlungsanforderungsdatei auswählen</translation>
+        <location line="+10"/>
+        <source>eMark Core will download and store a copy of the eMark block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>eMark Core wird eine Kopie der Blockkette herunterladen und speichern. Mindestens %1GB Daten werden in diesem Verzeichnis abgelegt und die Datenmenge wächst über die Zeit an. Auch die Wallet wird in diesem Verzeichnis abgelegt.</translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Use the default data directory</source>
+        <translation>Standard-Datenverzeichnis verwenden</translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Use a custom data directory:</source>
+        <translation>Ein benutzerdefiniertes Datenverzeichnis verwenden:</translation>
+    </message>
+    <message>
+        <location filename="../intro.cpp" line="+184"/>
+        <source>eMark Core</source>
+        <translation>eMark Core</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Error: Specified data directory &quot;%1&quot; cannot be created.</source>
+        <translation>Fehler: Angegebenes Datenverzeichnis &quot;%1&quot; kann nicht angelegt werden.</translation>
+    </message>
+    <message>
+        <location line="+24"/>
+        <source>Error</source>
+        <translation>Fehler</translation>
+    </message>
+    <message numerus="yes">
+        <location line="+9"/>
+        <source>%n GB of free space available</source>
+        <translation>
+            <numerusform>%n GB freier Speicherplatz verfügbar</numerusform>
+            <numerusform>%n GB freier Speicherplatz verfügbar</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location line="+3"/>
+        <source>(of %n GB needed)</source>
+        <translation>
+            <numerusform>(von benötigtem %n GB)</numerusform>
+            <numerusform>(von benötigten %n GB)</numerusform>
+        </translation>
     </message>
 </context>
 <context>
@@ -1251,6 +1389,31 @@ Diese Bezeichnung wird rot, wenn die Priorität kleiner als &quot;mittel&quot; i
         <location line="+16"/>
         <source>&amp;Main</source>
         <translation>&amp;Allgemein</translation>
+    </message>
+    <message>
+        <location line="+11"/>
+        <source>Automatically start eMark Core after logging in to the system.</source>
+        <translation>eMark Core nach der Anmeldung am System automatisch ausführen.</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>&amp;Start eMark Core on system login</source>
+        <translation>&amp;Starte eMark Core nach Systemanmeldung</translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Detach block and address databases at shutdown. This means they can be moved to another data directory, but it slows down shutdown. The wallet is always detached.</source>
+        <translation>Trennen der Block- und Adressdatenbanken beim Herunterfahren. Das bedeutet, dass sie in ein anderes Datenverzeichnis verschoben werden können, aber das Herunterfahren wird dadurch verlangsamt. Die Wallet wird immer abgetrennt.</translation>
+    </message>
+    <message>
+        <location line="-4"/>
+        <source>&amp;Detach databases at shutdown</source>
+        <translation>&amp;Trennen der Datenbanken beim Herunterfahren</translation>
+    </message>
+    <message>
+        <location line="+21"/>
+        <source>W&amp;allet</source>
+        <translation>W&amp;allet</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -1274,31 +1437,46 @@ Diese Bezeichnung wird rot, wenn die Priorität kleiner als &quot;mittel&quot; i
     </message>
     <message>
         <location line="+31"/>
-        <source>Automatically start eMark Core after logging in to the system.</source>
-        <translation>eMark Core nach der Anmeldung am System automatisch ausführen.</translation>
+        <source>Expert</source>
+        <translation>Erweiterte Wallet-Optionen</translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>Whether to show coin control features or not.</source>
+        <translation>Legt fest, ob die &quot;Coin Control&quot;-Funktionen angezeigt werden.</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>&amp;Start eMark Core on system login</source>
-        <translation>&amp;Starte eMark Core nach Systemanmeldung</translation>
+        <source>Enable coin &amp;control features</source>
+        <translation>&quot;&amp;Coin Control&quot;-Funktionen aktivieren</translation>
+    </message>
+    <message>
+        <location line="-1"/>
+        <source>If you disable the spending of unconfirmed change, the change from a transaction cannot be used until that transaction has at least one confirmation. This also affects how your balance is computed.</source>
+        <translation>Wenn Sie das Ausgeben von unbestätigtem Wechselgeld deaktivieren, kann das Wechselgeld einer Transaktion nicht verwendet werden, bis es mindestens eine Bestätigung erhalten hat. Dies wirkt sich auf die Berechnung des Kontostands aus.</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>&amp;Spend unconfirmed change</source>
+        <translation>&amp;Unbestätigtes Wechselgeld darf ausgegeben werden</translation>
     </message>
     <message>
         <location line="+7"/>
-        <source>Detach block and address databases at shutdown. This means they can be moved to another data directory, but it slows down shutdown. The wallet is always detached.</source>
-        <translation>Block- und Adressdatenbanken beim Herunterfahren trennen. Dies bedeutet, dass sie in ein anderes Datenverzeichnis verschoben werden können, das Herunterfahren jedoch verlangsamt wird. Die Wallet ist immer abgetrennt.</translation>
+        <source>Whether to select the coin outputs randomly or with minimal coin age.</source>
+        <translation>Gibt an, ob die Münzausgaben zufällig oder mit minimalem Münzalter ausgewählt werden sollen.</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>&amp;Detach databases at shutdown</source>
-        <translation>&amp;Trennen der Datenbanken beim Herunterfahren</translation>
+        <source>Minimize weight consumption</source>
+        <translation>Gewichtsverbrauch minimieren</translation>
     </message>
     <message>
-        <location line="+21"/>
+        <location line="+24"/>
         <source>&amp;Network</source>
         <translation>&amp;Netzwerk</translation>
     </message>
     <message>
-        <location line="-25"/>
+        <location line="+6"/>
         <source>Automatically open the eMark client port on the router. This only works when your router supports UPnP and it is enabled.</source>
         <translation>Automatisch den eMark-Clientport auf dem Router öffnen. Dies funktioniert nur, wenn Ihr Router UPnP unterstützt und dies aktiviert ist.</translation>
     </message>
@@ -1396,39 +1574,30 @@ Diese Bezeichnung wird rot, wenn die Priorität kleiner als &quot;mittel&quot; i
         <translation>Wählen Sie die Standarduntereinheit, die in der Benutzeroberfläche und beim Überweisen von eMark angezeigt werden soll.</translation>
     </message>
     <message>
-        <location line="+40"/>
-        <source>Whether to show eMark addresses in the transaction list or not.</source>
-        <translation>Legt fest, ob eMark-Adressen in der Transaktionsliste angezeigt werden sollen oder nicht.</translation>
+        <location line="+38"/>
+        <location line="+13"/>
+        <source>Third party URLs (e.g. a block explorer) that appear in the transactions tab as context menu items. %s in the URL is replaced by transaction hash. Multiple URLs are separated by vertical bar |.</source>
+        <translation>Externe URLs (z.B. ein Block-Explorer), die im Kontextmenü des Transaktionsverlaufs eingefügt werden. In der URL wird %s durch den Transaktionshash ersetzt. Bei Angabe mehrerer URLs müssen diese durch &quot;|&quot; voneinander getrennt werden.</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="-10"/>
+        <source>Third party transaction URLs</source>
+        <translation>Externe Transaktions-URLs</translation>
+    </message>
+    <message>
+        <location line="+22"/>
         <source>&amp;Display addresses in transaction list</source>
-        <translation>&amp;Adressen in Transaktionsliste anzeigen</translation>
+        <translation>Adressen in Transaktionsliste &amp;anzeigen</translation>
     </message>
     <message>
-        <location line="+7"/>
-        <source>Whether to show coin control features or not.</source>
-        <translation>Legt fest, ob die &quot;Coin Control&quot;-Funktionen angezeigt werden.</translation>
+        <location line="-66"/>
+        <source>Whether to show eMark addresses in the transaction list or not.</source>
+        <translation>Gibt an, ob eMark-Adressen in der Transaktionsliste angezeigt werden sollen oder nicht.</translation>
     </message>
     <message>
-        <location line="-47"/>
-        <source>Display coin &amp;control features</source>
-        <translation>&quot;Coin &amp;Control&quot;-Funktionen aktivieren</translation>
-    </message>
-    <message>
-        <location line="+10"/>
-        <source>Whether to select the coin outputs randomly or with minimal coin age.</source>
-        <translation>Gibt an, ob die Münzausgaben zufällig oder mit minimalem Münzalter ausgewählt werden sollen.</translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Minimize weight consumption (experimental)</source>
-        <translation>Gewichtsverbrauch minimieren (experimentell)</translation>
-    </message>
-    <message>
-        <location line="+57"/>
+        <location line="+44"/>
         <source>Hide amounts for privacy (***.**)</source>
-        <translation>Beträge zum Schutz der Privatsphäre ausblenden (***.**)</translation>
+        <translation>Beträge aus Datenschutzgründen ausblenden (***.**)</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -1436,7 +1605,7 @@ Diese Bezeichnung wird rot, wenn die Priorität kleiner als &quot;mittel&quot; i
         <translation>schwarzes Design verwenden (Neustart erforderlich)</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="-23"/>
         <source>&amp;OK</source>
         <translation>&amp;OK</translation>
     </message>
@@ -1489,7 +1658,7 @@ Diese Bezeichnung wird rot, wenn die Priorität kleiner als &quot;mittel&quot; i
         <location line="+7"/>
         <location line="+325"/>
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the eMark network after a connection is established, but this process has not completed yet.</source>
-        <translation>Die angezeigten Informationen sind möglicherweise nicht mehr aktuell. Ihre Brieftasche wird automatisch synchronisiert, nachdem eine Verbindung zum eMark-Netzwerk hergestellt wurde. Dieser Prozess ist jedoch derzeit noch nicht abgeschlossen.</translation>
+        <translation>Die angezeigten Informationen sind möglicherweise nicht mehr aktuell. Ihre Wallet wird automatisch synchronisiert, nachdem eine Verbindung zum eMark-Netzwerk hergestellt wurde. Dieser Prozess ist jedoch derzeit noch nicht abgeschlossen.</translation>
     </message>
     <message>
         <location line="-537"/>
@@ -1532,12 +1701,22 @@ Diese Bezeichnung wird rot, wenn die Priorität kleiner als &quot;mittel&quot; i
         <translation>Erarbeiteter Betrag der noch nicht gereift ist</translation>
     </message>
     <message>
-        <location line="+23"/>
+        <location line="+277"/>
+        <source>Total minted:</source>
+        <translation>Total minted:</translation>
+    </message>
+    <message>
+        <location line="+13"/>
+        <source>Total number of eMark made by POS</source>
+        <translation>Gesamtzahl der vom POS hergestellten eMark</translation>
+    </message>
+    <message>
+        <location line="+16"/>
         <source>Total:</source>
         <translation>Gesamtbetrag:</translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location line="-290"/>
         <source>Your current total balance</source>
         <translation>Aktueller Gesamtbetrag aus obigen Kategorien</translation>
     </message>
@@ -1562,12 +1741,23 @@ Diese Bezeichnung wird rot, wenn die Priorität kleiner als &quot;mittel&quot; i
         <translation>Preis in USD, klicken Sie zum Aktualisieren</translation>
     </message>
     <message>
-        <location filename="../forms/overviewpage.ui" line="+295"/>
+        <location filename="../forms/overviewpage.ui" line="+335"/>
+        <location line="+10"/>
+        <source>Total number of transactions in wallet</source>
+        <translation>Gesamtzahl der Transaktionen in der Wallet</translation>
+    </message>
+    <message>
+        <location line="-7"/>
+        <source>Number of transactions:</source>
+        <translation>Anzahl der Transaktionen:</translation>
+    </message>
+    <message>
+        <location line="+51"/>
         <source>&lt;b&gt;Recent transactions&lt;/b&gt;</source>
         <translation>&lt;b&gt;Letzte Transaktionen&lt;/b&gt;</translation>
     </message>
     <message>
-        <location line="-312"/>
+        <location line="-701"/>
         <location line="+325"/>
         <source>out of sync</source>
         <translation>nicht synchron</translation>
@@ -1676,7 +1866,7 @@ Diese Bezeichnung wird rot, wenn die Priorität kleiner als &quot;mittel&quot; i
         <location line="+53"/>
         <location line="+23"/>
         <source>N/A</source>
-        <translation>N/A</translation>
+        <translation>k.A.</translation>
     </message>
     <message>
         <location line="-194"/>
@@ -1699,12 +1889,17 @@ Diese Bezeichnung wird rot, wenn die Priorität kleiner als &quot;mittel&quot; i
         <translation>Erstellungsdatum</translation>
     </message>
     <message>
+        <location line="+78"/>
+        <source>Datadir</source>
+        <translation>Datenverzeichnis</translation>
+    </message>
+    <message>
         <location line="+23"/>
         <source>Startup time</source>
         <translation>Startzeit</translation>
     </message>
     <message>
-        <location line="+29"/>
+        <location line="-72"/>
         <source>Network</source>
         <translation>Netzwerk</translation>
     </message>
@@ -1724,22 +1919,27 @@ Diese Bezeichnung wird rot, wenn die Priorität kleiner als &quot;mittel&quot; i
         <translation>Blockkette</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+85"/>
         <source>Current number of blocks</source>
         <translation>Aktuelle Anzahl Blöcke</translation>
     </message>
     <message>
         <location line="+23"/>
+        <source>Estimated total blocks</source>
+        <translation>Geschätzte Gesamtzahl Blöcke</translation>
+    </message>
+    <message>
+        <location line="-85"/>
         <source>Last block time</source>
         <translation>Letzte Blockzeit</translation>
     </message>
     <message>
-        <location line="+42"/>
+        <location line="+173"/>
         <source>Debug log file</source>
         <translation>Debugprotokolldatei</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="-398"/>
         <source>Open the eMark debug log file from the current data directory. This can take a few seconds for large log files.</source>
         <translation>Öffnet die eMark-Debugprotokolldatei aus dem aktuellen Datenverzeichnis. Dies kann bei großen Protokolldateien einige Sekunden dauern.</translation>
     </message>
@@ -1799,12 +1999,12 @@ Diese Bezeichnung wird rot, wenn die Priorität kleiner als &quot;mittel&quot; i
         <translation>Ausgang:</translation>
     </message>
     <message>
-        <location filename="../rpcconsole.cpp" line="+325"/>
+        <location filename="../rpcconsole.cpp" line="+333"/>
         <source>Welcome to the eMark Core RPC console.</source>
-        <translation>Willkommen in der eMark Core-RPC-Konsole.</translation>
+        <translation>Willkommen in der eMark Core RPC-Konsole.</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="-332"/>
         <source>Use up and down arrows to navigate history, and &lt;b&gt;Ctrl-L&lt;/b&gt; to clear screen.</source>
         <translation>Pfeiltaste hoch und runter, um den Verlauf durchzublättern und &lt;b&gt;Strg-L&lt;/b&gt;, um die Konsole zurückzusetzen.</translation>
     </message>
@@ -1814,7 +2014,12 @@ Diese Bezeichnung wird rot, wenn die Priorität kleiner als &quot;mittel&quot; i
         <translation>Bitte &lt;b&gt;help&lt;/b&gt; eingeben, um eine Übersicht verfügbarer Befehle zu erhalten.</translation>
     </message>
     <message>
-        <location line="+134"/>
+        <location line="+335"/>
+        <source>WARNING: Scammers have been active, telling users to type commands here, stealing their wallet contents. Do not use this console without fully understanding the ramifications of a command.</source>
+        <translation>Warnung: Betrüger verbreiten Befehle für diese Konsole, durch die sie die Guthaben der Nutzer stehlen können. Verwende diese Konsole nicht, wenn du nicht vollständig verstehst welche Auswirkungen die Befehle haben.</translation>
+    </message>
+    <message>
+        <location line="+149"/>
         <source>%1 B</source>
         <translation>%1 B</translation>
     </message>
@@ -2104,7 +2309,7 @@ Diese Bezeichnung wird rot, wenn die Priorität kleiner als &quot;mittel&quot; i
     <message>
         <location line="+5"/>
         <source>Error: The transaction was rejected. This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
-        <translation>Fehler: Die Transaktion wurde abgelehnt. Dies kann passieren, wenn einige der Münzen in Ihrer Brieftasche bereits ausgegeben wurden, z. B. wenn Sie eine Kopie von wallet.dat verwendet haben und eMark in der Kopie ausgegeben wurden, aber hier nicht als ausgegeben markiert sind.</translation>
+        <translation>Fehler: Die Transaktion wurde abgelehnt. Dies kann passieren, wenn einige der Münzen in Ihrer Wallet bereits ausgegeben wurden, z. B. wenn Sie eine Kopie von wallet.dat verwendet haben und eMark in der Kopie ausgegeben wurden, aber hier nicht als ausgegeben markiert sind.</translation>
     </message>
     <message>
         <location line="+254"/>
@@ -2322,7 +2527,7 @@ Diese Bezeichnung wird rot, wenn die Priorität kleiner als &quot;mittel&quot; i
     <message>
         <location line="-73"/>
         <source>Wallet unlock was cancelled.</source>
-        <translation>Das Entsperren der Brieftasche wurde abgebrochen.</translation>
+        <translation>Das Entsperren der Wallet wurde abgebrochen.</translation>
     </message>
     <message>
         <location line="+8"/>
@@ -2518,8 +2723,8 @@ Diese Bezeichnung wird rot, wenn die Priorität kleiner als &quot;mittel&quot; i
     </message>
     <message>
         <location line="+5"/>
-        <source>Wallet comment</source>
-        <translation>Brieftaschenkommentar</translation>
+        <source>Comment</source>
+        <translation>Kommentar</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -2974,7 +3179,7 @@ zum Beispiel: alertnotify=echo %%s | mail -s \&quot;eMark Alert\&quot; admin@foo
     <message>
         <location line="+1"/>
         <source>Specify wallet file (within data directory)</source>
-        <translation>Geben Sie die Brieftaschendatei an (im Datenverzeichnis)</translation>
+        <translation>Geben Sie die Wallet-Datei an (im Datenverzeichnis)</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -3234,7 +3439,7 @@ zum Beispiel: alertnotify=echo %%s | mail -s \&quot;eMark Alert\&quot; admin@foo
     <message>
         <location line="+2"/>
         <source>Upgrade wallet to latest format</source>
-        <translation>Brieftasche auf das neueste Format aktualisieren</translation>
+        <translation>Wallet auf das neueste Format aktualisieren</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -3244,7 +3449,7 @@ zum Beispiel: alertnotify=echo %%s | mail -s \&quot;eMark Alert\&quot; admin@foo
     <message>
         <location line="+1"/>
         <source>Rescan the block chain for missing wallet transactions</source>
-        <translation>Blockkette erneut nach fehlenden Transaktionen der Brieftasche durchsuchen</translation>
+        <translation>Blockkette erneut nach fehlenden Transaktionen der Wallet durchsuchen</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -3344,7 +3549,7 @@ zum Beispiel: alertnotify=echo %%s | mail -s \&quot;eMark Alert\&quot; admin@foo
     <message>
         <location line="+1"/>
         <source>Wallet %s resides outside data directory %s.</source>
-        <translation>Brieftasche %s befindet sich außerhalb des Datenverzeichnisses %s.</translation>
+        <translation>Wallet %s befindet sich außerhalb des Datenverzeichnisses %s.</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -3359,7 +3564,7 @@ zum Beispiel: alertnotify=echo %%s | mail -s \&quot;eMark Alert\&quot; admin@foo
     <message>
         <location line="+1"/>
         <source>Error initializing wallet database environment %s!</source>
-        <translation>Fehler beim Initialisieren der Brieftaschen-Datenbankumgebung %s!</translation>
+        <translation>Fehler beim Initialisieren der Wallet-Datenbankumgebung %s!</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -3429,12 +3634,12 @@ zum Beispiel: alertnotify=echo %%s | mail -s \&quot;eMark Alert\&quot; admin@foo
     <message>
         <location line="+1"/>
         <source>Loading wallet...</source>
-        <translation>Brieftasche wird geladen...</translation>
+        <translation>Wallet wird geladen...</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Error loading wallet.dat: Wallet corrupted</source>
-        <translation>Fehler beim Laden von wallet.dat: Brieftasche beschädigt</translation>
+        <translation>Fehler beim Laden von wallet.dat: Wallet beschädigt</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -3444,22 +3649,22 @@ zum Beispiel: alertnotify=echo %%s | mail -s \&quot;eMark Alert\&quot; admin@foo
     <message>
         <location line="+2"/>
         <source>Error loading wallet.dat: Wallet requires newer version of eMark Core</source>
-        <translation>Fehler beim Laden der wallet.dat. Brieftasche benötigt neuere Version der eMark Core-App</translation>
+        <translation>Fehler beim Laden der wallet.dat. Wallet benötigt neuere Version der eMark Core-App</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Wallet needed to be rewritten: restart eMark Core to complete</source>
-        <translation>Die Brieftasche muss neu geschrieben werden: Starten Sie eMark Core neu, um den Vorgang abzuschließen</translation>
+        <translation>Die Wallet muss neu geschrieben werden: Starten Sie eMark Core neu, um den Vorgang abzuschließen</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Error loading wallet.dat</source>
-        <translation>Fehler beim Laden von wallet.dat (Brieftasche)</translation>
+        <translation>Fehler beim Laden von wallet.dat (Wallet)</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Cannot downgrade wallet</source>
-        <translation>Brieftasche kann nicht auf eine ältere Version herabgestuft werden</translation>
+        <translation>Wallet kann nicht auf eine ältere Version herabgestuft werden</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -3528,12 +3733,12 @@ Falls die Konfigurationsdatei nicht existiert, erzeugen Sie diese bitte mit Lese
     <message>
         <location line="+4"/>
         <source>Error: Wallet locked, unable to create transaction!</source>
-        <translation>Fehler: Brieftasche gesperrt, Transaktion kann nicht erstellt werden!</translation>
+        <translation>Fehler: Wallet gesperrt, Transaktion kann nicht erstellt werden!</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Error: Wallet unlocked for staking only, unable to create transaction.</source>
-        <translation>Fehler: Brieftasche nur zur Zinserzeugung entsperrt, Transaktion kann nicht erstellt werden.</translation>
+        <translation>Fehler: Wallet nur zur Zinserzeugung entsperrt, Transaktion kann nicht erstellt werden.</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -3553,7 +3758,7 @@ Falls die Konfigurationsdatei nicht existiert, erzeugen Sie diese bitte mit Lese
     <message>
         <location line="+2"/>
         <source>Error: The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
-        <translation>Fehler: Die Transaktion wurde abgelehnt! Dies kann passieren, wenn einige der Münzen in Ihrer Brieftasche bereits ausgegeben wurden, z. B. wenn Sie eine Kopie von wallet.dat verwendet haben und Münzen in der Kopie ausgegeben wurden, aber hier nicht als ausgegeben markiert sind.</translation>
+        <translation>Fehler: Die Transaktion wurde abgelehnt! Dies kann passieren, wenn einige der Münzen in Ihrer Wallet bereits ausgegeben wurden, z. B. wenn Sie eine Kopie von wallet.dat verwendet haben und Münzen in der Kopie ausgegeben wurden, aber hier nicht als ausgegeben markiert sind.</translation>
     </message>
     <message>
         <location line="+3"/>

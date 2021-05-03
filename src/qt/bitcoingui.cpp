@@ -314,12 +314,17 @@ void BitcoinGUI::createActions()
 
     openRPCConsoleAction = new QAction(tr("&Debug window"), this);
     openRPCConsoleAction->setToolTip(tr("Open debugging and diagnostic console"));
-    openConfEditorAction = new QAction(tr("Open eMark.conf"), this);
+    openConfEditorAction = new QAction(tr("Open Wallet &Configuration File"), this);
     openConfEditorAction->setToolTip(tr("Open configuration file"));
+    // override TextHeuristicRole set by default which confuses this action with application settings
     openConfEditorAction->setMenuRole(QAction::NoRole);	
 
-    webAction = new QAction(tr("Website"), this);
-    webAction->setToolTip(tr("Go to eMark website."));
+    openWebAction = new QAction(tr("&Website"), this);
+    openWebAction->setStatusTip(tr("Open the eMark website in a web browser."));
+
+    openChatroomAction = new QAction(tr("&Chatroom"), this);
+    openChatroomAction->setStatusTip(tr("Open the eMark Discord chat in a web browser."));
+
     aboutAction = new QAction(tr("&About eMark Core"), this);
     aboutAction->setToolTip(tr("Show information about eMark"));
     aboutAction->setMenuRole(QAction::AboutRole);
@@ -338,7 +343,8 @@ void BitcoinGUI::createActions()
     connect(optionsAction, SIGNAL(triggered()), this, SLOT(optionsClicked()));
     connect(toggleHideAction, SIGNAL(triggered()), this, SLOT(toggleHidden()));
     connect(openConfEditorAction, SIGNAL(triggered()), this, SLOT(openConfigfile()));
-    connect(webAction, SIGNAL(triggered()), this, SLOT(webClicked()));
+    connect(openWebAction, SIGNAL(triggered()), this, SLOT(openWeb()));
+    connect(openChatroomAction, SIGNAL(triggered()), this, SLOT(openChatroom()));
     connect(aboutAction, SIGNAL(triggered()), this, SLOT(aboutClicked()));
     connect(aboutQtAction, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
 
@@ -377,7 +383,10 @@ void BitcoinGUI::createMenuBar()
     tools->addAction(openConfEditorAction);
 
     QMenu *help = appMenuBar->addMenu(tr("&Help"));
-    help->addAction(webAction);
+    //help->addAction(showHelpMessageAction);
+    //help->addSeparator();
+    help->addAction(openWebAction);
+    help->addAction(openChatroomAction);
     help->addSeparator();
     help->addAction(aboutAction);
     help->addAction(aboutQtAction);
@@ -458,8 +467,8 @@ void BitcoinGUI::setClientModel(ClientModel *clientModel)
         setNumConnections(clientModel->getNumConnections());
         connect(clientModel, SIGNAL(numConnectionsChanged(int)), this, SLOT(setNumConnections(int)));
 
-        setNumBlocks(clientModel->getNumBlocks());
-        connect(clientModel, SIGNAL(numBlocksChanged(int)), this, SLOT(setNumBlocks(int)));
+        setNumBlocks(clientModel->getNumBlocks(), clientModel->getNumBlocksOfPeers());
+        connect(clientModel, SIGNAL(numBlocksChanged(int,int)), this, SLOT(setNumBlocks(int,int)));
 
         // Receive and report messages from network/worker thread
         connect(clientModel, SIGNAL(message(QString,QString,bool,unsigned int)), this, SLOT(message(QString,QString,bool,unsigned int)));
@@ -587,9 +596,12 @@ void BitcoinGUI::openConfigfile()
     GUIUtil::openConfigfile();
 }
 
-void BitcoinGUI::webClicked()
-{
-    QDesktopServices::openUrl(QUrl(websiteUrl));
+void BitcoinGUI::openWeb() {
+    QDesktopServices::openUrl(QUrl("https://deutsche-emark.org"));
+}
+
+void BitcoinGUI::openChatroom() {
+    QDesktopServices::openUrl(QUrl("https://discord.gg/98nz7mP"));
 }
 
 void BitcoinGUI::aboutClicked()
@@ -614,7 +626,7 @@ void BitcoinGUI::setNumConnections(int count)
     labelConnectionsIcon->setToolTip(tr("%n active connection(s) to eMark network", "", count));
 }
 
-void BitcoinGUI::setNumBlocks(int count)
+void BitcoinGUI::setNumBlocks(int count, int nTotalBlocks)
 {
     // don't show / hide progress bar and its label if we have no connection to the network
     if (!clientModel || (clientModel->getNumConnections() == 0 && !clientModel->isImporting()))
@@ -631,11 +643,19 @@ void BitcoinGUI::setNumBlocks(int count)
     QDateTime currentDate = QDateTime::currentDateTime();
     int totalSecs = GetTime() - Params().GenesisBlock().GetBlockTime();
     int secs = lastBlockDate.secsTo(currentDate);
+    float nPercentageDone = count / (nTotalBlocks * 0.01f);
 
-    tooltip = tr("Processed %1 blocks of transaction history.").arg(count);
+    if(count < nTotalBlocks)
+    {
+        tooltip = tr("Processed %1 of %2 (estimated) blocks of transaction history (%3% done).").arg(count).arg(nTotalBlocks).arg(nPercentageDone, 0, 'f', 2);
+    }
+    else
+    {
+        tooltip = tr("Processed %1 blocks of transaction history.").arg(count);
+    }
 
     // Set icon state: spinning if catching up, tick otherwise
-    if(secs < 90*60)
+    if(secs < 90*60 && count >= nTotalBlocks)
     {
         tooltip = tr("Up to date") + QString(".<br>") + tooltip;
         labelBlocksIcon->setPixmap(QIcon(fUseBlackTheme ? ":/icons/black/synced" : ":/icons/synced").pixmap(STATUSBAR_ICONSIZE, STATUSBAR_ICONSIZE));
