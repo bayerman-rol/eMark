@@ -31,6 +31,9 @@
 
 #include <boost/filesystem.hpp>
 #include <boost/filesystem/fstream.hpp>
+#if BOOST_FILESYSTEM_VERSION >= 3
+#include <boost/filesystem/detail/utf8_codecvt_facet.hpp>
+#endif
 
 #ifdef WIN32
 #ifdef _WIN32_WINNT
@@ -50,7 +53,32 @@
 #include "shellapi.h"
 #endif
 
+#if BOOST_FILESYSTEM_VERSION >= 3
+static boost::filesystem::detail::utf8_codecvt_facet utf8;
+#endif
+
 namespace GUIUtil {
+
+#if BOOST_FILESYSTEM_VERSION >= 3
+boost::filesystem::path qstringToBoostPath(const QString &path)
+{
+    return boost::filesystem::path(path.toStdString(), utf8);
+}
+QString boostPathToQString(const boost::filesystem::path &path)
+{
+    return QString::fromStdString(path.string(utf8));
+}
+#else
+#warning Conversion between boost path and QString can use invalid character encoding with boost_filesystem v2 and older
+boost::filesystem::path qstringToBoostPath(const QString &path)
+{
+    return boost::filesystem::path(path.toStdString());
+}
+QString boostPathToQString(const boost::filesystem::path &path)
+{
+    return QString::fromStdString(path.string());
+}
+#endif
 
 QString dateTimeStr(const QDateTime &date)
 {
@@ -65,11 +93,7 @@ QString dateTimeStr(qint64 nTime)
 QFont bitcoinAddressFont()
 {
     QFont font("Monospace");
-#if QT_VERSION >= 0x040800
-    font.setStyleHint(QFont::Monospace);
-#else
     font.setStyleHint(QFont::TypeWriter);
-#endif
     return font;
 }
 
@@ -97,7 +121,14 @@ bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
     SendCoinsRecipient rv;
     rv.address = uri.path();
     rv.amount = 0;
+
+#if QT_VERSION < 0x050000
     QList<QPair<QString, QString> > items = uri.queryItems();
+#else
+    QUrlQuery uriQuery(uri);
+    QList<QPair<QString, QString> > items = uriQuery.queryItems();
+#endif
+
     for (QList<QPair<QString, QString> >::iterator i = items.begin(); i != items.end(); i++)
     {
         bool fShouldReturnFalse = false;
@@ -150,7 +181,11 @@ bool parseBitcoinURI(QString uri, SendCoinsRecipient *out)
 
 QString HtmlEscape(const QString& str, bool fMultiLine)
 {
+#if QT_VERSION < 0x050000
     QString escaped = Qt::escape(str);
+#else
+    QString escaped = str.toHtmlEscaped();
+#endif
     if(fMultiLine)
     {
         escaped = escaped.replace("\n", "<br>\n");
@@ -185,7 +220,11 @@ QString getSaveFileName(QWidget *parent, const QString &caption,
     QString myDir;
     if(dir.isEmpty()) // Default to user documents location
     {
+#if QT_VERSION < 0x050000
         myDir = QDesktopServices::storageLocation(QDesktopServices::DocumentsLocation);
+#else
+        myDir = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
+#endif
     }
     else
     {
@@ -259,6 +298,53 @@ void openDebugLogfile()
         QDesktopServices::openUrl(QUrl::fromLocalFile(QString::fromStdString(pathDebug.string())));
 }
 
+void openConfigfile()
+{
+    boost::filesystem::path pathConfig = GetConfigFile();
+
+    /* Open eMark.conf with the associated application */
+    if (! boost::filesystem::exists(pathConfig))
+    {
+        boost::filesystem::ofstream ofs(pathConfig);
+        ofs << "##\n";
+        ofs << "## eMark.conf configuration file. Lines beginning with # are comments. \n";
+        ofs << "##\n";
+        ofs << "\n";
+        ofs << "dbcache=1000\n";
+        ofs << "\n";
+        ofs << "# Use as many addnode= settings as you like to connect to specific peers\n";
+        ofs << "#addnode=112.141.27.176\n";
+        ofs << "#addnode=122.59.15.39\n";
+        ofs << "\n";
+        ofs << "# Alternatively use as many connect= settings as you like to connect ONLY to specific peers\n";
+        ofs << "#connect=112.141.27.176\n";
+        ofs << "#connect=122.59.15.39\n";
+        ofs << "\n";
+        ofs << "# Listening mode, enabled by default except when 'connect' is being used\n";
+        ofs << "#listen=1\n";
+        ofs << "\n";
+        ofs << "# Port on which to listen for connections (default: 5556, testnet: 15556)\n";
+        ofs << "#port=\n";
+        ofs << "\n";
+        ofs << "# Maximum number of inbound+outbound connections.\n";
+        ofs << "#maxconnections=\n";
+        ofs << "\n";
+        ofs << "#\n";
+        ofs << "# JSON-RPC options (for controlling a running eMark/eMarkd process)\n";
+        ofs << "#\n";
+        ofs << "\n";
+        ofs << "# server=1 tells eMark-Qt and eMarkd to accept JSON-RPC commands\n";
+        ofs << "#server=1\n";
+        ofs << "\n";
+        ofs << "# Bind to given address to listen for JSON-RPC connections.\n";
+        ofs << "# Refer to the manpage or eMarkd -help for further details.\n";
+        ofs << "#rpcbind=<addr>\n";
+        ofs << "\n";
+    }
+    if (boost::filesystem::exists(pathConfig))
+        QDesktopServices::openUrl(QUrl::fromLocalFile(QString::fromStdString(pathConfig.string())));
+}
+
 ToolTipToRichTextFilter::ToolTipToRichTextFilter(int size_threshold, QObject *parent) :
     QObject(parent), size_threshold(size_threshold)
 {
@@ -291,7 +377,7 @@ boost::filesystem::path static StartupShortcutPath()
 
 bool GetStartOnSystemStartup()
 {
-    // check for Bitcoin.lnk
+    // check for eMark.lnk
     return boost::filesystem::exists(StartupShortcutPath());
 }
 

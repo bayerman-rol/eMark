@@ -56,6 +56,7 @@ public:
     QString formatBuildDate() const;
     bool isReleaseVersion() const;
     QString clientName() const;
+    QString dataDir() const;
     QString formatClientStartupTime() const;
 
 private:

@@ -1,30 +1,37 @@
 #ifndef GUIUTIL_H
 #define GUIUTIL_H
 
-#include <QString>
-#include <QObject>
 #include <QMessageBox>
+#include <QObject>
+#include <QString>
+#include <QTextEdit>
 
-class SendCoinsRecipient;
+#include <boost/filesystem.hpp>
 
 QT_BEGIN_NAMESPACE
+class QAbstractItemView;
+class QDateTime;
 class QFont;
 class QLineEdit;
-class QWidget;
-class QDateTime;
 class QUrl;
-class QAbstractItemView;
+class QWidget;
 QT_END_NAMESPACE
+class SendCoinsRecipient;
 
-/** Utility functions used by the Bitcoin Qt UI.
+/** Utility functions used by the eMark Qt UI.
  */
 namespace GUIUtil
 {
+     /* Convert QString to OS specific boost path through UTF-8 */
+    boost::filesystem::path qstringToBoostPath(const QString &path);
+     /* Convert OS specific boost path to QString through UTF-8 */
+    QString boostPathToQString(const boost::filesystem::path &path);
+
     // Create human-readable string from date
     QString dateTimeStr(const QDateTime &datetime);
     QString dateTimeStr(qint64 nTime);
 
-    // Render Bitcoin addresses in monospace font
+    // Render eMark addresses in monospace font
     QFont bitcoinAddressFont();
 
     // Set up widgets for address and amounts
@@ -32,7 +39,7 @@ namespace GUIUtil
     void setupAmountWidget(QLineEdit *widget, QWidget *parent);
 
     // Parse "eMark:" URI into recipient object, return true on successful parsing
-    // See Bitcoin URI definition discussion here: https://bitcointalk.org/index.php?topic=33490.0
+    // See eMark URI definition discussion here: https://bitcointalk.org/index.php?topic=33490.0
     bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out);
     bool parseBitcoinURI(QString uri, SendCoinsRecipient *out);
 
@@ -75,6 +82,9 @@ namespace GUIUtil
     // Open debug.log
     void openDebugLogfile();
 
+    // Open config file
+    void openConfigfile();
+
     /** Qt event filter that intercepts ToolTipChange events, and replaces the tooltip with a rich text
       representation if needed. This assures that Qt can word-wrap long tooltip messages.
       Tooltips longer than the provided size threshold (in characters) are wrapped.
@@ -103,7 +113,7 @@ namespace GUIUtil
     /** Center window on stored size and position (without resizing) */
     void centerWindowGeometry(const QString& strSetting, QWidget *parent);
 
-    /** Help message for Bitcoin-Qt, shown with --help. */
+    /** Help message for eMark-Qt, shown with --help. */
     class HelpMessageBox : public QMessageBox
     {
         Q_OBJECT
