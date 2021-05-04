@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>540</width>
+    <width>595</width>
     <height>380</height>
    </rect>
   </property>
@@ -30,6 +30,46 @@
        <string>&amp;Main</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_Main">
+       <item>
+        <widget class="QCheckBox" name="bitcoinAtStartup">
+         <property name="toolTip">
+          <string>Automatically start eMark Core after logging in to the system.</string>
+         </property>
+         <property name="text">
+          <string>&amp;Start eMark Core on system login</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="detachDatabases">
+         <property name="toolTip">
+          <string>Detach block and address databases at shutdown. This means they can be moved to another data directory, but it slows down shutdown. The wallet is always detached.</string>
+         </property>
+         <property name="text">
+          <string>&amp;Detach databases at shutdown</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_Main">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tabWallet">
+      <attribute name="title">
+       <string>W&amp;allet</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_Wallet">
        <item>
         <widget class="QLabel" name="transactionFeeInfoLabel">
          <property name="text">
@@ -123,27 +163,39 @@
         </layout>
        </item>
        <item>
-        <widget class="QCheckBox" name="bitcoinAtStartup">
-         <property name="toolTip">
-          <string>Automatically start eMark after logging in to the system.</string>
+        <widget class="QGroupBox" name="groupBox">
+         <property name="title">
+          <string>Expert</string>
          </property>
-         <property name="text">
-          <string>&amp;Start eMark on system login</string>
-         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <widget class="QCheckBox" name="coinControlFeatures">
+           <property name="toolTip">
+            <string>Whether to show coin control features or not.</string>
+           </property>
+           <property name="text">
+            <string>Enable coin &amp;control features</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="minimizeCoinAge">
+           <property name="toolTip">
+            <string>Whether to select the coin outputs randomly or with minimal coin age.</string>
+           </property>
+           <property name="text">
+            <string>Minimize weight consumption</string>
+           </property>
+          </widget>
+         </item>
+         </layout>
         </widget>
        </item>
        <item>
-        <widget class="QCheckBox" name="detachDatabases">
-         <property name="toolTip">
-          <string>Detach block and address databases at shutdown. This means they can be moved to another data directory, but it slows down shutdown. The wallet is always detached.</string>
-         </property>
-         <property name="text">
-          <string>&amp;Detach databases at shutdown</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <spacer name="verticalSpacer_Main">
+        <spacer name="verticalSpacer_Wallet">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
          </property>
@@ -363,9 +415,6 @@
         <layout class="QHBoxLayout" name="horizontalLayout_3_Display">
          <item>
           <widget class="QLabel" name="thirdPartyTxUrlsLabel">
-           <property name="toolTip">
-            <string>Third party URLs (e.g. a block explorer) that appear in the transactions tab as context menu items. %s in the URL is replaced by transaction hash. Multiple URLs are separated by vertical bar |.</string>
-           </property>
            <property name="text">
             <string>Third party transaction URLs</string>
            </property>
@@ -390,29 +439,6 @@
          </property>
          <property name="text">
           <string>&amp;Display addresses in transaction list</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QCheckBox" name="coinControlFeatures">
-         <property name="toolTip">
-          <string>Whether to show coin control features or not.</string>
-         </property>
-         <property name="text">
-          <string>Display coin &amp;control features</string>
-         </property>
-         <property name="checked">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QCheckBox" name="minimizeCoinAge">
-         <property name="toolTip">
-          <string>Whether to select the coin outputs randomly or with minimal coin age.</string>
-         </property>
-         <property name="text">
-          <string>Minimize weight consumption (experimental)</string>
          </property>
         </widget>
        </item>
