@@ -54,12 +54,14 @@
 #include <QProgressBar>
 #include <QPushButton>
 #include <QSettings>
+#include <QShortcut>
 #include <QStackedWidget>
 #include <QStatusBar>
 #include <QStyle>
 #include <QTextDocument>
 #include <QTimer>
 #include <QToolBar>
+#include <QToolButton>
 #if QT_VERSION < 0x050000
 #include <QUrl>
 #else
@@ -86,6 +88,7 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     unlockWalletAction(0),
     lockWalletAction(0),
     aboutQtAction(0),
+    openRPCConsoleAction(0),
     trayIcon(0),
     notificator(0),
     rpcConsole(0),
@@ -93,7 +96,7 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     nWeight(0)
 {
     GUIUtil::restoreWindowGeometry("nWindow", QSize(1010, 550), this);
-    setWindowTitle(tr("eMark Core") + " - " + tr("Wallet"));
+    setWindowTitle(tr("eMark Core"));
 #ifndef Q_OS_MAC
     qApp->setWindowIcon(QIcon(":icons/bitcoin"));
     setWindowIcon(QIcon(":icons/bitcoin"));
@@ -248,31 +251,51 @@ void BitcoinGUI::createActions()
     overviewAction = new QAction(QIcon(fUseBlackTheme ? ":/icons/black/overview" : ":/icons/overview"), tr("Overview"), this);
     overviewAction->setToolTip(tr("Show general overview of wallet"));
     overviewAction->setCheckable(true);
+#ifdef Q_OS_MAC
+    overviewAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_1));
+#else
     overviewAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_1));
+#endif
     tabGroup->addAction(overviewAction);
 
     sendCoinsAction = new QAction(QIcon(fUseBlackTheme ? ":/icons/black/send" : ":/icons/send"), tr("Send"), this);
     sendCoinsAction->setToolTip(tr("Send coins to a eMark address"));
     sendCoinsAction->setCheckable(true);
+#ifdef Q_OS_MAC
+    sendCoinsAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_2));
+#else
     sendCoinsAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_2));
+#endif
     tabGroup->addAction(sendCoinsAction);
 
     receiveCoinsAction = new QAction(QIcon(fUseBlackTheme ? ":/icons/black/receiving_addresses" : ":/icons/receiving_addresses"), tr("Receive"), this);
     receiveCoinsAction->setToolTip(tr("Show the list of addresses for receiving payments"));
     receiveCoinsAction->setCheckable(true);
+#ifdef Q_OS_MAC
+    receiveCoinsAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_3));
+#else
     receiveCoinsAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_3));
+#endif
     tabGroup->addAction(receiveCoinsAction);
 
     historyAction = new QAction(QIcon(fUseBlackTheme ? ":/icons/black/history" : ":/icons/history"), tr("Transactions"), this);
     historyAction->setToolTip(tr("Browse transaction history"));
     historyAction->setCheckable(true);
+#ifdef Q_OS_MAC
+    historyAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_4));
+#else
     historyAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_4));
+#endif
     tabGroup->addAction(historyAction);
 
     addressBookAction = new QAction(QIcon(fUseBlackTheme ? ":/icons/black/address-book" : ":/icons/address-book"), tr("Address Book"), this);
     addressBookAction->setToolTip(tr("Edit the list of stored addresses and labels"));
     addressBookAction->setCheckable(true);
-    addressBookAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_5));
+#ifdef Q_OS_MAC
+        addressBookAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_5));
+#else
+        addressBookAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_5));
+#endif
     tabGroup->addAction(addressBookAction);
 
     connect(overviewAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
@@ -288,10 +311,13 @@ void BitcoinGUI::createActions()
 
     backupWalletAction = new QAction(QIcon(fUseBlackTheme ? ":/icons/black/filesave" : ":/icons/filesave"), tr("&Backup Wallet"), this);
     backupWalletAction->setToolTip(tr("Backup wallet to another location"));
+
     exportAction = new QAction(QIcon(fUseBlackTheme ? ":/icons/black/export" : ":/icons/export"), tr("&Export Data"), this);
     exportAction->setToolTip(tr("Export the data in the current tab to a file"));
+
     signMessageAction = new QAction(QIcon(fUseBlackTheme ? ":/icons/black/edit" : ":/icons/edit"), tr("Sign &Message"), this);
     verifyMessageAction = new QAction(QIcon(fUseBlackTheme ? ":/icons/black/verify" : ":/icons/verify"), tr("&Verify message"), this);
+
     quitAction = new QAction(QIcon(fUseBlackTheme ? ":/icons/black/quit" : ":/icons/quit"), tr("E&xit"), this);
     quitAction->setToolTip(tr("Quit application"));
     quitAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_Q));
@@ -299,12 +325,16 @@ void BitcoinGUI::createActions()
 
     changePassphraseAction = new QAction(QIcon(fUseBlackTheme ? ":/icons/black/key" : ":/icons/key"), tr("&Change Password"), this);
     changePassphraseAction->setToolTip(tr("Change the passphrase used for wallet encryption"));
+
     lockWalletAction = new QAction(QIcon(fUseBlackTheme ? ":/icons/black/lock_closed" : ":/icons/lock_closed"), tr("&Lock Wallet"), this);
     lockWalletAction->setToolTip(tr("Lock wallet"));
+
     unlockWalletAction = new QAction(QIcon(fUseBlackTheme ? ":/icons/black/lock_open" : ":/icons/lock_open"), tr("&Unlock Wallet"), this);
     unlockWalletAction->setToolTip(tr("Unlock wallet"));
+
     encryptWalletAction = new QAction(QIcon(fUseBlackTheme ? ":/icons/black/lock_closed" : ":/icons/lock_closed"), tr("En&crypt Wallet"), this);
     encryptWalletAction->setToolTip(tr("Encrypt or decrypt wallet"));
+
     optionsAction = new QAction(QIcon(fUseBlackTheme ? ":/icons/black/options" : ":/icons/options"), tr("&Options"), this);
     optionsAction->setToolTip(tr("Modify configuration options for eMark"));
     optionsAction->setMenuRole(QAction::PreferencesRole);
@@ -312,8 +342,15 @@ void BitcoinGUI::createActions()
     toggleHideAction = new QAction(QIcon(fUseBlackTheme ? ":/icons/black/about" : ":/icons/about"), tr("&Show / Hide"), this);
     toggleHideAction->setToolTip(tr("Show or hide the main Window"));
 
-    openRPCConsoleAction = new QAction(QIcon(fUseBlackTheme ? ":/icons/black/debugwindow" : ":/icons/debugwindow"), tr("&Debug window"), this);
-    openRPCConsoleAction->setToolTip(tr("Open debugging and diagnostic console"));
+    openInfoAction = new QAction(QIcon(fUseBlackTheme ? ":/icons/black/about" : ":/icons/about"), tr("&Information"), this);
+    openInfoAction->setToolTip(tr("Show diagnostic information"));
+
+    openRPCConsoleAction = new QAction(QIcon(fUseBlackTheme ? ":/icons/black/debugwindow" : ":/icons/debugwindow"), tr("&Debug console"), this);
+    openRPCConsoleAction->setToolTip(tr("Open debugging console"));
+
+    openGraphAction = new QAction(QIcon(fUseBlackTheme ? ":/icons/black/connect_4" : ":/icons/connect_4"), tr("&Network Monitor"), this);
+    openGraphAction->setToolTip(tr("Show network monitor"));
+
     openConfEditorAction = new QAction(QIcon(fUseBlackTheme ? ":/icons/black/edit" : ":/icons/edit"), tr("Open Wallet &Configuration File"), this);
     openConfEditorAction->setToolTip(tr("Open configuration file"));
     // override TextHeuristicRole set by default which confuses this action with application settings
@@ -328,6 +365,7 @@ void BitcoinGUI::createActions()
     aboutAction = new QAction(QIcon(fUseBlackTheme ? ":/icons/black/about" : ":/icons/about"), tr("&About eMark Core"), this);
     aboutAction->setToolTip(tr("Show information about eMark"));
     aboutAction->setMenuRole(QAction::AboutRole);
+
     aboutQtAction = new QAction(QIcon(fUseBlackTheme ? ":/icons/black/about_qt" : ":/icons/about_qt"), tr("About &Qt"), this);;
     aboutQtAction->setToolTip(tr("Show information about Qt"));
     aboutQtAction->setMenuRole(QAction::AboutQtRole);
@@ -347,6 +385,15 @@ void BitcoinGUI::createActions()
     connect(openChatroomAction, SIGNAL(triggered()), this, SLOT(openChatroom()));
     connect(aboutAction, SIGNAL(triggered()), this, SLOT(aboutClicked()));
     connect(aboutQtAction, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
+
+    // Jump directly to tabs in RPC-console
+    connect(openInfoAction, SIGNAL(triggered()), this, SLOT(showInfo()));
+    connect(openRPCConsoleAction, SIGNAL(triggered()), this, SLOT(showConsole()));
+    connect(openGraphAction, SIGNAL(triggered()), this, SLOT(showGraph()));
+
+    new QShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_I), this, SLOT(showInfo()));
+    new QShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_C), this, SLOT(showConsole()));
+    new QShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_G), this, SLOT(showGraph()));
 
 }
 
@@ -378,7 +425,9 @@ void BitcoinGUI::createMenuBar()
     settings->addAction(optionsAction);
 
     QMenu *tools = appMenuBar->addMenu(tr("&Tools"));
+    tools->addAction(openInfoAction);
     tools->addAction(openRPCConsoleAction);
+    tools->addAction(openGraphAction);
     tools->addSeparator();
     tools->addAction(openConfEditorAction);
 
@@ -589,6 +638,32 @@ void BitcoinGUI::optionsClicked()
     OptionsDialog dlg;
     dlg.setModel(clientModel->getOptionsModel());
     dlg.exec();
+}
+
+void BitcoinGUI::showDebugWindow()
+{
+    rpcConsole->showNormal();
+    rpcConsole->show();
+    rpcConsole->raise();
+    rpcConsole->activateWindow();
+}
+
+void BitcoinGUI::showInfo()
+{
+    rpcConsole->setTabFocus(RPCConsole::TAB_INFO);
+    showDebugWindow();
+}
+
+void BitcoinGUI::showConsole()
+{
+    rpcConsole->setTabFocus(RPCConsole::TAB_CONSOLE);
+    showDebugWindow();
+}
+
+void BitcoinGUI::showGraph()
+{
+    rpcConsole->setTabFocus(RPCConsole::TAB_GRAPH);
+    showDebugWindow();
 }
 
 void BitcoinGUI::openConfigfile()

@@ -6,16 +6,16 @@
 
 #include <stdint.h>
 
-class TransactionTableModel;
-class ClientModel;
-class WalletModel;
-class TransactionView;
-class OverviewPage;
 class AddressBookPage;
+class ClientModel;
+class Notificator;
+class OverviewPage;
+class RPCConsole;
 class SendCoinsDialog;
 class SignVerifyMessageDialog;
-class Notificator;
-class RPCConsole;
+class TransactionTableModel;
+class TransactionView;
+class WalletModel;
 
 QT_BEGIN_NAMESPACE
 class QLabel;
@@ -96,7 +96,9 @@ private:
     QAction *unlockWalletAction;
     QAction *lockWalletAction;
     QAction *aboutQtAction;
+    QAction *openInfoAction;
     QAction *openRPCConsoleAction;
+    QAction *openGraphAction;
     QAction *openConfEditorAction;
 
     QSystemTrayIcon *trayIcon;
@@ -176,6 +178,14 @@ private slots:
 
     /** Show configuration dialog */
     void optionsClicked();
+    /** Show debug window */
+    void showDebugWindow();
+
+    /** Show debug window and set focus to the appropriate tab */
+    void showInfo();
+    void showConsole();
+    void showGraph();
+
     /** Open config file */
     void openConfigfile();
      /** Show web page */

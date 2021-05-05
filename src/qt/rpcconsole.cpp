@@ -509,3 +509,8 @@ void RPCConsole::on_btnClearTrafficGraph_clicked()
 {
     ui->trafficGraph->clear();
 }
+
+void RPCConsole::setTabFocus(enum TabTypes tabType)
+{
+    ui->tabWidget->setCurrentIndex(tabType);
+}

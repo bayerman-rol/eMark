@@ -517,22 +517,42 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Show or hide the main Window</translation>
     </message>
     <message>
-        <location line="+2"/>
-        <source>&amp;Debug window</source>
-        <translation>&amp;Debug window</translation>
+        <location line="+18"/>
+        <source>&amp;Information</source>
+        <translation>&amp;Information</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Open debugging and diagnostic console</source>
-        <translation>Open debugging and diagnostic console</translation>
+        <source>Show diagnostic information</source>
+        <translation>Show diagnostic information</translation>
     </message>
     <message>
         <location line="+2"/>
+        <source>&amp;Debug console</source>
+        <translation>&amp;Debug console</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Open debugging console</source>
+        <translation>Open debugging console</translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>&amp;Network Monitor</source>
+        <translation>&amp;Network Monitor</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Show network monitor</source>
+        <translation>Show network monitor</translation>
+    </message>
+    <message>
+        <location line="+6"/>
         <source>Open Wallet &amp;Configuration File</source>
         <translation>Open Wallet &amp;Configuration File</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="-30"/>
         <source>Open configuration file</source>
         <translation>Open configuration file</translation>
     </message>

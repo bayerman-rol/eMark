@@ -517,22 +517,42 @@ Dieses Produkt enthält Software, entwickelt vom OpenSSL Project für das OpenSS
         <translation>Das Hauptfenster anzeigen oder verstecken</translation>
     </message>
     <message>
-        <location line="+2"/>
-        <source>&amp;Debug window</source>
-        <translation>&amp;Debugfenster</translation>
+        <location line="+18"/>
+        <source>&amp;Information</source>
+        <translation>&amp;Information</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Open debugging and diagnostic console</source>
-        <translation>Debugging- und Diagnosekonsole öffnen</translation>
+        <source>Show diagnostic information</source>
+        <translation>Diagnoseinformation anzeigen</translation>
     </message>
     <message>
         <location line="+2"/>
+        <source>&amp;Debug console</source>
+        <translation>&amp;Debugkonsole</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Open debugging console</source>
+        <translation>Debugkonsole öffnen</translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>&amp;Network Monitor</source>
+        <translation>&amp;Netzwerkmonitor</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Show network monitor</source>
+        <translation>Netzwerkmonitor anzeigen</translation>
+    </message>
+    <message>
+        <location line="+6"/>
         <source>Open Wallet &amp;Configuration File</source>
         <translation>&amp;Konfigurationsdatei öffnen</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="-30"/>
         <source>Open configuration file</source>
         <translation>Konfigurationsdatei öffnen</translation>
     </message>

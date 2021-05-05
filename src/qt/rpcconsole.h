@@ -1,6 +1,8 @@
 #ifndef RPCCONSOLE_H
 #define RPCCONSOLE_H
 
+#include "guiutil.h"
+
 #include <QDialog>
 
 namespace Ui {
@@ -25,6 +27,12 @@ public:
         CMD_REQUEST,
         CMD_REPLY,
         CMD_ERROR
+    };
+
+    enum TabTypes {
+        TAB_INFO = 0,
+        TAB_CONSOLE = 1,
+        TAB_GRAPH = 2,
     };
 
 protected:
@@ -55,6 +63,9 @@ public slots:
     void browseHistory(int offset);
     /** Scroll console view to end */
     void scrollToEnd();
+    /** set which tab has the focus (is visible) */
+    void setTabFocus(enum TabTypes tabType);
+
 signals:
     // For RPC command executor
     void stopExecutor();
