@@ -17,15 +17,15 @@ USE_WALLET:=1
 INCLUDEPATHS= \
  -I"$(CURDIR)" \
  -I"$(CURDIR)"/obj \
- -I"$(DEPSDIR)/boost_1_55_0" \
- -I"$(DEPSDIR)/db-6.0.20/build_unix" \
- -I"$(DEPSDIR)/openssl-1.0.1f/include" \
+ -I"$(DEPSDIR)/boost_1_59_0" \
+ -I"$(DEPSDIR)/db-5.3.28/build_unix" \
+ -I"$(DEPSDIR)/openssl-1.0.2u/include" \
  -I"$(DEPSDIR)"
 
 LIBPATHS= \
- -L"$(DEPSDIR)/boost_1_55_0/stage/lib" \
- -L"$(DEPSDIR)/db-6.0.20/build_unix" \
- -L"$(DEPSDIR)/openssl-1.0.1f"
+ -L"$(DEPSDIR)/boost_1_59_0/stage/lib" \
+ -L"$(DEPSDIR)/db-5.3.28/build_unix" \
+ -L"$(DEPSDIR)/openssl-1.0.2u"
 
 LIBS= \
  -l boost_system-mt \
@@ -103,7 +103,7 @@ ifeq (${USE_WALLET}, 1)
         obj/walletdb.o
 endif
 
-all: eMarkd.exe
+all: emarkd.exe
 
 LIBS += $(CURDIR)/leveldb/libleveldb.a $(CURDIR)/leveldb/libmemenv.a
 DEFS += -I"$(CURDIR)/leveldb/include"
@@ -123,12 +123,12 @@ obj/%.o: %.cpp $(HEADERS)
 
 eMarkd.exe: $(OBJS:obj/%=obj/%)
 	$(CXX) $(CFLAGS) $(LDFLAGS) -o $@ $(LIBPATHS) $^ $(LIBS) -lshlwapi
-	$(STRIP) eMarkd.exe
+	$(STRIP) emarkd.exe
 
 
 clean:
 	-rm -f obj/*.o
-	-rm -f eMarkd.exe
+	-rm -f emarkd.exe
 	-rm -f obj/build.h
 	cd leveldb && TARGET_OS=OS_WINDOWS_CROSSCOMPILE $(MAKE) clean && cd ..
 

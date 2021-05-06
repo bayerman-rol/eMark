@@ -150,7 +150,7 @@ ifeq (${USE_WALLET}, 1)
         obj/walletdb.o
 endif
 
-all: eMarkd
+all: emarkd
 
 LIBS += $(CURDIR)/leveldb/libleveldb.a $(CURDIR)/leveldb/libmemenv.a
 DEFS += $(addprefix -I,$(CURDIR)/leveldb/include)
@@ -179,16 +179,10 @@ eMarkd: $(OBJS:obj/%=obj/%)
 	$(LINK) $(xCXXFLAGS) -o $@ $^ $(xLDFLAGS) $(LIBS)
 
 clean:
-	-rm -f eMarkd
+	-rm -f emarkd
 	-rm -f obj/*.o
 	-rm -f obj/*.P
 	-rm -f obj/build.h
-	-rm -f leveldb/libleveldb.a
-	-rm -f leveldb/wlibmemenv.a
-	-rm -f leveldb/db/*.o
-	-rm -f leveldb/table/*.o
-	-rm -f leveldb/util/*.o
-	-rm -f leveldb/port/*.o
-	-rm -f leveldb/helpers/memenv/*.o
+	cd leveldb; make clean; cd ..;
 
 FORCE:
