@@ -1,10 +1,14 @@
 TEMPLATE = app
 TARGET = emark-qt
 VERSION = 1.6.1.3
+USE_QRCODE = 1
 INCLUDEPATH += src src/json src/qt
 DEFINES += ENABLE_WALLET
 DEFINES += QT_GUI BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE
-CONFIG += no_include_pwd thread release
+CONFIG += no_include_pwd
+CONFIG += thread
+#CONFIG += debug
+CONFIG += release
 !win32 {
 CONFIG += static
 }
@@ -264,7 +268,6 @@ HEADERS += src/qt/bitcoingui.h \
     src/qt/bitcoinunits.h \
     src/qt/qvaluecombobox.h \
     src/qt/askpassphrasedialog.h \
-    src/qt/communitypage.h \
     src/protocol.h \
     src/qt/notificator.h \
     src/qt/paymentserver.h \
@@ -347,7 +350,6 @@ SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
     src/qt/notificator.cpp \
     src/qt/paymentserver.cpp \
     src/qt/rpcconsole.cpp \
-    src/qt/communitypage.cpp \
     src/noui.cpp \
     src/kernel.cpp \
     src/pbkdf2.cpp
@@ -358,7 +360,6 @@ RESOURCES += \
 FORMS += \
     src/qt/forms/coincontroldialog.ui \
     src/qt/forms/sendcoinsdialog.ui \
-    src/qt/forms/communitypage.ui \
     src/qt/forms/addressbookpage.ui \
     src/qt/forms/signverifymessagedialog.ui \
     src/qt/forms/aboutdialog.ui \
