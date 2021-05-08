@@ -180,12 +180,23 @@ contains(USE_O3, 1) {
     QMAKE_CFLAGS += -O3
 }
 
-*-g++-32 {
-    message("32 platform, adding -msse2 flag")
-
+# If we have an ARM device, we can't use SSE2 instructions, so don't try to use them
+QMAKE_XCPUARCH = $$QMAKE_HOST.arch
+equals(QMAKE_XCPUARCH, armv7l) {
+    message(Building without SSE2 support)
+}
+else:equals(QMAKE_XCPUARCH, armv6l) {
+    message(Building without SSE2 support)
+}
+else:equals(QMAKE_XCPUARCH, aarch64) {
+    message(Building without SSE2 support)
+}
+else {
+    message(Building with SSE2 support)
     QMAKE_CXXFLAGS += -msse2
     QMAKE_CFLAGS += -msse2
 }
+#endif
 
 QMAKE_CXXFLAGS_WARN_ON = -fdiagnostics-show-option -Wall -Wextra -Wno-ignored-qualifiers -Wformat -Wformat-security -Wno-unused-parameter -Wstack-protector
 
