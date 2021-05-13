@@ -5,6 +5,8 @@
 #ifndef BITCOIN_WALLET_H
 #define BITCOIN_WALLET_H
 
+#include "walletdb.h"
+
 #include <string>
 #include <vector>
 
@@ -17,7 +19,6 @@
 #include "script.h"
 #include "ui_interface.h"
 #include "util.h"
-#include "walletdb.h"
 
 // Settings
 extern int64_t nTransactionFee;
@@ -191,6 +192,7 @@ public:
     void SyncTransaction(const CTransaction& tx, const CBlock* pblock, bool fConnect = true);
     bool AddToWalletIfInvolvingMe(const CTransaction& tx, const CBlock* pblock, bool fUpdate);
     void EraseFromWallet(const uint256 &hash);
+    void ClearOrphans();
     void WalletUpdateSpent(const CTransaction& prevout, bool fBlock = false);
     int ScanForWalletTransactions(CBlockIndex* pindexStart, bool fUpdate = false);
     void ReacceptWalletTransactions();

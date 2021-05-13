@@ -2950,7 +2950,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
 <context>
     <name>TransactionView</name>
     <message>
-        <location filename="../transactionview.cpp" line="+54"/>
+        <location filename="../transactionview.cpp" line="+62"/>
         <location line="+17"/>
         <source>All</source>
         <translation>All</translation>
@@ -2991,7 +2991,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Received with</translation>
     </message>
     <message>
-        <location line="+2"/>
+        <location line="-78"/>
         <source>Sent to</source>
         <translation>Sent to</translation>
     </message>
@@ -3006,7 +3006,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Mined</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+81"/>
         <source>Other</source>
         <translation>Other</translation>
     </message>
@@ -3016,7 +3016,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Enter address or label to search</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="-81"/>
         <source>Min amount</source>
         <translation>Min amount</translation>
     </message>
@@ -3051,12 +3051,17 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Show transaction details</translation>
     </message>
     <message>
-        <location line="+139"/>
+        <location line="+89"/>
+        <source>Clear orphans</source>
+        <translation>Clear orphans</translation>
+    </message>
+    <message>
+        <location line="+165"/>
         <source>Export Transaction Data</source>
         <translation>Export Transaction Data</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="-253"/>
         <source>Comma separated file (*.csv)</source>
         <translation>Comma separated file (*.csv)</translation>
     </message>

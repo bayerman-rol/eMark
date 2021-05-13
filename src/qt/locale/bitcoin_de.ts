@@ -2950,7 +2950,7 @@ Diese Bezeichnung wird rot, wenn die Priorität kleiner als &quot;mittel&quot; i
 <context>
     <name>TransactionView</name>
     <message>
-        <location filename="../transactionview.cpp" line="+54"/>
+        <location filename="../transactionview.cpp" line="+62"/>
         <location line="+17"/>
         <source>All</source>
         <translation>Alle</translation>
@@ -2991,7 +2991,7 @@ Diese Bezeichnung wird rot, wenn die Priorität kleiner als &quot;mittel&quot; i
         <translation>Empfangen über</translation>
     </message>
     <message>
-        <location line="+2"/>
+        <location line="-78"/>
         <source>Sent to</source>
         <translation>Überwiesen an</translation>
     </message>
@@ -3006,7 +3006,7 @@ Diese Bezeichnung wird rot, wenn die Priorität kleiner als &quot;mittel&quot; i
         <translation>Erarbeitet</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+81"/>
         <source>Other</source>
         <translation>Andere</translation>
     </message>
@@ -3016,7 +3016,7 @@ Diese Bezeichnung wird rot, wenn die Priorität kleiner als &quot;mittel&quot; i
         <translation>Zu suchende Adresse oder Bezeichnung eingeben</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="-81"/>
         <source>Min amount</source>
         <translation>Minimaler Betrag</translation>
     </message>
@@ -3051,12 +3051,17 @@ Diese Bezeichnung wird rot, wenn die Priorität kleiner als &quot;mittel&quot; i
         <translation>Transaktionsdetails anzeigen</translation>
     </message>
     <message>
-        <location line="+139"/>
+        <location line="+89"/>
+        <source>Clear orphans</source>
+        <translation>verwaiste Blöcke löschen</translation>
+    </message>
+    <message>
+        <location line="+165"/>
         <source>Export Transaction Data</source>
         <translation>Exportiere Transaktionsdaten</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="-253"/>
         <source>Comma separated file (*.csv)</source>
         <translation>Kommagetrennte-Datei (*.csv)</translation>
     </message>
