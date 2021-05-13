@@ -169,7 +169,7 @@ int main(int argc, char *argv[])
     // Application identification (must be set before OptionsModel is initialized,
     // as it is used to locate QSettings)
     app.setOrganizationName("eMark");
-    //XXX app.setOrganizationDomain("");
+    app.setOrganizationDomain("https://deutsche-emark.org");
     if(GetBoolArg("-testnet", false)) // Separate UI settings for testnet
         app.setApplicationName("eMark-Qt-testnet");
     else
