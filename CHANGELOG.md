@@ -2,7 +2,7 @@
 
 ### Version 1.6.1.3 ###
 - overviepage: added "Number of transactions"
-- overviepage: added "minting balance"
+- overviepage: added "Minting balance"
 - transactionview: added "Clear orphans"
 - optionsdialog: add "Third party transaction URLs"
 - optionsdialog: added "Hide amounts for privacy"
@@ -16,9 +16,6 @@
 - correct TX-Comment length hint 256 -> 140
 - fixed StyleSheet for BlackTheme
 - qrcodedialog: added "Cancel"-Button, changed height size 530 --> 600
-
-### Version 1.6.1.2 ###
-- Added languages: ar, bg, cs, es, it, nl, pl, ru - not yet fully translated
 - Some small fixes and updates
 - Rebranded to eMark Core
 
