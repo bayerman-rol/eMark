@@ -1,11 +1,13 @@
 # Changelog
 
 ### Version 1.6.1.3 ###
+- overviepage: added "Number of transactions"
 - overviepage: added "minting balance"
 - transactionview: added "Clear orphans"
 - optionsdialog: add "Third party transaction URLs"
 - optionsdialog: added "Hide amounts for privacy"
 - optionsdialog: added "Display addresses in transaction list"
+- added Website- and Chatroom-Link
 - Add support for reporting version number from command line: "eMarkd --version"
 - new seeder - emark.ninja
 - remove unused sequence number in TxID
