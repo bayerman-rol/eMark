@@ -1,6 +1,9 @@
 # Changelog
 
 ### Version 1.6.1.3 ###
+- added "minting balance"
+- added "Clear orphans"
+- added "hide amounts"
 - Add support for reporting version number from command line: "eMarkd --version"
 - new seeder - emark.ninja
 - remove unused sequence number in TxID
