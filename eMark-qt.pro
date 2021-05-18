@@ -1,6 +1,6 @@
 TEMPLATE = app
 TARGET = emark-qt
-VERSION = 1.6.1.3
+VERSION = 1.6.2
 USE_QRCODE = 1
 INCLUDEPATH += src src/json src/qt
 DEFINES += ENABLE_WALLET

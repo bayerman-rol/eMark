@@ -1,6 +1,6 @@
 # Changelog
 
-### Version 1.6.1.3 ###
+### Version 1.6.2 ###
 - overviepage: added "Number of transactions"
 - overviepage: added "Minting balance"
 - transactionview: added "Clear orphans"
@@ -14,8 +14,10 @@
 - Add restoreWindowGeometry / saveWindowGeometry
 - correct coin mature hint 100 -> 80
 - correct TX-Comment length hint 256 -> 140
-- fixed StyleSheet for BlackTheme
 - qrcodedialog: added "Cancel"-Button, changed height size 530 --> 600
+- update icons
+- update Header logo
+- fixed StyleSheet for BlackTheme
 - Some small fixes and updates
 - Rebranded to eMark Core
 
