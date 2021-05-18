@@ -41,6 +41,7 @@ struct LocalServiceInfo {
 // Global state variables
 //
 bool fDiscover = true;
+bool fListen = true;
 uint64_t nLocalServices = NODE_NETWORK;
 static CCriticalSection cs_mapLocalHost;
 static map<CNetAddr, LocalServiceInfo> mapLocalHost;
@@ -88,7 +89,7 @@ unsigned short GetListenPort()
 // find 'best' local address for a particular peer
 bool GetLocal(CService& addr, const CNetAddr *paddrPeer)
 {
-    if (fNoListen)
+    if (fListen)
         return false;
 
     int nBestScore = -1;
@@ -195,7 +196,7 @@ bool IsPeerAddrLocalGood(CNode *pnode)
 // pushes our own address to a peer
 void AdvertizeLocal(CNode *pnode)
 {
-    if (!fNoListen && pnode->fSuccessfullyConnected)
+    if (!fListen && pnode->fSuccessfullyConnected)
     {
         CAddress addrLocal = GetLocalAddress(&pnode->addr);
         // If discovery is enabled, sometimes give our peer the address it

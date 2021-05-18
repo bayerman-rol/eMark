@@ -321,7 +321,7 @@ void openConfigfile()
         ofs << "#connect=122.59.15.39\n";
         ofs << "\n";
         ofs << "# Listening mode, enabled by default except when 'connect' is being used\n";
-        ofs << "#listen=1\n";
+        ofs << "listen=1\n";
         ofs << "\n";
         ofs << "# Port on which to listen for connections (default: 5556, testnet: 15556)\n";
         ofs << "#port=\n";

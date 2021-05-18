@@ -327,57 +327,57 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>A fatal error occurred. eMark Core can no longer continue safely and will quit.</translation>
     </message>
     <message>
-        <location filename="../bitcoingui.cpp" line="+100"/>
+        <location filename="../bitcoingui.cpp" line="+99"/>
         <source>eMark Core</source>
         <translation>eMark Core</translation>
     </message>
     <message>
-        <location line="+0"/>
+        <location line="-99"/>
         <source>Wallet</source>
         <translation>Wallet</translation>
     </message>
     <message>
-        <location line="+156"/>
+        <location line="+251"/>
         <source>Overview</source>
         <translation>Overview</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Wallet Overview</source>
-        <translation>Wallet Overview</translation>
+        <source>Show general overview of wallet</source>
+        <translation>Show general overview of wallet</translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="+9"/>
         <source>Send</source>
         <translation>Send</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Send eMark</source>
-        <translation>Send eMark</translation>
+        <source>Send coins to a eMark address</source>
+        <translation>Send coins to a eMark address</translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="+9"/>
         <source>Receive</source>
         <translation>Receive</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Receive Addresses</source>
-        <translation>Receive Addresses</translation>
+        <source>Show the list of addresses for receiving payments</source>
+        <translation>Show the list of addresses for receiving payments</translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="+9"/>
         <source>Transactions</source>
         <translation>Transactions</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Transaction History</source>
-        <translation>Transaction History</translation>
+        <source>Browse transaction history</source>
+        <translation>Browse transaction history</translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="+9"/>
         <source>Address Book</source>
         <translation>Address Book</translation>
     </message>
@@ -387,7 +387,7 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Edit the list of stored addresses and labels</translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location line="+20"/>
         <source>&amp;Backup Wallet</source>
         <translation>&amp;Backup Wallet</translation>
     </message>
@@ -397,57 +397,27 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Backup wallet to another location</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+2"/>
         <source>&amp;Export Data</source>
         <translation>&amp;Export Data</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="-2"/>
         <source>Export the data in the current tab to a file</source>
         <translation>Export the data in the current tab to a file</translation>
     </message>
     <message>
-        <location line="+1"/>
-        <source>Re&amp;scan Wallet</source>
-        <translation>Re&amp;scan Wallet</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Rescan the blockchain for your wallet transactions.</source>
-        <translation>Rescan the blockchain for your wallet transactions.</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>&amp;Export Keys</source>
-        <translation>&amp;Export Keys</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Export private keys in wallet.</source>
-        <translation>Export private keys in wallet.</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>&amp;Import Keys</source>
-        <translation>&amp;Import Keys</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Import private keys to wallet.</source>
-        <translation>Import private keys to wallet.</translation>
-    </message>
-    <message>
-        <location line="+1"/>
+        <location line="+5"/>
         <source>Sign &amp;Message</source>
         <translation>Sign &amp;Message</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="-4"/>
         <source>&amp;Verify message</source>
         <translation>&amp;Verify message</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+7"/>
         <source>E&amp;xit</source>
         <translation>E&amp;xit</translation>
     </message>
@@ -467,82 +437,82 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Change the passphrase used for wallet encryption</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+2"/>
         <source>&amp;Lock Wallet</source>
         <translation>&amp;Lock Wallet</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="-7"/>
         <source>Lock wallet</source>
         <translation>Lock wallet</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+10"/>
         <source>&amp;Unlock Wallet</source>
         <translation>&amp;Unlock Wallet</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="-9"/>
         <source>Unlock wallet</source>
         <translation>Unlock wallet</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+12"/>
         <source>En&amp;crypt Wallet</source>
         <translation>En&amp;crypt Wallet</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="-11"/>
         <source>Encrypt or decrypt wallet</source>
         <translation>Encrypt or decrypt wallet</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+14"/>
         <source>&amp;Options</source>
         <translation>&amp;Options</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="-13"/>
         <source>Modify configuration options for eMark Core</source>
         <translation>Modify configuration options for eMark Core</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+17"/>
         <source>&amp;Show / Hide</source>
         <translation>&amp;Show / Hide</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="-16"/>
         <source>Show or hide the main Window</source>
         <translation>Show or hide the main Window</translation>
     </message>
     <message>
-        <location line="+18"/>
+        <location line="+19"/>
         <source>&amp;Information</source>
         <translation>&amp;Information</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="-18"/>
         <source>Show diagnostic information</source>
         <translation>Show diagnostic information</translation>
     </message>
     <message>
-        <location line="+2"/>
+        <location line="+21"/>
         <source>&amp;Debug console</source>
         <translation>&amp;Debug console</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="-20"/>
         <source>Open debugging console</source>
         <translation>Open debugging console</translation>
     </message>
     <message>
-        <location line="+2"/>
+        <location line="+23"/>
         <source>&amp;Network Monitor</source>
         <translation>&amp;Network Monitor</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="-22"/>
         <source>Show network monitor</source>
         <translation>Show network monitor</translation>
     </message>
@@ -1506,12 +1476,22 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Map port using &amp;UPnP</translation>
     </message>
     <message>
+        <location line="+8"/>
+        <source>Accept connections from outside.</source>
+        <translation>Accept connections from outside.</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Allow incomin&amp;g connections</source>
+        <translation>Allow incomin&amp;g connections</translation>
+    </message>
+    <message>
         <location line="+7"/>
         <source>Connect to the eMark network through a SOCKS proxy (e.g. when connecting through Tor).</source>
         <translation>Connect to the eMark network through a SOCKS proxy (e.g. when connecting through Tor).</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="-15"/>
         <source>&amp;Connect through SOCKS proxy:</source>
         <translation>&amp;Connect through SOCKS proxy:</translation>
     </message>

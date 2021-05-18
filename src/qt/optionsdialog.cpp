@@ -18,8 +18,7 @@ OptionsDialog::OptionsDialog(QWidget *parent) :
     ui(new Ui::OptionsDialog),
     model(0),
     mapper(0),
-    fRestartWarningDisplayed_Proxy(false),
-    fRestartWarningDisplayed_Lang(false),
+    fRestartWarningDisplayed(false),
     fProxyIpValid(true)
 {
     ui->setupUi(this);
@@ -36,7 +35,7 @@ OptionsDialog::OptionsDialog(QWidget *parent) :
 
     connect(ui->connectSocks, SIGNAL(toggled(bool)), ui->proxyIp, SLOT(setEnabled(bool)));
     connect(ui->connectSocks, SIGNAL(toggled(bool)), ui->proxyPort, SLOT(setEnabled(bool)));
-    connect(ui->connectSocks, SIGNAL(clicked(bool)), this, SLOT(showRestartWarning_Proxy()));
+    connect(ui->connectSocks, SIGNAL(clicked(bool)), this, SLOT(showRestartWarning()));
 
     ui->proxyIp->installEventFilter(this);
 
@@ -74,6 +73,7 @@ OptionsDialog::OptionsDialog(QWidget *parent) :
 #endif
         }
     }
+
 #if QT_VERSION >= 0x040700
     ui->thirdPartyTxUrls->setPlaceholderText("https://example.com/tx/%s");
 #endif
@@ -119,8 +119,15 @@ void OptionsDialog::setModel(OptionsModel *model)
     updateHideAmounts();
 
     /* warn only when language selection changes by user action (placed here so init via mapper doesn't trigger this) */
-    connect(ui->lang, SIGNAL(valueChanged()), this, SLOT(showRestartWarning_Lang()));
-    connect(ui->thirdPartyTxUrls, SIGNAL(textChanged(const QString &)), this, SLOT(showRestartWarning_URL()));
+
+    /* Wallet */
+
+    /* Network */
+    connect(ui->allowIncoming, SIGNAL(clicked(bool)), this, SLOT(showRestartWarning()));
+
+    /* Display */
+    connect(ui->lang, SIGNAL(valueChanged()), this, SLOT(showRestartWarning()));
+    connect(ui->thirdPartyTxUrls, SIGNAL(textChanged(const QString &)), this, SLOT(showRestartWarning()));
 
     /* disable apply button after settings are loaded as there is nothing to save */
     disableApplyButton();
@@ -129,13 +136,18 @@ void OptionsDialog::setModel(OptionsModel *model)
 void OptionsDialog::setMapper()
 {
     /* Main */
-    mapper->addMapping(ui->transactionFee, OptionsModel::Fee);
-    mapper->addMapping(ui->reserveBalance, OptionsModel::ReserveBalance);
     mapper->addMapping(ui->bitcoinAtStartup, OptionsModel::StartAtStartup);
     mapper->addMapping(ui->detachDatabases, OptionsModel::DetachDatabases);
 
+    /* Wallet */
+    mapper->addMapping(ui->transactionFee, OptionsModel::Fee);
+    mapper->addMapping(ui->reserveBalance, OptionsModel::ReserveBalance);
+    mapper->addMapping(ui->coinControlFeatures, OptionsModel::CoinControlFeatures);
+    mapper->addMapping(ui->minimizeCoinAge, OptionsModel::MinimizeCoinAge);
+
     /* Network */
     mapper->addMapping(ui->mapPortUpnp, OptionsModel::MapPortUPnP);
+    mapper->addMapping(ui->allowIncoming, OptionsModel::Listen);
 
     mapper->addMapping(ui->connectSocks, OptionsModel::ProxyUse);
     mapper->addMapping(ui->proxyIp, OptionsModel::ProxyIP);
@@ -152,8 +164,6 @@ void OptionsDialog::setMapper()
     mapper->addMapping(ui->unit, OptionsModel::DisplayUnit);
     mapper->addMapping(ui->thirdPartyTxUrls, OptionsModel::ThirdPartyTxUrls);
     mapper->addMapping(ui->displayAddresses, OptionsModel::DisplayAddresses);
-    mapper->addMapping(ui->coinControlFeatures, OptionsModel::CoinControlFeatures);
-    mapper->addMapping(ui->minimizeCoinAge, OptionsModel::MinimizeCoinAge);
     mapper->addMapping(ui->hideAmounts, OptionsModel::HideAmounts);
     mapper->addMapping(ui->useBlackTheme, OptionsModel::UseBlackTheme);
 }
@@ -203,30 +213,12 @@ void OptionsDialog::on_applyButton_clicked()
     disableApplyButton();
 }
 
-void OptionsDialog::showRestartWarning_Proxy()
+void OptionsDialog::showRestartWarning()
 {
-    if(!fRestartWarningDisplayed_Proxy)
+    if(!fRestartWarningDisplayed)
     {
         QMessageBox::warning(this, tr("Warning"), tr("This setting will take effect after restarting eMark Core."), QMessageBox::Ok);
-        fRestartWarningDisplayed_Proxy = true;
-    }
-}
-
-void OptionsDialog::showRestartWarning_Lang()
-{
-    if(!fRestartWarningDisplayed_Lang)
-    {
-        QMessageBox::warning(this, tr("Warning"), tr("This setting will take effect after restarting eMark Core."), QMessageBox::Ok);
-        fRestartWarningDisplayed_Lang = true;
-    }
-}
-
-void OptionsDialog::showRestartWarning_URL()
-{
-    if(!fRestartWarningDisplayed_URL)
-    {
-        QMessageBox::warning(this, tr("Warning"), tr("This setting will take effect after restarting eMark Core."), QMessageBox::Ok);
-        fRestartWarningDisplayed_URL = true;
+        fRestartWarningDisplayed = true;
     }
 }
 

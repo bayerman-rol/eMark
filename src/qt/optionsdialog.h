@@ -40,9 +40,7 @@ private slots:
     void on_cancelButton_clicked();
     void on_applyButton_clicked();
 
-    void showRestartWarning_Proxy();
-    void showRestartWarning_Lang();
-    void showRestartWarning_URL();
+    void showRestartWarning();
     void updateDisplayUnit();
     void updateHideAmounts();
     void handleProxyIpValid(QValidatedLineEdit *object, bool fState);
@@ -54,9 +52,7 @@ private:
     Ui::OptionsDialog *ui;
     OptionsModel *model;
     MonitoredDataMapper *mapper;
-    bool fRestartWarningDisplayed_Proxy;
-    bool fRestartWarningDisplayed_Lang;
-    bool fRestartWarningDisplayed_URL;
+    bool fRestartWarningDisplayed;
     bool fProxyIpValid;
 };
 

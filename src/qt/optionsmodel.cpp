@@ -38,36 +38,68 @@ void OptionsModel::Init()
     QSettings settings;
 
     // These are Qt-only settings:
-    nDisplayUnit = settings.value("nDisplayUnit", BitcoinUnits::DEM).toInt();
-    bDisplayAddresses = settings.value("bDisplayAddresses", false).toBool();
-    fMinimizeToTray = settings.value("fMinimizeToTray", false).toBool();
-    fMinimizeOnClose = settings.value("fMinimizeOnClose", false).toBool();
-    fCoinControlFeatures = settings.value("fCoinControlFeatures", false).toBool();
-    bHideAmounts = settings.value("bHideAmounts", false).toBool();
+
+    // Main
     nTransactionFee = settings.value("nTransactionFee").toLongLong();
     nReserveBalance = settings.value("nReserveBalance").toLongLong();
-    language = settings.value("language", "").toString();
-    fUseBlackTheme = settings.value("fUseBlackTheme", true).toBool();
+
+    // Wallet
+    if (!settings.contains("fCoinControlFeatures"))
+        settings.setValue("fCoinControlFeatures", false);
+    fCoinControlFeatures = settings.value("fCoinControlFeatures", false).toBool();
+
+    // Window
+    if (!settings.contains("fMinimizeToTray"))
+        settings.setValue("fMinimizeToTray", false);
+    fMinimizeToTray = settings.value("fMinimizeToTray").toBool();
+
+    if (!settings.contains("fMinimizeOnClose"))
+        settings.setValue("fMinimizeOnClose", false);
+    fMinimizeOnClose = settings.value("fMinimizeOnClose").toBool();
+
+    // Display
+    if (!settings.contains("nDisplayUnit"))
+        settings.setValue("nDisplayUnit", BitcoinUnits::DEM);
+    nDisplayUnit = settings.value("nDisplayUnit").toInt();
 
     if (!settings.contains("strThirdPartyTxUrls"))
         settings.setValue("strThirdPartyTxUrls", "");
     strThirdPartyTxUrls = settings.value("strThirdPartyTxUrls", "").toString();
 
+    bDisplayAddresses = settings.value("bDisplayAddresses", false).toBool();
+    bHideAmounts = settings.value("bHideAmounts", false).toBool();
+    fUseBlackTheme = settings.value("fUseBlackTheme", true).toBool();
+
     // These are shared with core eMark; we want
     // command-line options to override the GUI settings:
+
+    // Main
+    if (settings.contains("detachDB"))
+        SoftSetBoolArg("-detachdb", settings.value("detachDB").toBool());
+
+
+    // Wallet
+    if (settings.contains("fMinimizeCoinAge"))
+        SoftSetBoolArg("-minimizecoinage", settings.value("fMinimizeCoinAge").toBool());
+
+    // Network
     if (settings.contains("fUseUPnP"))
         SoftSetBoolArg("-upnp", settings.value("fUseUPnP").toBool());
+
+    if (settings.contains("fListen"))
+        SoftSetBoolArg("-listen", settings.value("fListen").toBool());
 
     if (settings.contains("addrProxy") && settings.value("fUseProxy").toBool())
         SoftSetArg("-proxy", settings.value("addrProxy").toString().toStdString());
 
-    if (settings.contains("fMinimizeCoinAge"))
-        SoftSetBoolArg("-minimizecoinage", settings.value("fMinimizeCoinAge").toBool());
+    // Display
+    if (!settings.contains("language"))
+        settings.setValue("language", "");
 
-    if (settings.contains("detachDB"))
-        SoftSetBoolArg("-detachdb", settings.value("detachDB").toBool());
     if (!language.isEmpty())
         SoftSetArg("-lang", language.toStdString());
+
+    language = settings.value("language", "").toString();
 }
 
 int OptionsModel::rowCount(const QModelIndex & parent) const
@@ -128,6 +160,8 @@ QVariant OptionsModel::data(const QModelIndex & index, int role) const
             return settings.value("fMinimizeCoinAge", GetBoolArg("-minimizecoinage", false));
         case UseBlackTheme:
             return QVariant(fUseBlackTheme);
+        case Listen:
+            return settings.value("fListen", GetBoolArg("-listen", true));
         default:
             return QVariant();
         }
@@ -235,6 +269,10 @@ bool OptionsModel::setData(const QModelIndex & index, const QVariant & value, in
         case UseBlackTheme:
             fUseBlackTheme = value.toBool();
             settings.setValue("fUseBlackTheme", fUseBlackTheme);
+            break;
+        case Listen:
+            fListen = value.toBool();
+            settings.setValue("fListen", fListen);
             break;
         default:
             break;

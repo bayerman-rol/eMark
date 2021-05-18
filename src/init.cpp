@@ -201,11 +201,11 @@ std::string HelpMessage()
     strUsage += "  -detachdb              " + _("Detach block and address databases. Increases shutdown time (default: 0)") + "\n" +
     strUsage += "  -paytxfee=<amt>        " + _("Fee per KB to add to transactions you send") + "\n";
     strUsage += "  -mininput=<amt>        " + _("When creating transactions, ignore inputs with value less than this (default: 0.01)") + "\n";
-    if (fHaveGUI)
-        strUsage += "  -server                " + _("Accept command line and JSON-RPC commands") + "\n";
-#if !defined(WIN32)
-    if (fHaveGUI)
-        strUsage += "  -daemon                " + _("Run in the background as a daemon and accept commands") + "\n";
+#ifdef QT_GUI
+    strUsage += "  -server                " + _("Accept command line and JSON-RPC commands") + "\n";
+#endif
+#if !defined(WIN32) && !defined(QT_GUI)
+    strUsage += "  -daemon                " + _("Run in the background as a daemon and accept commands") + "\n";
 #endif
     strUsage += "  -testnet               " + _("Use the test network") + "\n";
     strUsage += "  -debug=<category>      " + _("Output debugging information (default: 0, supplying <category> is optional)") + "\n";
@@ -230,11 +230,10 @@ std::string HelpMessage()
     strUsage += "  -rpcpassword=<pw>      " + _("Password for JSON-RPC connections") + "\n";
     strUsage += "  -rpcport=<port>        " + _("Listen for JSON-RPC connections on <port> (default: 6666 or testnet: 16666)") + "\n";
     strUsage += "  -rpcallowip=<ip>       " + _("Allow JSON-RPC connections from specified IP address") + "\n";
-    if (!fHaveGUI)
-    {
-        strUsage += "  -rpcconnect=<ip>       " + _("Send commands to node running on <ip> (default: 127.0.0.1)") + "\n";
-        strUsage += "  -rpcwait               " + _("Wait for RPC server to start") + "\n";
-    }
+#ifndef QT_GUI
+    strUsage += "  -rpcconnect=<ip>       " + _("Send commands to node running on <ip> (default: 127.0.0.1)") + "\n";
+    strUsage += "  -rpcwait               " + _("Wait for RPC server to start") + "\n";
+#endif
     strUsage += "  -rpcthreads=<n>        " + _("Set the number of threads to service RPC calls (default: 4)") + "\n";
     strUsage += "  -blocknotify=<cmd>     " + _("Execute command when the best block changes (%s in cmd is replaced by block hash)") + "\n";
     strUsage += "  -walletnotify=<cmd>    " + _("Execute command when a wallet transaction changes (%s in cmd is replaced by TxID)") + "\n";
@@ -248,6 +247,7 @@ std::string HelpMessage()
     strUsage += "  -checkblocks=<n>       " + _("How many blocks to check at startup (default: 500, 0 = all)") + "\n";
     strUsage += "  -checklevel=<n>        " + _("How thorough the block verification is (0-6, default: 1)") + "\n";
     strUsage += "  -loadblock=<file>      " + _("Imports blocks from external blk000?.dat file") + "\n";
+    strUsage += "  -reindex               " + _("Rebuild block chain index from current blk000??.dat files") + "\n" +
     strUsage += "  -maxorphanblocksmib=<n>" + strprintf(_("Keep at most <n> MiB of unconnectable blocks in memory (default: %u)"), DEFAULT_MAX_ORPHAN_BLOCKS) + "\n";
 
     strUsage += "\n" + _("Block creation options:") + "\n";
@@ -449,6 +449,7 @@ bool AppInit2(boost::thread_group& threadGroup)
         if (nTransactionFee > 0.25 * COIN)
             InitWarning(_("Warning: -paytxfee is set very high! This is the transaction fee you will pay if you send a transaction."));
     }
+
 #endif
 
     fConfChange = GetBoolArg("-confchange", false);
@@ -597,12 +598,12 @@ bool AppInit2(boost::thread_group& threadGroup)
     }
 
     // see Step 2: parameter interactions for more information about these
-    fNoListen = !GetBoolArg("-listen", true);
+    fListen = !GetBoolArg("-listen", true);
     fDiscover = GetBoolArg("-discover", true);
     fNameLookup = GetBoolArg("-dns", true);
 
     bool fBound = false;
-    if (!fNoListen)
+    if (!fListen)
     {
         std::string strError;
         if (mapArgs.count("-bind")) {
@@ -842,7 +843,7 @@ bool AppInit2(boost::thread_group& threadGroup)
 
     //// debug print
     LogPrintf("mapBlockIndex.size() = %u\n",   mapBlockIndex.size());
-    LogPrintf("nBestHeight = %d\n",                   nBestHeight);
+    LogPrintf("nBestHeight = %d\n",            nBestHeight);
 #ifdef ENABLE_WALLET
     LogPrintf("setKeyPool.size() = %u\n",      pwalletMain ? pwalletMain->setKeyPool.size() : 0);
     LogPrintf("mapWallet.size() = %u\n",       pwalletMain ? pwalletMain->mapWallet.size() : 0);

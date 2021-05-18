@@ -37,6 +37,7 @@ public:
         DisplayAddresses,  // bool
         HideAmounts,       // bool
         UseBlackTheme,     // bool
+        Listen,            // bool
         OptionIDRowCount,
     };
 
