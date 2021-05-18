@@ -62,10 +62,7 @@ void OptionsModel::Init()
         settings.setValue("nDisplayUnit", BitcoinUnits::DEM);
     nDisplayUnit = settings.value("nDisplayUnit").toInt();
 
-    if (!settings.contains("strThirdPartyTxUrls"))
-        settings.setValue("strThirdPartyTxUrls", "");
-    strThirdPartyTxUrls = settings.value("strThirdPartyTxUrls", "").toString();
-
+    strThirdPartyTxUrls = settings.value("strThirdPartyTxUrls", "https://chainz.cryptoid.info/dem/tx.dws?%s").toString();
     bDisplayAddresses = settings.value("bDisplayAddresses", false).toBool();
     bHideAmounts = settings.value("bHideAmounts", false).toBool();
     fUseBlackTheme = settings.value("fUseBlackTheme", true).toBool();
@@ -76,7 +73,6 @@ void OptionsModel::Init()
     // Main
     if (settings.contains("detachDB"))
         SoftSetBoolArg("-detachdb", settings.value("detachDB").toBool());
-
 
     // Wallet
     if (settings.contains("fMinimizeCoinAge"))
@@ -107,6 +103,7 @@ int OptionsModel::rowCount(const QModelIndex & parent) const
     return OptionIDRowCount;
 }
 
+// read QSettings values and return them
 QVariant OptionsModel::data(const QModelIndex & index, int role) const
 {
     if(role == Qt::EditRole)
@@ -169,6 +166,7 @@ QVariant OptionsModel::data(const QModelIndex & index, int role) const
     return QVariant();
 }
 
+// write QSettings values
 bool OptionsModel::setData(const QModelIndex & index, const QVariant & value, int role)
 {
     bool successful = true; /* set to false on parse error */
@@ -192,6 +190,8 @@ bool OptionsModel::setData(const QModelIndex & index, const QVariant & value, in
             fMinimizeOnClose = value.toBool();
             settings.setValue("fMinimizeOnClose", fMinimizeOnClose);
             break;
+
+        // default proxy
         case ProxyUse:
             settings.setValue("fUseProxy", value.toBool());
             ApplyProxySettings();
