@@ -933,14 +933,6 @@ uint256 static GetOrphanRoot(const CBlockHeader* pblock)
 }
 
 // ppcoin: find block wanted by given orphan block
-// uint256 WantedByOrphan(const CBlock* pblockOrphan)
-// {
-//     // Work back to the first block in the orphan chain
-//     while (mapOrphanBlocks.count(pblockOrphan->hashPrev))
-//         pblockOrphan = mapOrphanBlocks[pblockOrphan->hashPrev];
-//     return pblockOrphan->hashPrev;
-// }
-
 uint256 WantedByOrphan(const CBlock* pblockOrphan)
 {
     // Work back to the first block in the orphan chain
@@ -3294,7 +3286,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
         if (!pfrom->fInbound)
         {
             // Advertise our address
-            if (!fNoListen && !IsInitialBlockDownload())
+            if (!fListen && !IsInitialBlockDownload())
             {
                 CAddress addr = GetLocalAddress(&pfrom->addr);
                 if (addr.IsRoutable())
