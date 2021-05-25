@@ -71,11 +71,13 @@ private slots:
     void copyLabel();
     void copyAmount();
     void copyTxID();
+	void showBrowser();
     void clearOrphans();
     void openThirdPartyTxUrl(QString url);
 
 signals:
     void doubleClicked(const QModelIndex&);
+	void blockBrowserSignal(QString transactionId);
 
 public slots:
     void chooseDate(int idx);

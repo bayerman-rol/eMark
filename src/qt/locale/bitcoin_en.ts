@@ -917,6 +917,99 @@ Address: %4
     </message>
 </context>
 <context>
+    <name>BlockBrowser</name>
+    <message>
+        <location filename="../forms/blockbrowser.ui" line="+35"/>
+        <source>Block Browser</source>
+        <translation>Block Browser</translation>
+    </message>
+    <message>
+        <location line="+31"/>
+        <source>Block Explorer</source>
+        <translation>Block Explorer</translation>
+    </message>
+    <message>
+        <location line="+15"/>
+        <source>Decode Transaction</source>
+        <translation>Decode Transaction</translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Inputs:</source>
+        <translation>Inputs:</translation>
+    </message>
+    <message>
+        <location line="+20"/>
+        <source>Value out:</source>
+        <translation>Value out:</translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Transaction ID:</source>
+        <translation>Transaction ID:</translation>
+    </message>
+    <message>
+        <location line="+56"/>
+        <source>Block Difficulty:</source>
+        <translation>Block Difficulty:</translation>
+    </message>
+    <message>
+        <location line="+20"/>
+        <source>Block Height:</source>
+        <translation>Block Height:</translation>
+    </message>
+    <message>
+        <location line="+17"/>
+        <source>Jump to Block</source>
+        <translation>Jump to Block</translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Block Merkle:</source>
+        <translation>Block Merkle:</translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Block Hash:</source>
+        <translation>Block Hash:</translation>
+    </message>
+    <message>
+        <location line="+17"/>
+        <source>Block Hashrate:</source>
+        <translation>Block Hashrate:</translation>
+    </message>
+    <message>
+        <location line="+17"/>
+        <source>Fees:</source>
+        <translation>Fees:</translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Block nBits:</source>
+        <translation>Block nBits:</translation>
+    </message>
+    <message>
+        <location line="+33"/>
+        <source>Outputs:</source>
+        <translation>Outputs:</translation>
+    </message>
+    <message>
+        <location line="+35"/>
+        <source>Block nNonce:</source>
+        <translation>Block nNonce:</translation>
+    </message>
+    <message>
+        <location line="+17"/>
+        <source>Block Timestamp:</source>
+        <translation>Block Timestamp:</translation>
+    </message>
+    <message>
+        <location line="+94"/>
+        <source>Close</source>
+        <translation>Close</translation>
+    </message>
+</context>
+<context>
     <name>ClientModel</name>
     <message>
         <location filename="../clientmodel.cpp" line="+119"/>
@@ -3032,11 +3125,16 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+89"/>
+        <source>Show transaction in block browser</source>
+        <translation>Show transaction in block browser</translation>
+    </message>
+    <message>
+        <location line="+1"/>
         <source>Clear orphans</source>
         <translation>Clear orphans</translation>
     </message>
     <message>
-        <location line="+165"/>
+        <location line="+75"/>
         <source>Export Transaction Data</source>
         <translation>Export Transaction Data</translation>
     </message>

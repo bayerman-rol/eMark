@@ -137,6 +137,7 @@ TransactionView::TransactionView(QWidget *parent) :
     QAction *copyTxIDAction = new QAction(tr("Copy transaction ID"), this);
     QAction *editLabelAction = new QAction(tr("Edit label"), this);
     QAction *showDetailsAction = new QAction(tr("Show transaction details"), this);
+	QAction *showBlockBrowser = new QAction(tr("Show transaction in block browser"), this);
     QAction *clearOrphansAction = new QAction(tr("Clear orphans"), this);
 
     contextMenu = new QMenu();
@@ -145,7 +146,9 @@ TransactionView::TransactionView(QWidget *parent) :
     contextMenu->addAction(copyAmountAction);
     contextMenu->addAction(copyTxIDAction);
     contextMenu->addAction(editLabelAction);
+	contextMenu->addSeparator();
     contextMenu->addAction(showDetailsAction);
+	contextMenu->addAction(showBlockBrowser);
     contextMenu->addSeparator();
     contextMenu->addAction(clearOrphansAction);
 
@@ -168,6 +171,7 @@ TransactionView::TransactionView(QWidget *parent) :
     connect(copyTxIDAction, SIGNAL(triggered()), this, SLOT(copyTxID()));
     connect(editLabelAction, SIGNAL(triggered()), this, SLOT(editLabel()));
     connect(showDetailsAction, SIGNAL(triggered()), this, SLOT(showDetails()));
+	connect(showBlockBrowser, SIGNAL(triggered()), this, SLOT(showBrowser()));
     connect(clearOrphansAction, SIGNAL(triggered()), this, SLOT(clearOrphans()));
 }
 
@@ -411,6 +415,19 @@ void TransactionView::showDetails()
         TransactionDescDialog dlg(selection.at(0));
         dlg.exec();
     }
+}
+
+void TransactionView::showBrowser()
+{
+	if(!transactionView->selectionModel())
+		return;
+	QModelIndexList selection = transactionView->selectionModel()->selectedRows();
+	QString transactionId;
+	
+	if(!selection.isEmpty())
+		transactionId = selection.at(0).data(TransactionTableModel::TxIDRole).toString();
+		
+	emit blockBrowserSignal(transactionId);
 }
 
 void TransactionView::clearOrphans()
