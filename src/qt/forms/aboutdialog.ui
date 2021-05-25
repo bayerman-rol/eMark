@@ -83,7 +83,7 @@
        <property name="text">
         <string>Copyright © 2009-2012 The Bitcoin developers
 Copyright © 2011-2012 The PPCoin developers
-Copyright © 2013 The Novacoin developers
+Copyright © 2013-2014 The Novacoin developers
 Copyright © 2013-2021 The eMark Core developers</string>
        </property>
        <property name="textInteractionFlags">
