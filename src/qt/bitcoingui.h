@@ -7,6 +7,7 @@
 #include <stdint.h>
 
 class AddressBookPage;
+class BlockBrowser;
 class ClientModel;
 class Notificator;
 class OverviewPage;
@@ -62,6 +63,7 @@ private:
     QStackedWidget *centralStackedWidget;
 
     OverviewPage *overviewPage;
+	BlockBrowser *blockBrowser;
     QWidget *transactionsPage;
     AddressBookPage *addressBookPage;
     AddressBookPage *receiveCoinsPage;
@@ -77,6 +79,7 @@ private:
 
     QMenuBar *appMenuBar;
     QAction *overviewAction;
+	QAction *blockAction;
     QAction *historyAction;
     QAction *quitAction;
     QAction *sendCoinsAction;
@@ -162,6 +165,9 @@ public slots:
 private slots:
     /** Switch to overview (home) page */
     void gotoOverviewPage();
+	/** Switch to block explorer*/
+    void gotoBlockBrowser();
+	void gotoBlockBrowserWithTx(QString txid);
     /** Switch to history (transactions) page */
     void gotoHistoryPage();
     /** Switch to address book page */

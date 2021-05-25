@@ -21,6 +21,7 @@
 #include "addresstablemodel.h"
 #include "transactionview.h"
 #include "overviewpage.h"
+#include "blockbrowser.h"
 #include "bitcoinunits.h"
 #include "guiconstants.h"
 #include "askpassphrasedialog.h"
@@ -121,9 +122,11 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
 
     // Create tabs
     overviewPage = new OverviewPage();
+	blockBrowser = new BlockBrowser(this);
 
     transactionsPage = new QWidget(this);
     QVBoxLayout *vbox = new QVBoxLayout();
+
     transactionView = new TransactionView(this);
     vbox->addWidget(transactionView);
     transactionsPage->setLayout(vbox);
@@ -142,6 +145,7 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     centralStackedWidget->addWidget(receiveCoinsPage);
     centralStackedWidget->addWidget(transactionsPage);
     centralStackedWidget->addWidget(addressBookPage);
+    centralStackedWidget->addWidget(blockBrowser);
 
     QWidget *centralWidget = new QWidget();
     QVBoxLayout *centralLayout = new QVBoxLayout(centralWidget);
@@ -228,6 +232,9 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     // Clicking on "Sign Message" in the receive coins page sends you to the sign message tab
     connect(receiveCoinsPage, SIGNAL(signMessage(QString)), this, SLOT(gotoSignMessageTab(QString)));
 
+	// Clicking on "Block Browser" in the transaction page sends you to the blockbrowser
+	connect(transactionView, SIGNAL(blockBrowserSignal(QString)), this, SLOT(gotoBlockBrowserWithTx(QString)));
+
     gotoOverviewPage();
 }
 
@@ -278,13 +285,23 @@ void BitcoinGUI::createActions()
 #endif
     tabGroup->addAction(receiveCoinsAction);
 
+    blockAction = new QAction(QIcon(fUseBlackTheme ? ":/icons/black/block" : ":/icons/block"), tr("Block Explorer"), this);
+    blockAction->setToolTip(tr("Explore the BlockChain"));
+    blockAction->setCheckable(true);
+#ifdef Q_OS_MAC
+        blockAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_4));
+#else
+        blockAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_4));
+#endif
+    tabGroup->addAction(blockAction);
+
     historyAction = new QAction(QIcon(fUseBlackTheme ? ":/icons/black/history" : ":/icons/history"), tr("Transactions"), this);
     historyAction->setToolTip(tr("Browse transaction history"));
     historyAction->setCheckable(true);
 #ifdef Q_OS_MAC
-    historyAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_4));
+    historyAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_5));
 #else
-    historyAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_4));
+    historyAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_5));
 #endif
     tabGroup->addAction(historyAction);
 
@@ -292,9 +309,9 @@ void BitcoinGUI::createActions()
     addressBookAction->setToolTip(tr("Edit the list of stored addresses and labels"));
     addressBookAction->setCheckable(true);
 #ifdef Q_OS_MAC
-        addressBookAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_5));
+        addressBookAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_6));
 #else
-        addressBookAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_5));
+        addressBookAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_6));
 #endif
     tabGroup->addAction(addressBookAction);
 
@@ -304,6 +321,7 @@ void BitcoinGUI::createActions()
     connect(sendCoinsAction, SIGNAL(triggered()), this, SLOT(gotoSendCoinsPage()));
     connect(receiveCoinsAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(receiveCoinsAction, SIGNAL(triggered()), this, SLOT(gotoReceiveCoinsPage()));
+    connect(blockAction, SIGNAL(triggered()), this, SLOT(gotoBlockBrowser()));
     connect(historyAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(historyAction, SIGNAL(triggered()), this, SLOT(gotoHistoryPage()));
     connect(addressBookAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
@@ -468,6 +486,7 @@ void BitcoinGUI::createToolBars()
     toolbar->addAction(overviewAction);
     toolbar->addAction(sendCoinsAction);
     toolbar->addAction(receiveCoinsAction);
+    toolbar->addAction(blockAction);
     toolbar->addAction(historyAction);
     toolbar->addAction(addressBookAction);
 
@@ -541,6 +560,7 @@ void BitcoinGUI::setWalletModel(WalletModel *walletModel)
         overviewPage->setWalletModel(walletModel);
         sendCoinsPage->setModel(walletModel);
         receiveCoinsPage->setModel(walletModel->getAddressTableModel());
+		blockBrowser->setModel(clientModel);
         transactionView->setModel(walletModel);
         addressBookPage->setModel(walletModel->getAddressTableModel());
 
@@ -932,6 +952,28 @@ void BitcoinGUI::gotoOverviewPage()
 {
     overviewAction->setChecked(true);
     centralStackedWidget->setCurrentWidget(overviewPage);
+
+    exportAction->setEnabled(false);
+    disconnect(exportAction, SIGNAL(triggered()), 0, 0);
+}
+
+void BitcoinGUI::gotoBlockBrowser()
+{
+    blockAction->setChecked(true);
+    centralStackedWidget->setCurrentWidget(blockBrowser);
+
+    exportAction->setEnabled(false);
+    disconnect(exportAction, SIGNAL(triggered()), 0, 0);
+}
+
+void BitcoinGUI::gotoBlockBrowserWithTx(QString txid)
+{
+    blockAction->setChecked(true);
+    centralStackedWidget->setCurrentWidget(blockBrowser);
+
+	int pos = txid.lastIndexOf(QChar('-'));
+	
+	blockBrowser->setTx(txid.left(pos));
 
     exportAction->setEnabled(false);
     disconnect(exportAction, SIGNAL(triggered()), 0, 0);
