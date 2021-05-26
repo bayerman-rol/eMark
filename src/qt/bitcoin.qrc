@@ -2,6 +2,7 @@
     <qresource prefix="/icons">
         <file alias="bitcoin">res/icons/eMark-128.png</file>
         <file alias="address-book">res/icons/address-book.png</file>
+		<file alias="block">res/icons/block.png</file>
         <file alias="quit">res/icons/quit.png</file>
         <file alias="send">res/icons/send.png</file>
         <file alias="toolbar">res/icons/eMark-16.png</file>
@@ -51,6 +52,7 @@
     </qresource>
     <qresource prefix="/icons/black">
         <file alias="address-book">res/icons/black/address-book.png</file>
+		<file alias="block">res/icons/black/block.png</file>
         <file alias="quit">res/icons/black/quit.png</file>
         <file alias="send">res/icons/black/send.png</file>
         <file alias="connect_0">res/icons/black/connect0.png</file>
