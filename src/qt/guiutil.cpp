@@ -607,6 +607,7 @@ void SetBlackThemeQSS(QApplication& app)
                       "QComboBox QAbstractItemView::item { color: rgb(255,255,255); }"
                       "QGroupBox      { color: rgb(255,255,255); }"
                       "QPushButton    { background: rgb(226,189,121); color: rgb(21,21,21); }"
+                      "QSpinBox       { color: rgb(255,255,255); }"
                       "QDoubleSpinBox { background: rgb(63,67,72); color: rgb(255,255,255); border-color: rgb(194,194,194); }"
                       "QLineEdit      { background: rgb(63,67,72); color: rgb(255,255,255); border-color: rgb(194,194,194); }"
                       "QTextEdit      { background: rgb(63,67,72); color: rgb(255,255,255); }"
